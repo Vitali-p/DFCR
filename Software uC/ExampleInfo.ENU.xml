@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<infocenter_data version="1.0">
+  <iar_name>DFCR</iar_name>                                   <!--App-->
+  <iar_description>It shows basic use of the I/O, the timer, the interrupt controllers and the LCD module for graphic and text drawing</iar_description>                     <!--App short description-->
+  <iar_curdir>$CUR_DIR$</iar_curdir>
+</infocenter_data>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\DFCR.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>All</name>
+      <member>
+        <project>LCD_Demo</project>
+        <configuration>Flash Debug</configuration>
+      </member>
+      <member>
+        <project>LCD_Demo</project>
+        <configuration>SDRAM Debug</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+
