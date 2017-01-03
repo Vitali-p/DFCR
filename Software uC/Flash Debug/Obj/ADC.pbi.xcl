@@ -1,4 +1,4 @@
-"C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\i2c0_drv.c"
+"C:\Users\Vitali\Desktop\DFCR Software\Software uC\app\ADC.c"
 -std=c99
 -ferror-limit=100
 -I

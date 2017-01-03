@@ -1,27 +1,33 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.80.3.12102/W32 for ARM                03/Jan/2017  17:55:14
+# IAR ELF Linker V7.80.3.12102/W32 for ARM                03/Jan/2017  21:08:39
 # Copyright 2007-2016 IAR Systems AB.
 #
 #    Output file  =  
-#        C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Exe\LCD_Demo.out.tmp
+#        C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash
+#        Debug\Exe\LCD_Demo.out.tmp
 #    Map file     =  
-#        C:\Users\Vitali\Desktop\DFCR project\Flash Debug\List\LCD_Demo.map
+#        C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash
+#        Debug\List\LCD_Demo.map
 #    Command line =  
-#        "C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj\Cursor.o"
-#        "C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj\drv_glcd.o"
-#        "C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj\i2c0_drv.o"
-#        "C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj\logo.o"
-#        "C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj\main.o"
-#        "C:\Users\Vitali\Desktop\DFCR project\Flash
+#        "C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash
+#        Debug\Obj\ADC.o" "C:\Users\Vitali\Desktop\DFCR Software\Software
+#        uC\Flash Debug\Obj\Cursor.o" "C:\Users\Vitali\Desktop\DFCR
+#        Software\Software uC\Flash Debug\Obj\drv_glcd.o"
+#        "C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash
+#        Debug\Obj\i2c0_drv.o" "C:\Users\Vitali\Desktop\DFCR Software\Software
+#        uC\Flash Debug\Obj\logo.o" "C:\Users\Vitali\Desktop\DFCR
+#        Software\Software uC\Flash Debug\Obj\main.o"
+#        "C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash
 #        Debug\Obj\sdram_64M_32bit_drv.o" "C:\Users\Vitali\Desktop\DFCR
-#        project\Flash Debug\Obj\smb380_drv.o" "C:\Users\Vitali\Desktop\DFCR
-#        project\Flash Debug\Obj\sys.o" --redirect _Printf=_PrintfTiny
-#        --redirect _Scanf=_ScanfSmall -o "C:\Users\Vitali\Desktop\DFCR
-#        project\Flash Debug\Exe\LCD_Demo.out.tmp" --map
-#        "C:\Users\Vitali\Desktop\DFCR project\Flash Debug\List\LCD_Demo.map"
-#        --config "C:\Users\Vitali\Desktop\DFCR
-#        project\config\LPC2478_Flash.icf" --semihosting --entry
+#        Software\Software uC\Flash Debug\Obj\smb380_drv.o"
+#        "C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash
+#        Debug\Obj\sys.o" --redirect _Printf=_PrintfTiny --redirect
+#        _Scanf=_ScanfSmall -o "C:\Users\Vitali\Desktop\DFCR Software\Software
+#        uC\Flash Debug\Exe\LCD_Demo.out.tmp" --map
+#        "C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash
+#        Debug\List\LCD_Demo.map" --config "C:\Users\Vitali\Desktop\DFCR
+#        Software\Software uC\config\LPC2478_Flash.icf" --semihosting --entry
 #        __iar_program_start --vfe
 #
 ###############################################################################
@@ -64,7 +70,7 @@ initialize by copy { rw };
   .crp               const    0x000001fc      0x4  main.o [1]
                             - 0x00000200      0x4
 
-"P1", part 2 of 2:                        0x4d518
+"P1", part 2 of 2:                        0x4d528
   .rodata            const    0x00000200  0x4b000  logo.o [1]
   .text              ro code  0x0004b200    0x82c  drv_glcd.o [1]
   .text              ro code  0x0004ba2c    0x6ac  sys.o [1]
@@ -93,14 +99,14 @@ initialize by copy { rw };
   .text              ro code  0x0004d630     0x32  data_init.o [4]
   .text              ro code  0x0004d664      0x4  exit.o [3]
   .text              ro code  0x0004d668     0x10  cexit.o [4]
-  .rodata            const    0x0004d678     0x38  drv_glcd.o [1]
-  .text              ro code  0x0004d6b0     0x30  copy_init3.o [4]
-  .iar.init_table    const    0x0004d6e0     0x14  - Linker created -
-  .rodata            const    0x0004d6f4     0x10  logo.o [1]
-  .rodata            const    0x0004d704      0xc  drv_glcd.o [1]
-  .text              ro code  0x0004d710      0x4  vectortrap.o [4]
-  .text              ro code  0x0004d714      0x4  xreturnswi.o [5]
-                            - 0x0004d718  0x4d518
+  .rodata            const    0x0004d678     0x48  drv_glcd.o [1]
+  .text              ro code  0x0004d6c0     0x30  copy_init3.o [4]
+  .iar.init_table    const    0x0004d6f0     0x14  - Linker created -
+  .rodata            const    0x0004d704     0x10  logo.o [1]
+  .rodata            const    0x0004d714      0xc  drv_glcd.o [1]
+  .text              ro code  0x0004d720      0x4  vectortrap.o [4]
+  .text              ro code  0x0004d724      0x4  xreturnswi.o [5]
+                            - 0x0004d728  0x4d528
 
 Absolute sections, part 1 of 44:              0x4
   .noinit            uninit   0x3fffc000      0x4  sys.o [1]
@@ -371,9 +377,9 @@ Copy (__iar_copy_init3)
     Module                 ro code  ro data  rw data  rw data
                                                        (abs)
     ------                 -------  -------  -------  -------
-C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj: [1]
+C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash Debug\Obj: [1]
     Cursor.o                          1 024
-    drv_glcd.o               2 092       68                64
+    drv_glcd.o               2 092       84                64
     i2c0_drv.o               1 636       20       20       24
     logo.o                          307 244       28
     main.o                     852        6        2       44
@@ -381,7 +387,7 @@ C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj: [1]
     smb380_drv.o               176
     sys.o                    1 708                        164
     ---------------------------------------------------------
-    Total:                   7 412  308 362       50      384
+    Total:                   7 412  308 378       50      384
 
 command line: [2]
     ---------------------------------------------------------
@@ -418,7 +424,7 @@ shs_l.a: [5]
     Gaps                         2
     Linker created              12       22    2 112
 -------------------------------------------------------------
-    Grand Total:             8 428  308 392    2 170      384
+    Grand Total:             8 428  308 408    2 170      384
 
 
 *******************************************************************************
@@ -427,10 +433,10 @@ shs_l.a: [5]
 
 Entry                      Address     Size  Type      Object
 -----                      -------     ----  ----      ------
-.iar.init_table$$Base   0x0004d6e0            --   Gb  - Linker created -
-.iar.init_table$$Limit  0x0004d6f4            --   Gb  - Linker created -
+.iar.init_table$$Base   0x0004d6f0            --   Gb  - Linker created -
+.iar.init_table$$Limit  0x0004d704            --   Gb  - Linker created -
 ?main                   0x0004d5fc           Code  Gb  cmain.o [4]
-Abort_Handler           0x0004d710           Code  Wk  vectortrap.o [4]
+Abort_Handler           0x0004d720           Code  Wk  vectortrap.o [4]
 CSTACK$$Base            0x40000160            --   Gb  - Linker created -
 CSTACK$$Limit           0x40000560            --   Gb  - Linker created -
 Cursor                  0x0004c9e0    0x400  Data  Gb  Cursor.o [1]
@@ -464,15 +470,15 @@ LCD_PAL_BASE            0xffe10200      0x4  Data  Gb  drv_glcd.o [1]
 LCD_UPBASE              0xffe10010      0x4  Data  Gb  drv_glcd.o [1]
 LogoPic                 0x40000120     0x1c  Data  Gb  logo.o [1]
 LogoStream              0x00000200  0x4b000  Data  Gb  logo.o [1]
-Prefetch_Handler        0x0004d710           Code  Wk  vectortrap.o [4]
-Region$$Table$$Base     0x0004d6e0            --   Gb  - Linker created -
-Region$$Table$$Limit    0x0004d6f4            --   Gb  - Linker created -
+Prefetch_Handler        0x0004d720           Code  Wk  vectortrap.o [4]
+Region$$Table$$Base     0x0004d6f0            --   Gb  - Linker created -
+Region$$Table$$Limit    0x0004d704            --   Gb  - Linker created -
 SDRAM_BASE_ADDR {Abs}   0xa0000000           Data  Gb  command line/config [2]
 SDRAM_Init              0x0004cde0    0x324  Code  Gb  sdram_64M_32bit_drv.o [1]
 SMB380_GetData          0x0004d558     0x40  Code  Gb  smb380_drv.o [1]
 SMB380_GetID            0x0004d504     0x54  Code  Gb  smb380_drv.o [1]
 SMB380_Init             0x0004d4e8     0x1c  Code  Gb  smb380_drv.o [1]
-SWI_Handler             0x0004d710           Code  Wk  vectortrap.o [4]
+SWI_Handler             0x0004d720           Code  Wk  vectortrap.o [4]
 SYS_GetFpclk            0x0004bec0     0x70  Code  Gb  sys.o [1]
 SYS_GetFsclk            0x0004bddc     0xe4  Code  Gb  sys.o [1]
 Smb380Id                0x40000158      0x1  Data  Gb  main.o [1]
@@ -480,7 +486,7 @@ Smb380Ver               0x40000159      0x1  Data  Gb  main.o [1]
 T0MR0                   0xe0004018      0x4  Data  Gb  main.o [1]
 T0PR                    0xe000400c      0x4  Data  Gb  main.o [1]
 Timer0IntrHandler       0x0004d194     0x48  Code  Gb  main.o [1]
-Undefined_Handler       0x0004d710           Code  Wk  vectortrap.o [4]
+Undefined_Handler       0x0004d720           Code  Wk  vectortrap.o [4]
 VICADDRESS              0xffffff00      0x4  Data  Gb  sys.o [1]
 VICVECTADDR0            0xfffff100      0x4  Data  Gb  sys.o [1]
 VIC_Init                0x0004ba6c     0x94  Code  Gb  sys.o [1]
@@ -587,11 +593,11 @@ __aeabi_uidivmod        0x0004c108           Code  Gb  I32DivMod.o [4]
 __cmain                 0x0004d5fc           Code  Gb  cmain.o [4]
 __exit                  0x0004c2f8     0x20  Code  Gb  exit.o [5]
 __iar_close_ttio        0x0004c318     0x58  Code  Gb  iarttio.o [5]
-__iar_copy_init3        0x0004d6b1     0x30  Code  Gb  copy_init3.o [4]
+__iar_copy_init3        0x0004d6c1     0x30  Code  Gb  copy_init3.o [4]
 __iar_data_init3        0x0004d631     0x30  Code  Gb  data_init.o [4]
 __iar_lookup_ttioh      0x0004c370      0xc  Code  Gb  XShttio.o [3]
 __iar_program_start     0x0004d598           Code  Gb  cstartup.o [4]
-__iar_return_from_swi   0x0004d714      0x4  Code  Gb  xreturnswi.o [5]
+__iar_return_from_swi   0x0004d724      0x4  Code  Gb  xreturnswi.o [5]
 __iar_ttio_handles      0x4000014c      0x8  Data  Lc  XShttio.o [3]
 __low_level_init        0x0004d628      0x8  Code  Gb  low_level_init.o [3]
 __vector                0x00000000           Data  Gb  cstartup.o [4]
@@ -604,14 +610,14 @@ exit                    0x0004d664      0x4  Code  Gb  exit.o [3]
 main                    0x0004d1dc    0x2ec  Code  Gb  main.o [1]
 
 
-[1] = C:\Users\Vitali\Desktop\DFCR project\Flash Debug\Obj
+[1] = C:\Users\Vitali\Desktop\DFCR Software\Software uC\Flash Debug\Obj
 [2] = command line
 [3] = dl4t_aln.a
 [4] = rt4t_al.a
 [5] = shs_l.a
 
     8 428 bytes of readonly  code memory
-  308 392 bytes of readonly  data memory
+  308 408 bytes of readonly  data memory
     2 170 bytes of readwrite data memory (+ 384 absolute)
 
 Errors: none
