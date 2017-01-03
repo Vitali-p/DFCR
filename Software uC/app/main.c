@@ -1,16 +1,6 @@
 /*************************************************************************
- *
-*    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2008
- *
  *    File name   : main.c
  *    Description : Main module
- *
- *    History :
- *    1. Date        : 4, August 2008
- *       Author      : Stanimir Bonev
- *       Description : Create
  *
  *    2. Date        : 9, September 2009
  *       Author      : Frederick Hjärner
@@ -38,7 +28,7 @@
  *
  * The LCD shares pins with Trace port. If ETM is enabled the LCD will not work.
  *
- *    $Revision: 28 $
+ * Vision: 
  **************************************************************************/
 #include <intrinsics.h>
 #include <stdio.h>
