@@ -1,0 +1,14 @@
+void lowPassFilter (double* input, double* output, int points)
+{
+	double fc = 50; //frequency
+	double dt =?????; //delta t maybe "1/sample rate"
+	double RC = 1/(2*3.1415*fc); //RC
+	double alpha = dt/(RC+dt); //alpha
+	output[0]=input[0];
+
+	for (int i=1; i<points; ++i)
+	{
+		output[i] = alpha*input[i] + (1-alpha)*output[i-1]
+	}
+}
+	
