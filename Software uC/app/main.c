@@ -34,8 +34,8 @@ void Timer0IntrHandler (void)
 }
 
  void AD0IntrHandler (void) {
-   _ADCVal = ((AD0GDR & 0xFFC0)>>6);
-   _ADCStatus = ADSTAT;
+//   _ADCVal = ((AD0GDR & 0xFFC0)>>6);
+//   _ADCStatus = ADSTAT;
  }
 
 int main(void)
