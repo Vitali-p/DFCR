@@ -2,14 +2,16 @@
 #include <stdio.h>
 #include "board.h"
 #include "sys.h"
+#include "ADC.h"
 //#include "sdram_64M_32bit_drv.h"
 
 #include "smb380_drv.h"
 #include "Timer.h"
 
-
 Int32U _ADCVal;
 Int32U  _ADCStatus;
+Int32U _regCount = 0;
+Int32U  _waveForm[1000];
 
 #define NONPROT 0xFFFFFFFF
 #define CRP1  	0x12345678
@@ -31,6 +33,11 @@ void Timer0IntrHandler (void)
   T0IR_bit.MR0INT = 1; // Clear the timer 0 interrupt.
   VICADDRESS = 0;
   _ADCVal = ((AD0GDR & 0xFFC0)>>6);
+  _waveForm[_regCount] = _ADCVal;
+  _regCount++;
+  if(_regCount == 1000){
+  _regCount = 0;
+  }
 }
 
  void AD0IntrHandler (void) {
