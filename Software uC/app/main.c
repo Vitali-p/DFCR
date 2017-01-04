@@ -1,35 +1,3 @@
-/*************************************************************************
- *    File name   : main.c
- *    Description : Main module
- *
- *       Date        : 
- *       Author      : 
- *       Description : 
- *
- * This example project shows how to use the IAR Embedded Workbench for ARM
- * to develop code for IAR-LPC-2478 board. It shows basic use of I/O,
- * timer, interrupt and LCD controllers.
- *
- * The IAR, NXP and Olimex logos appear on the LCD and the cursor
- * moves as the board moves(the acceleration sensor is used).
- *
- * Jumpers:
- *  EXT/JLINK  - depending of power source
- *  ISP_E      - unfilled
- *  RST_E      - unfilled
- *  BDS_E      - unfilled
- *  C/SC       - SC
- *
- * Note:
- *  After power-up the controller get clock from internal RC oscillator that
- * is unstable and may fail with J-Link auto detect, therefore adaptive clocking
- * should always be used. The adaptive clock can be select from menu:
- *  Project->Options..., section Debugger->J-Link/J-Trace  JTAG Speed - Adaptive.
- *
- * The LCD shares pins with Trace port. If ETM is enabled the LCD will not work.
- *
- * Vision: 
- **************************************************************************/
 #include <intrinsics.h>
 #include <stdio.h>
 #include "board.h"
@@ -38,7 +6,11 @@
 
 #include "smb380_drv.h"
 #include "Timer.h"
-   
+
+
+Int32U _ADCVal;
+Int32U  _ADCStatus;
+
 #define NONPROT 0xFFFFFFFF
 #define CRP1  	0x12345678
 #define CRP2  	0x87654321
@@ -58,7 +30,13 @@ void Timer0IntrHandler (void)
   
   T0IR_bit.MR0INT = 1; // Clear the timer 0 interrupt.
   VICADDRESS = 0;
+  _ADCVal = ((AD0GDR & 0xFFC0)>>6);
 }
+
+ void AD0IntrHandler (void) {
+   _ADCVal = ((AD0GDR & 0xFFC0)>>6);
+   _ADCStatus = ADSTAT;
+ }
 
 int main(void)
 {
@@ -86,6 +64,9 @@ int main(void)
   VIC_SetVectoredIRQ(Timer0IntrHandler,0,VIC_TIMER0);
   VICINTENABLE |= 1UL << VIC_TIMER0;
   T0TCR_bit.CE = 1;     // Enable counting.
+  initADC2();
+  while(1){
   
-  while(1){}
+  
+  }
 }

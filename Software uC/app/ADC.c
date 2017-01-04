@@ -109,11 +109,7 @@ void initADC2( void ){
   AD0CR_bit.PDN = 1; //The A/D Converter is operational
 }
 
- void AD0IntrHandler (void) {
-   __ADCVal = ((AD0GDR & 0xFFC0)>>6);
-   __ADCStatus = ADSTAT;
-//    ADINTEN_bit.
- }
+
 
 /************************************************************************
 Start the ADC in async mode (Interrupt driven)

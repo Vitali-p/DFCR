@@ -1,36 +1,35 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.80.3.12102/W32 for ARM                04/Jan/2017  14:48:00
+# IAR ELF Linker V7.80.3.12102/W32 for ARM                04/Jan/2017  16:04:39
 # Copyright 2007-2016 IAR Systems AB.
 #
 #    Output file  =  
-#        C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash
+#        C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash
 #        Debug\Exe\LCD_Demo.out.tmp
 #    Map file     =  
-#        C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash
+#        C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash
 #        Debug\List\LCD_Demo.map
 #    Command line =  
-#        "C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash
-#        Debug\Obj\ADC.o" "C:\Users\Vitali\Desktop\DFCR Software -
-#        Copy\Software uC\Flash Debug\Obj\Cursor.o"
-#        "C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash
-#        Debug\Obj\drv_glcd.o" "C:\Users\Vitali\Desktop\DFCR Software -
-#        Copy\Software uC\Flash Debug\Obj\i2c0_drv.o"
-#        "C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash
-#        Debug\Obj\logo.o" "C:\Users\Vitali\Desktop\DFCR Software -
-#        Copy\Software uC\Flash Debug\Obj\main.o" "C:\Users\Vitali\Desktop\DFCR
-#        Software - Copy\Software uC\Flash Debug\Obj\sdram_64M_32bit_drv.o"
-#        "C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash
-#        Debug\Obj\smb380_drv.o" "C:\Users\Vitali\Desktop\DFCR Software -
-#        Copy\Software uC\Flash Debug\Obj\sys.o" "C:\Users\Vitali\Desktop\DFCR
-#        Software - Copy\Software uC\Flash Debug\Obj\Timer.o" --redirect
-#        _Printf=_PrintfTiny --redirect _Scanf=_ScanfSmall -o
-#        "C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash
-#        Debug\Exe\LCD_Demo.out.tmp" --map "C:\Users\Vitali\Desktop\DFCR
-#        Software - Copy\Software uC\Flash Debug\List\LCD_Demo.map" --config
-#        "C:\Users\Vitali\Desktop\DFCR Software - Copy\Software
-#        uC\config\LPC2478_Flash.icf" --semihosting --entry __iar_program_start
-#        --vfe
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj\ADC.o"
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj\Cursor.o"
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj\DAC.o"
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash
+#        Debug\Obj\drv_glcd.o" "C:\Users\OZ7TDA\Documents\DFCR\Software
+#        uC\Flash Debug\Obj\i2c0_drv.o"
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj\logo.o"
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj\main.o"
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash
+#        Debug\Obj\sdram_64M_32bit_drv.o"
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash
+#        Debug\Obj\smb380_drv.o" "C:\Users\OZ7TDA\Documents\DFCR\Software
+#        uC\Flash Debug\Obj\sys.o" "C:\Users\OZ7TDA\Documents\DFCR\Software
+#        uC\Flash Debug\Obj\Timer.o" --redirect _Printf=_PrintfTiny --redirect
+#        _Scanf=_ScanfSmall -o "C:\Users\OZ7TDA\Documents\DFCR\Software
+#        uC\Flash Debug\Exe\LCD_Demo.out.tmp" --map
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash
+#        Debug\List\LCD_Demo.map" --config
+#        "C:\Users\OZ7TDA\Documents\DFCR\Software uC\config\LPC2478_Flash.icf"
+#        --semihosting --entry __iar_program_start --vfe
 #
 ###############################################################################
 
@@ -62,115 +61,118 @@ initialize by copy { rw };
   .intvec            ro code  0x00000000   0x3c  cstartup.o [4]
                             - 0x0000003c   0x3c
 
-"P1", part 1 of 2:                          0x8
+"P1", part 1 of 2:                         0x10
   .rodata            const    0x0000003c    0x0  copy_init3.o [4]
-  Initializer bytes  const    0x0000003c    0x8  <for P2 s0>
-                            - 0x00000044    0x8
+  Initializer bytes  const    0x0000003c   0x10  <for P2 s0>
+                            - 0x0000004c   0x10
 
-"P1", part 2 of 2:                        0xc70
+"P1", part 2 of 2:                        0xeb4
   .text              ro code  0x00000200  0x6ac  sys.o [1]
   .text              ro code  0x000008ac  0x1a4  I32DivMod.o [4]
   .text              ro code  0x00000a50    0x4  IntDivZer.o [4]
-  .text              ro code  0x00000a54  0x26c  main.o [1]
-  .text              ro code  0x00000cc0   0x58  cstartup.o [4]
-  Veneer             ro code  0x00000d18    0xc  - Linker created -
-  .text              ro code  0x00000d24   0x2c  cmain.o [4]
-  .text              ro code  0x00000d50    0x8  low_level_init.o [3]
-  .text              ro code  0x00000d58   0x32  data_init.o [4]
-  .text              ro code  0x00000d8c    0x4  exit.o [3]
-  .text              ro code  0x00000d90   0x20  exit.o [5]
-  .text              ro code  0x00000db0   0x10  cexit.o [4]
-  .text              ro code  0x00000dc0   0x58  iarttio.o [5]
-  .text              ro code  0x00000e18    0xc  XShttio.o [3]
-  .text              ro code  0x00000e24   0x30  copy_init3.o [4]
-  .iar.init_table    const    0x00000e54   0x14  - Linker created -
-  .text              ro code  0x00000e68    0x4  vectortrap.o [4]
-  .text              ro code  0x00000e6c    0x4  xreturnswi.o [5]
-                            - 0x00000e70  0xc70
+  .text              ro code  0x00000a54  0x2c8  main.o [1]
+  .text              ro code  0x00000d1c  0x1e8  ADC.o [1]
+  .text              ro code  0x00000f04   0x58  cstartup.o [4]
+  Veneer             ro code  0x00000f5c    0xc  - Linker created -
+  .text              ro code  0x00000f68   0x2c  cmain.o [4]
+  .text              ro code  0x00000f94    0x8  low_level_init.o [3]
+  .text              ro code  0x00000f9c   0x32  data_init.o [4]
+  .text              ro code  0x00000fd0    0x4  exit.o [3]
+  .text              ro code  0x00000fd4   0x20  exit.o [5]
+  .text              ro code  0x00000ff4   0x10  cexit.o [4]
+  .text              ro code  0x00001004   0x58  iarttio.o [5]
+  .text              ro code  0x0000105c    0xc  XShttio.o [3]
+  .text              ro code  0x00001068   0x30  copy_init3.o [4]
+  .iar.init_table    const    0x00001098   0x14  - Linker created -
+  .text              ro code  0x000010ac    0x4  vectortrap.o [4]
+  .text              ro code  0x000010b0    0x4  xreturnswi.o [5]
+                            - 0x000010b4  0xeb4
 
-Absolute sections, part 1 of 29:            0x4
+Absolute sections, part 1 of 33:            0x4
   .noinit            uninit   0x3fffc000    0x4  sys.o [1]
                             - 0x3fffc004    0x4
 
-Absolute sections, part 2 of 29:            0x4
+Absolute sections, part 2 of 33:            0x4
   .noinit            uninit   0x3fffc010    0x4  sys.o [1]
                             - 0x3fffc014    0x4
 
-Absolute sections, part 3 of 29:            0x4
+Absolute sections, part 3 of 33:            0x4
   .noinit            uninit   0x3fffc020    0x4  sys.o [1]
                             - 0x3fffc024    0x4
 
-Absolute sections, part 4 of 29:            0xc
+Absolute sections, part 4 of 33:            0xc
   .noinit            uninit   0x3fffc030    0x4  sys.o [1]
   .noinit            uninit   0x3fffc034    0x4  main.o [1]
   .noinit            uninit   0x3fffc038    0x4  main.o [1]
                             - 0x3fffc03c    0xc
 
-Absolute sections, part 5 of 29:            0x4
+Absolute sections, part 5 of 33:            0x4
   .noinit            uninit   0x3fffc040    0x4  sys.o [1]
                             - 0x3fffc044    0x4
 
-Absolute sections, part 6 of 29:            0x4
+Absolute sections, part 6 of 33:            0x4
   .noinit            uninit   0x3fffc050    0x4  sys.o [1]
                             - 0x3fffc054    0x4
 
-Absolute sections, part 7 of 29:            0x4
+Absolute sections, part 7 of 33:            0x4
   .noinit            uninit   0x3fffc060    0x4  sys.o [1]
                             - 0x3fffc064    0x4
 
-Absolute sections, part 8 of 29:            0x4
+Absolute sections, part 8 of 33:            0x4
   .noinit            uninit   0x3fffc070    0x4  sys.o [1]
                             - 0x3fffc074    0x4
 
-Absolute sections, part 9 of 29:            0x4
+Absolute sections, part 9 of 33:            0x4
   .noinit            uninit   0x3fffc080    0x4  sys.o [1]
                             - 0x3fffc084    0x4
 
-Absolute sections, part 10 of 29:           0x4
+Absolute sections, part 10 of 33:           0x4
   .noinit            uninit   0x3fffc090    0x4  sys.o [1]
                             - 0x3fffc094    0x4
 
-"P2", part 1 of 2:                          0x8
-  P2 s0                       0x40000120    0x8  <Init block>
+"P2", part 1 of 2:                         0x10
+  P2 s0                       0x40000120   0x10  <Init block>
     .data            inited   0x40000120    0x8  XShttio.o [3]
-                            - 0x40000128    0x8
+    .bss             inited   0x40000128    0x4  main.o [1]
+    .bss             inited   0x4000012c    0x4  main.o [1]
+                            - 0x40000130   0x10
 
 "P2", part 2 of 2:                        0x840
-  CSTACK                      0x40000128  0x400  <Block>
-    CSTACK           uninit   0x40000128  0x400  <Block tail>
-  IRQ_STACK                   0x40000528  0x400  <Block>
-    IRQ_STACK        uninit   0x40000528  0x400  <Block tail>
-  FIQ_STACK                   0x40000928   0x40  <Block>
-    FIQ_STACK        uninit   0x40000928   0x40  <Block tail>
-                            - 0x40000968  0x840
+  CSTACK                      0x40000130  0x400  <Block>
+    CSTACK           uninit   0x40000130  0x400  <Block tail>
+  IRQ_STACK                   0x40000530  0x400  <Block>
+    IRQ_STACK        uninit   0x40000530  0x400  <Block tail>
+  FIQ_STACK                   0x40000930   0x40  <Block>
+    FIQ_STACK        uninit   0x40000930   0x40  <Block tail>
+                            - 0x40000970  0x840
 
-Absolute sections, part 11 of 29:           0x8
+Absolute sections, part 11 of 33:           0x8
   .noinit            uninit   0xe0004000    0x4  main.o [1]
   .noinit            uninit   0xe0004004    0x4  main.o [1]
                             - 0xe0004008    0x8
 
-Absolute sections, part 12 of 29:           0x4
+Absolute sections, part 12 of 33:           0x4
   .noinit            uninit   0xe000400c    0x4  main.o [1]
                             - 0xe0004010    0x4
 
-Absolute sections, part 13 of 29:           0x8
+Absolute sections, part 13 of 33:           0x8
   .noinit            uninit   0xe0004014    0x4  main.o [1]
   .noinit            uninit   0xe0004018    0x4  main.o [1]
                             - 0xe000401c    0x8
 
-Absolute sections, part 14 of 29:           0x4
+Absolute sections, part 14 of 33:           0x4
   .noinit            uninit   0xe0004070    0x4  main.o [1]
                             - 0xe0004074    0x4
 
-Absolute sections, part 15 of 29:           0x4
+Absolute sections, part 15 of 33:           0x4
   .noinit            uninit   0xe0028008    0x4  sys.o [1]
                             - 0xe002800c    0x4
 
-Absolute sections, part 16 of 29:           0x4
+Absolute sections, part 16 of 33:           0x4
   .noinit            uninit   0xe0028018    0x4  sys.o [1]
                             - 0xe002801c    0x4
 
-Absolute sections, part 17 of 29:          0x28
+Absolute sections, part 17 of 33:          0x28
   .noinit            uninit   0xe002c000    0x4  sys.o [1]
   .noinit            uninit   0xe002c004    0x4  sys.o [1]
   .noinit            uninit   0xe002c008    0x4  sys.o [1]
@@ -183,61 +185,78 @@ Absolute sections, part 17 of 29:          0x28
   .noinit            uninit   0xe002c024    0x4  sys.o [1]
                             - 0xe002c028   0x28
 
-Absolute sections, part 18 of 29:           0x8
+Absolute sections, part 18 of 33:           0x4
+  .noinit            uninit   0xe002c044    0x4  ADC.o [1]
+                            - 0xe002c048    0x4
+
+Absolute sections, part 19 of 33:           0x8
+  .noinit            uninit   0xe0034000    0x4  ADC.o [1]
+  .noinit            uninit   0xe0034004    0x4  main.o [1]
+                            - 0xe0034008    0x8
+
+Absolute sections, part 20 of 33:           0x4
+  .noinit            uninit   0xe003400c    0x4  ADC.o [1]
+                            - 0xe0034010    0x4
+
+Absolute sections, part 21 of 33:           0x4
+  .noinit            uninit   0xe0034030    0x4  main.o [1]
+                            - 0xe0034034    0x4
+
+Absolute sections, part 22 of 33:           0x8
   .noinit            uninit   0xe01fc000    0x4  main.o [1]
   .noinit            uninit   0xe01fc004    0x4  main.o [1]
                             - 0xe01fc008    0x8
 
-Absolute sections, part 19 of 29:          0x10
+Absolute sections, part 23 of 33:          0x10
   .noinit            uninit   0xe01fc080    0x4  sys.o [1]
   .noinit            uninit   0xe01fc084    0x4  sys.o [1]
   .noinit            uninit   0xe01fc088    0x4  sys.o [1]
   .noinit            uninit   0xe01fc08c    0x4  sys.o [1]
                             - 0xe01fc090   0x10
 
-Absolute sections, part 20 of 29:           0x4
+Absolute sections, part 24 of 33:           0x4
   .noinit            uninit   0xe01fc0c4    0x4  sys.o [1]
                             - 0xe01fc0c8    0x4
 
-Absolute sections, part 21 of 29:           0xc
+Absolute sections, part 25 of 33:           0xc
   .noinit            uninit   0xe01fc104    0x4  sys.o [1]
   .noinit            uninit   0xe01fc108    0x4  sys.o [1]
   .noinit            uninit   0xe01fc10c    0x4  sys.o [1]
                             - 0xe01fc110    0xc
 
-Absolute sections, part 22 of 29:           0x4
+Absolute sections, part 26 of 33:           0x4
   .noinit            uninit   0xe01fc188    0x4  sys.o [1]
                             - 0xe01fc18c    0x4
 
-Absolute sections, part 23 of 29:           0x4
+Absolute sections, part 27 of 33:           0x4
   .noinit            uninit   0xe01fc1a0    0x4  sys.o [1]
                             - 0xe01fc1a4    0x4
 
-Absolute sections, part 24 of 29:           0x8
+Absolute sections, part 28 of 33:           0x8
   .noinit            uninit   0xe01fc1a8    0x4  sys.o [1]
   .noinit            uninit   0xe01fc1ac    0x4  sys.o [1]
                             - 0xe01fc1b0    0x8
 
-Absolute sections, part 25 of 29:           0xc
+Absolute sections, part 29 of 33:           0xc
   .noinit            uninit   0xfffff00c    0x4  sys.o [1]
   .noinit            uninit   0xfffff010    0x4  main.o [1]
   .noinit            uninit   0xfffff014    0x4  sys.o [1]
                             - 0xfffff018    0xc
 
-Absolute sections, part 26 of 29:           0x8
+Absolute sections, part 30 of 33:           0x8
   .noinit            uninit   0xfffff01c    0x4  sys.o [1]
   .noinit            uninit   0xfffff020    0x4  sys.o [1]
                             - 0xfffff024    0x8
 
-Absolute sections, part 27 of 29:           0x4
+Absolute sections, part 31 of 33:           0x4
   .noinit            uninit   0xfffff100    0x4  sys.o [1]
                             - 0xfffff104    0x4
 
-Absolute sections, part 28 of 29:           0x4
+Absolute sections, part 32 of 33:           0x4
   .noinit            uninit   0xfffff200    0x4  sys.o [1]
                             - 0xfffff204    0x4
 
-Absolute sections, part 29 of 29:           0x4
+Absolute sections, part 33 of 33:           0x4
   .noinit            uninit   0xffffff00    0x4  sys.o [1]
                             - 0xffffff04    0x4
 
@@ -249,10 +268,10 @@ Absolute sections, part 29 of 29:           0x4
           Address     Size
           -------     ----
 Copy (__iar_copy_init3)
-    1 source range, total size 0x8:
-          0x0000003c   0x8
-    1 destination range, total size 0x8:
-          0x40000120   0x8
+    1 source range, total size 0x10:
+          0x0000003c  0x10
+    1 destination range, total size 0x10:
+          0x40000120  0x10
 
 
 
@@ -263,11 +282,12 @@ Copy (__iar_copy_init3)
     Module            ro code  ro data  rw data  rw data
                                                   (abs)
     ------            -------  -------  -------  -------
-C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash Debug\Obj: [1]
-    main.o                620                         44
+C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj: [1]
+    ADC.o                 488                         12
+    main.o                712        8        8       52
     sys.o               1 708                        164
     ----------------------------------------------------
-    Total:              2 328                        208
+    Total:              2 908        8        8      228
 
 command line: [2]
     ----------------------------------------------------
@@ -302,7 +322,7 @@ shs_l.a: [5]
     Gaps                    2
     Linker created         12       20    2 112
 --------------------------------------------------------
-    Grand Total:        3 224       28    2 120      208
+    Grand Total:        3 804       36    2 128      228
 
 
 *******************************************************************************
@@ -311,36 +331,43 @@ shs_l.a: [5]
 
 Entry                      Address   Size  Type      Object
 -----                      -------   ----  ----      ------
-.iar.init_table$$Base   0x00000e54          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x00000e68          --   Gb  - Linker created -
-?main                   0x00000d24         Code  Gb  cmain.o [4]
-Abort_Handler           0x00000e68         Code  Wk  vectortrap.o [4]
-CSTACK$$Base            0x40000128          --   Gb  - Linker created -
-CSTACK$$Limit           0x40000528          --   Gb  - Linker created -
+.iar.init_table$$Base   0x00001098          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x000010ac          --   Gb  - Linker created -
+?main                   0x00000f68         Code  Gb  cmain.o [4]
+AD0IntrHandler          0x00000bec   0x30  Code  Gb  main.o [1]
+Abort_Handler           0x000010ac         Code  Wk  vectortrap.o [4]
+CSTACK$$Base            0x40000130          --   Gb  - Linker created -
+CSTACK$$Limit           0x40000530          --   Gb  - Linker created -
 FIQ_Handler             0x00000200    0x4  Code  Gb  sys.o [1]
-FIQ_STACK$$Base         0x40000928          --   Gb  - Linker created -
-FIQ_STACK$$Limit        0x40000968          --   Gb  - Linker created -
+FIQ_STACK$$Base         0x40000930          --   Gb  - Linker created -
+FIQ_STACK$$Limit        0x40000970          --   Gb  - Linker created -
 GpioInit                0x00000704  0x15c  Code  Gb  sys.o [1]
 IRQ_Handler             0x00000204   0x3c  Code  Gb  sys.o [1]
-IRQ_STACK$$Base         0x40000528          --   Gb  - Linker created -
-IRQ_STACK$$Limit        0x40000928          --   Gb  - Linker created -
+IRQ_STACK$$Base         0x40000530          --   Gb  - Linker created -
+IRQ_STACK$$Limit        0x40000930          --   Gb  - Linker created -
 InitClock               0x0000032c  0x284  Code  Gb  sys.o [1]
-Prefetch_Handler        0x00000e68         Code  Wk  vectortrap.o [4]
-Region$$Table$$Base     0x00000e54          --   Gb  - Linker created -
-Region$$Table$$Limit    0x00000e68          --   Gb  - Linker created -
+Prefetch_Handler        0x000010ac         Code  Wk  vectortrap.o [4]
+Region$$Table$$Base     0x00001098          --   Gb  - Linker created -
+Region$$Table$$Limit    0x000010ac          --   Gb  - Linker created -
 SDRAM_BASE_ADDR {Abs}   0xa0000000         Data  Gb  command line/config [2]
-SWI_Handler             0x00000e68         Code  Wk  vectortrap.o [4]
+SWI_Handler             0x000010ac         Code  Wk  vectortrap.o [4]
 SYS_GetFpclk            0x00000694   0x70  Code  Gb  sys.o [1]
 SYS_GetFsclk            0x000005b0   0xe4  Code  Gb  sys.o [1]
 T0MR0                   0xe0004018    0x4  Data  Gb  main.o [1]
 T0PR                    0xe000400c    0x4  Data  Gb  main.o [1]
-Timer0Init              0x00000a54  0x128  Code  Gb  main.o [1]
-Timer0IntrHandler       0x00000b8c   0x48  Code  Gb  main.o [1]
-Undefined_Handler       0x00000e68         Code  Wk  vectortrap.o [4]
+Timer0Init              0x00000a54  0x134  Code  Gb  main.o [1]
+Timer0IntrHandler       0x00000b88   0x64  Code  Gb  main.o [1]
+Undefined_Handler       0x000010ac         Code  Wk  vectortrap.o [4]
 VICADDRESS              0xffffff00    0x4  Data  Gb  sys.o [1]
 VICVECTADDR0            0xfffff100    0x4  Data  Gb  sys.o [1]
 VIC_Init                0x00000240   0x94  Code  Gb  sys.o [1]
 VIC_SetVectoredIRQ      0x000002d4   0x58  Code  Gb  sys.o [1]
+_ADCStatus              0x4000012c    0x4  Data  Gb  main.o [1]
+_ADCVal                 0x40000128    0x4  Data  Gb  main.o [1]
+_A_AD0CR                0xe0034000    0x4  Data  Gb  ADC.o [1]
+_A_AD0GDR               0xe0034004    0x4  Data  Gb  main.o [1]
+_A_ADINTEN              0xe003400c    0x4  Data  Gb  ADC.o [1]
+_A_ADSTAT               0xe0034030    0x4  Data  Gb  main.o [1]
 _A_AHBCFG1              0xe01fc188    0x4  Data  Gb  sys.o [1]
 _A_CCLKCFG              0xe01fc104    0x4  Data  Gb  sys.o [1]
 _A_CLKSRCSEL            0xe01fc10c    0x4  Data  Gb  sys.o [1]
@@ -363,6 +390,7 @@ _A_MAMTIM               0xe01fc004    0x4  Data  Gb  main.o [1]
 _A_PCLKSEL0             0xe01fc1a8    0x4  Data  Gb  sys.o [1]
 _A_PCLKSEL1             0xe01fc1ac    0x4  Data  Gb  sys.o [1]
 _A_PCONP                0xe01fc0c4    0x4  Data  Gb  sys.o [1]
+_A_PINMODE1             0xe002c044    0x4  Data  Gb  ADC.o [1]
 _A_PINSEL0              0xe002c000    0x4  Data  Gb  sys.o [1]
 _A_PINSEL1              0xe002c004    0x4  Data  Gb  sys.o [1]
 _A_PINSEL2              0xe002c008    0x4  Data  Gb  sys.o [1]
@@ -392,33 +420,34 @@ _A_VICVECTPRIORITY0     0xfffff200    0x4  Data  Gb  sys.o [1]
 __aeabi_idiv0           0x00000a50         Code  Gb  IntDivZer.o [4]
 __aeabi_uidiv           0x000008ac         Code  Gb  I32DivMod.o [4]
 __aeabi_uidivmod        0x000008ac         Code  Gb  I32DivMod.o [4]
-__cmain                 0x00000d24         Code  Gb  cmain.o [4]
-__exit                  0x00000d90   0x20  Code  Gb  exit.o [5]
-__iar_close_ttio        0x00000dc0   0x58  Code  Gb  iarttio.o [5]
-__iar_copy_init3        0x00000e25   0x30  Code  Gb  copy_init3.o [4]
-__iar_data_init3        0x00000d59   0x30  Code  Gb  data_init.o [4]
-__iar_lookup_ttioh      0x00000e18    0xc  Code  Gb  XShttio.o [3]
-__iar_program_start     0x00000cc0         Code  Gb  cstartup.o [4]
-__iar_return_from_swi   0x00000e6c    0x4  Code  Gb  xreturnswi.o [5]
+__cmain                 0x00000f68         Code  Gb  cmain.o [4]
+__exit                  0x00000fd4   0x20  Code  Gb  exit.o [5]
+__iar_close_ttio        0x00001004   0x58  Code  Gb  iarttio.o [5]
+__iar_copy_init3        0x00001069   0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x00000f9d   0x30  Code  Gb  data_init.o [4]
+__iar_lookup_ttioh      0x0000105c    0xc  Code  Gb  XShttio.o [3]
+__iar_program_start     0x00000f04         Code  Gb  cstartup.o [4]
+__iar_return_from_swi   0x000010b0    0x4  Code  Gb  xreturnswi.o [5]
 __iar_ttio_handles      0x40000120    0x8  Data  Lc  XShttio.o [3]
-__low_level_init        0x00000d50    0x8  Code  Gb  low_level_init.o [3]
+__low_level_init        0x00000f94    0x8  Code  Gb  low_level_init.o [3]
 __vector                0x00000000         Data  Gb  cstartup.o [4]
-_call_main              0x00000d38         Code  Gb  cmain.o [4]
-_exit                   0x00000db0         Code  Gb  cexit.o [4]
-_main                   0x00000d40         Code  Gb  cmain.o [4]
-exit                    0x00000d8c    0x4  Code  Gb  exit.o [3]
-main                    0x00000bd4   0xec  Code  Gb  main.o [1]
+_call_main              0x00000f7c         Code  Gb  cmain.o [4]
+_exit                   0x00000ff4         Code  Gb  cexit.o [4]
+_main                   0x00000f84         Code  Gb  cmain.o [4]
+exit                    0x00000fd0    0x4  Code  Gb  exit.o [3]
+initADC2                0x00000d1c  0x1d8  Code  Gb  ADC.o [1]
+main                    0x00000c38   0xe4  Code  Gb  main.o [1]
 
 
-[1] = C:\Users\Vitali\Desktop\DFCR Software - Copy\Software uC\Flash Debug\Obj
+[1] = C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj
 [2] = command line
 [3] = dl4t_aln.a
 [4] = rt4t_al.a
 [5] = shs_l.a
 
-  3 224 bytes of readonly  code memory
-     28 bytes of readonly  data memory
-  2 120 bytes of readwrite data memory (+ 208 absolute)
+  3 804 bytes of readonly  code memory
+     36 bytes of readonly  data memory
+  2 128 bytes of readwrite data memory (+ 228 absolute)
 
 Errors: none
 Warnings: none

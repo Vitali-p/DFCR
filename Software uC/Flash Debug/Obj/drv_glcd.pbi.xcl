@@ -1,22 +1,22 @@
-"C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\drv_glcd.c"
+"C:\Users\OZ7TDA\Documents\DFCR\Software uC\modules\drv_glcd.c"
 -std=c99
 -ferror-limit=100
 -I
-C:\Users\Vitali\Desktop\DFCR Software\Software uC\app
+C:\Users\OZ7TDA\Documents\DFCR\Software uC\app
 -I
-C:\Users\Vitali\Desktop\DFCR Software\Software uC\board
+C:\Users\OZ7TDA\Documents\DFCR\Software uC\board
 -I
-C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules
+C:\Users\OZ7TDA\Documents\DFCR\Software uC\modules
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-C:\Users\Vitali\Desktop\DFCR Software\Software uC\app
+C:\Users\OZ7TDA\Documents\DFCR\Software uC\app
 -I
-C:\Users\Vitali\Desktop\DFCR Software\Software uC\board
+C:\Users\OZ7TDA\Documents\DFCR\Software uC\board
 -I
-C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules
+C:\Users\OZ7TDA\Documents\DFCR\Software uC\modules
 -DIAR_LPC_2478_STK=1
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
