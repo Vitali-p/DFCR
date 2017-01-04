@@ -2,9 +2,9 @@
  *    File name   : main.c
  *    Description : Main module
  *
- *    2. Date        : 9, September 2009
- *       Author      : Frederick Hjärner
- *       Description : Updated the example description
+ *       Date        : 
+ *       Author      : 
+ *       Description : 
  *
  * This example project shows how to use the IAR Embedded Workbench for ARM
  * to develop code for IAR-LPC-2478 board. It shows basic use of I/O,
@@ -52,7 +52,7 @@
 __root const unsigned crp = NONPROT;
 #endif
 
-#define TIMER0_TICK_PER_SEC   10
+#define TIMER0_TICK_PER_SEC   1
 
 extern Int32U SDRAM_BASE_ADDR;
 
@@ -63,11 +63,8 @@ unsigned char Smb380Id, Smb380Ver;
 /*************************************************************************
  * Function Name: Timer0IntrHandler
  * Parameters: none
- *
  * Return: none
- *
  * Description: Timer 0 interrupt handler
- *
  *************************************************************************/
 void Timer0IntrHandler (void)
 {
@@ -81,21 +78,20 @@ void Timer0IntrHandler (void)
 /*************************************************************************
  * Function Name: main
  * Parameters: none
- *
  * Return: none
- *
  * Description: main
- *
  *************************************************************************/
 int main(void)
 {
 typedef Int32U ram_unit;
-int cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
+
+  int cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
 
   GLCD_Ctrl (FALSE);
 
   // Init GPIO
   GpioInit();
+  
 #ifndef SDRAM_DEBUG
   // MAM init
   MAMCR_bit.MODECTRL = 0;
@@ -108,17 +104,14 @@ int cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CU
 #endif // SDRAM_DEBUG
   // Init VIC
   VIC_Init();
+  
   // GLCD init
+ 
   GLCD_Init (LogoPic.pPicStream, NULL);
-
   GLCD_Cursor_Dis(0);
-
   GLCD_Copy_Cursor ((Int32U *)Cursor, 0, sizeof(Cursor)/sizeof(Int32U));
-
   GLCD_Cursor_Cfg(CRSR_FRAME_SYNC | CRSR_PIX_64);
-
   GLCD_Move_Cursor(cursor_x, cursor_y);
-
   GLCD_Cursor_En(0);
 
   // Init USB Link  LED
@@ -147,6 +140,7 @@ int cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CU
   __enable_interrupt();
   GLCD_Ctrl (TRUE);
 
+   
 #if 0
   SDRAM_Test();
 #endif
@@ -199,6 +193,7 @@ int cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CU
 
   while(1)
   {
+    
     for(int i = 0; i < 100000;  i++);
 
     SMB380_GetData (&XYZT);
@@ -227,5 +222,6 @@ int cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CU
     }
 
     GLCD_Move_Cursor(cursor_x, cursor_y);
+    
   }
 }

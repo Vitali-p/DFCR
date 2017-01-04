@@ -1,19 +1,10 @@
 /*************************************************************************
- *
-*    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2008
- *
  *    File name   : sdram_64M_32bit_drv.c
  *    Description : SDRAM driver K4S561632E-TC(L)75 16MBx16bitx2
  *
- *    History :
- *    1. Date        : 29, October 2008
- *       Author      : Stanimir Bonev
- *       Description : Create
- *
- *
- *    $Revision: 4271 $
+ *       Date        : 
+ *       Author      : 
+ *       Description : 
  **************************************************************************/
 
 #include <stdio.h>
@@ -53,11 +44,8 @@ extern Int32U SDRAM_BASE_ADDR;
 /*************************************************************************
  * Function Name: SDRAM_Init
  * Parameters: none
- *
  * Return: none
- *
  * Description: SDRAM controller and memory init
- *
  *************************************************************************/
 void SDRAM_Init (void)
 {

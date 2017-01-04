@@ -1,19 +1,10 @@
 /*************************************************************************
- *
-*    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2007
- *
  *    File name   : i2c0_drv.c
  *    Description : I2C0 driver
  *
- *    History :
- *    1. Date        : 13, February 2008
- *       Author      : Stanimir Bonev
- *       Description : Create
- *
- *
- *    $Revision: 28 $
+ *       Date        : 
+ *       Author      : 
+ *       Description : 
  **************************************************************************/
 #include "i2c0_drv.h"
 
@@ -47,10 +38,8 @@ void I2C_DisableI2C(void)
 /*************************************************************************
  * Function Name: __I2C_SetFlag
  * Parameters: int FlagType -- AA, INT and START and STOP
- *
  * Return: void
  * Description: Set the flag.
- *
  *************************************************************************/
 #pragma inline
 void __I2C_SetFlag (int FlagType)
@@ -61,10 +50,8 @@ void __I2C_SetFlag (int FlagType)
 /*************************************************************************
  * Function Name: __I2C_ClearFlag
  * Parameters: int FlagType -- AA, INT and START (Excl. STOP)
- *
  * Return: void
  * Description: Clear the flag.
- *
  *************************************************************************/
 #pragma inline
 void __I2C_ClearFlag (int FlagType)
@@ -99,12 +86,10 @@ unsigned char __I2C_ReceiveData(void)
 /*************************************************************************
  * Function Name: I2C_InitMaster
  * Parameters: unsigned long BusSpeed
- *
  * Return: int
  *             	0: success
  *	 non-zero: error number
  * Description: Initialize the current device as I2C bus master.
- *
  *************************************************************************/
 int I2C_InitMaster (unsigned long BusSpeed)
 {

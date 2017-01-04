@@ -1,19 +1,10 @@
 /*************************************************************************
- *
-*    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2007
- *
  *    File name   : sys.c
  *    Description : System module
  *
- *    History :
- *    1. Date        : 13, February 2008
+ *       Date        : 13, February 2008
  *       Author      : Stanimir Bonev
  *       Description : Create
- *
- *
- *    $Revision: 28 $
  **************************************************************************/
 #include "sys.h"
 
@@ -21,11 +12,8 @@
 /*************************************************************************
  * Function Name: fiq_handler
  * Parameters: none
- *
  * Return: none
- *
  * Description: FIQ handler
- *
  *************************************************************************/
 __fiq __arm void FIQ_Handler (void)
 {
@@ -37,11 +25,8 @@ __fiq __arm void FIQ_Handler (void)
 /*************************************************************************
  * Function Name: irq_handler
  * Parameters: none
- *
  * Return: none
- *
  * Description: IRQ handler
- *
  *************************************************************************/
 __irq __arm void IRQ_Handler (void)
 {
@@ -65,9 +50,7 @@ unsigned int vector;
  * Function Name: VIC_Init
  * Parameters: void
  * Return: void
- *
  * Description: Initialize VIC
- *
  *************************************************************************/
 void VIC_Init(void)
 {
@@ -97,11 +80,8 @@ int i;
  * Parameters:  void(*pIRQSub)()
  *              unsigned int VicIrqSlot
  *              unsigned int VicIntSouce
- *
  * Return: void
- *
  * Description:  Init vectored interrupts
- *
  *************************************************************************/
 void VIC_SetVectoredIRQ(void(*pIRQSub)(), unsigned int Priority,
                         unsigned int VicIntSource)
@@ -123,10 +103,8 @@ unsigned long volatile *pReg;
  * Function Name: InitClock
  * Parameters: void
  * Return: void
- *
  * Description: Initialize PLL and clocks' dividers. Hclk - 288MHz,
  * Cclk- 72MHz, Usbclk - 48MHz
- *
  *************************************************************************/
 void InitClock(void)
 {
@@ -184,9 +162,7 @@ void InitClock(void)
  * Function Name: SYS_GetFsclk
  * Parameters: none
  * Return: Int32U
- *
  * Description: return Sclk [Hz]
- *
  *************************************************************************/
 Int32U SYS_GetFsclk(void)
 {
@@ -224,9 +200,7 @@ Int32U Mul = 1, Div = 1, Osc, Fsclk;
  * Function Name: SYS_GetFpclk
  * Parameters: Int32U Periphery
  * Return: Int32U
- *
  * Description: return Pclk [Hz]
- *
  *************************************************************************/
 Int32U SYS_GetFpclk(Int32U Periphery)
 {
@@ -256,9 +230,7 @@ pInt32U pReg = (pInt32U)((Periphery < 32)?&PCLKSEL0:&PCLKSEL1);
  * Function Name: GpioInit
  * Parameters: void
  * Return: void
- *
  * Description: Reset all GPIO pins to default: primary function
- *
  *************************************************************************/
 void GpioInit(void)
 {

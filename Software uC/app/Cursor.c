@@ -1,6 +1,7 @@
 #include "Cursor.h"
 
 #pragma data_alignment=4
+
 const unsigned char Cursor[(CURSOR_H_SIZE/4)*CURSOR_H_SIZE] = 
 {
 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170,
@@ -68,3 +69,4 @@ const unsigned char Cursor[(CURSOR_H_SIZE/4)*CURSOR_H_SIZE] =
 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170,
 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170, 170,
 };
+

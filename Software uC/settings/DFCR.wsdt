@@ -16,20 +16,20 @@
           
           
           
-        <Column0>261</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>150</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
         
         
         
-      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>921</ColumnWidth1><ColumnWidth2>245</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>529</ColumnWidth1><ColumnWidth2>451</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
       <TerminalIO/>
     </Static>
     <Windows>
       
       
-    <Wnd0>
+    <Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-28008-975</Identity>
@@ -37,11 +37,11 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>DFCR</ExpandedNode><ExpandedNode>DFCR/Output</ExpandedNode><ExpandedNode>DFCR/app</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>DFCR</ExpandedNode><ExpandedNode>DFCR/Modules</ExpandedNode><ExpandedNode>DFCR/Output</ExpandedNode><ExpandedNode>DFCR/app</ExpandedNode><ExpandedNode>DFCR/board</ExpandedNode><ExpandedNode>DFCR/config</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
         <Tabs>
           <Tab>
             <Identity>TabID-5988-978</Identity>
@@ -57,20 +57,20 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>1</SelectedTab></Wnd1></Windows>
+      <SelectedTab>1</SelectedTab></Wnd3></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>8</YPos2><SelStart2>338</SelStart2><SelEnd2>338</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\ADC.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>36</YPos2><SelStart2>2583</SelStart2><SelEnd2>2583</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\logo.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>950780</SelStart2><SelEnd2>950780</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\Cursor.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>5306</SelStart2><SelEnd2>5306</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\board\sys.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>7206</SelStart2><SelEnd2>7206</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\smb380_drv.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>32</YPos2><SelStart2>1494</SelStart2><SelEnd2>1494</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_glcd.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>612</YPos2><SelStart2>18741</SelStart2><SelEnd2>18741</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-053DB320><key>iaridepm.enu1</key></Toolbar-053DB320></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>864</Bottom><Right>335</Right><x>-2</x><y>-2</y><xscreen>221</xscreen><yscreen>220</yscreen><sizeHorzCX>115104</sizeHorzCX><sizeHorzCY>195209</sizeHorzCY><sizeVertCX>175521</sizeVertCX><sizeVertCY>768412</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>218</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>220</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>195209</sizeHorzCY><sizeVertCX>115104</sizeVertCX><sizeVertCY>195209</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-04B2E0A8><key>iaridepm.enu1</key></Toolbar-04B2E0A8></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>539</Bottom><Right>224</Right><x>-2</x><y>-2</y><xscreen>148</xscreen><yscreen>142</yscreen><sizeHorzCX>114907</sizeHorzCX><sizeHorzCY>195862</sizeHorzCY><sizeVertCX>175466</sizeVertCX><sizeVertCY>746207</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>141</Bottom><Right>1290</Right><x>-2</x><y>-2</y><xscreen>1292</xscreen><yscreen>143</yscreen><sizeHorzCX>1003106</sizeHorzCX><sizeHorzCY>197241</sizeHorzCY><sizeVertCX>114907</sizeVertCX><sizeVertCY>195862</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

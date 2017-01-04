@@ -19,7 +19,7 @@
           
           
           
-        <Column0>197</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>214</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Disassembly>
         <col-names>
@@ -39,7 +39,7 @@
       
       
       
-    <Wnd3>
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-17552-1171</Identity>
@@ -55,7 +55,7 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd3><Wnd4>
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-28301-1174</Identity>
@@ -63,11 +63,11 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>DFCR</ExpandedNode><ExpandedNode>DFCR/Output</ExpandedNode><ExpandedNode>DFCR/Output/LCD_Demo.out</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>DFCR</ExpandedNode><ExpandedNode>DFCR/board</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd4><Wnd5>
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-6281-1177</Identity>
@@ -77,20 +77,20 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd5></Windows>
+      <SelectedTab>0</SelectedTab></Wnd2></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>8</YPos2><SelStart2>2925</SelStart2><SelEnd2>2925</SelEnd2></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>36</YPos2><SelStart2>2583</SelStart2><SelEnd2>2583</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\logo.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>950780</SelStart2><SelEnd2>950780</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\Cursor.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>5306</SelStart2><SelEnd2>5306</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\board\sys.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>7206</SelStart2><SelEnd2>7206</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\smb380_drv.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>32</YPos2><SelStart2>1494</SelStart2><SelEnd2>1494</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_glcd.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>612</YPos2><SelStart2>18741</SelStart2><SelEnd2>18741</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-0453E0B8><key>iaridepm.enu1</key></Toolbar-0453E0B8></Sizes></Row0><Row1><Sizes><Toolbar-08F8E9F8><key>debuggergui.enu1</key></Toolbar-08F8E9F8></Sizes></Row1><Row2><Sizes><Toolbar-08F8D1C0><key>armjlink2.enu1</key></Toolbar-08F8D1C0></Sizes></Row2></Top><Left><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>434</Bottom><Right>288</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>155280</sizeHorzCX><sizeHorzCY>275862</sizeHorzCY><sizeVertCX>225155</sizeVertCX><sizeVertCY>601379</sizeVertCY></Rect></Wnd4></Sizes></Row0></Left><Right><Row0><Sizes><Wnd5><Rect><Top>-2</Top><Left>-2</Left><Bottom>434</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>155280</sizeHorzCX><sizeHorzCY>275862</sizeHorzCY><sizeVertCX>155280</sizeVertCX><sizeVertCY>601379</sizeVertCY></Rect></Wnd5></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1290</Right><x>-2</x><y>-2</y><xscreen>1292</xscreen><yscreen>200</yscreen><sizeHorzCX>1003106</sizeHorzCX><sizeHorzCY>275862</sizeHorzCY><sizeVertCX>155280</sizeVertCX><sizeVertCY>275862</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-04B2E0A8><key>iaridepm.enu1</key></Toolbar-04B2E0A8></Sizes></Row0><Row1><Sizes><Toolbar-10D50CF8><key>debuggergui.enu1</key></Toolbar-10D50CF8></Sizes></Row1><Row2><Sizes><Toolbar-10D511A8><key>armjlink2.enu1</key></Toolbar-10D511A8></Sizes></Row2></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>434</Bottom><Right>288</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>155280</sizeHorzCX><sizeHorzCY>275862</sizeHorzCY><sizeVertCX>225155</sizeVertCX><sizeVertCY>601379</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>434</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>155280</sizeHorzCX><sizeHorzCY>275862</sizeHorzCY><sizeVertCX>155280</sizeVertCX><sizeVertCY>601379</sizeVertCY></Rect></Wnd2></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1290</Right><x>-2</x><y>-2</y><xscreen>1292</xscreen><yscreen>200</yscreen><sizeHorzCX>1003106</sizeHorzCX><sizeHorzCY>275862</sizeHorzCY><sizeVertCX>155280</sizeVertCX><sizeVertCY>275862</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Project>
 

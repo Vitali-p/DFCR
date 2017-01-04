@@ -1,19 +1,10 @@
 /*************************************************************************
- *
-*    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2008
- *
  *    File name   : drv_glcd.c
  *    Description : Graphical LCD driver
  *
- *    History :
- *    1. Date        : 6, March 2008
- *       Author      : Stanimir Bonev
- *       Description : Create
- *
- *
- *    $Revision: 28 $
+ *       Date        : 
+ *       Author      : 
+ *       Description :
  **************************************************************************/
 
 #include <stdio.h>
@@ -55,11 +46,8 @@ static pInt32U pPix;
 /*************************************************************************
  * Function Name: GLCD_Cursor_Cnfg
  * Parameters:
- *
  * Return: none
- *
  * Description: Configure the cursor
- *
  *************************************************************************/
 void GLCD_Cursor_Cfg(int Cfg)
 {
@@ -68,11 +56,8 @@ void GLCD_Cursor_Cfg(int Cfg)
 /*************************************************************************
  * Function Name: GLCD_Cursor_En
  * Parameters: cursor - Cursor Number
- *
  * Return: none
- *
  * Description: Enable Cursor
- *
  *************************************************************************/
 void GLCD_Cursor_En(int cursor)
 {
@@ -83,11 +68,8 @@ void GLCD_Cursor_En(int cursor)
 /*************************************************************************
  * Function Name: GLCD_Cursor_Dis
  * Parameters: None
- *
  * Return: none
- *
  * Description: Disable Cursor
- *
  *************************************************************************/
 void GLCD_Cursor_Dis(int cursor)
 {
@@ -100,9 +82,7 @@ void GLCD_Cursor_Dis(int cursor)
  *             y - cursor y position
  *
  * Return: none
- *
  * Description: Moves cursor on position (x,y). Negativ values are posible.
- *
  *************************************************************************/
 void GLCD_Move_Cursor(int x, int y)
 {
@@ -136,9 +116,7 @@ void GLCD_Move_Cursor(int x, int y)
  *                      for 64x64(size 256) pix cursor always use 0
  *             size - cursor size in words
  * Return: none
- *
  * Description: Copy Cursor from const image to LCD RAM image
- *
  *************************************************************************/
 void GLCD_Copy_Cursor (const Int32U *pCursor, int cursor, int size)
 {
@@ -150,11 +128,8 @@ void GLCD_Copy_Cursor (const Int32U *pCursor, int cursor, int size)
 /*************************************************************************
  * Function Name: GLCD_Init
  * Parameters: const Int32U *pPain, const Int32U * pPallete
- *
  * Return: none
- *
  * Description: GLCD controller init
- *
  *************************************************************************/
 void GLCD_Init (const Int32U *pPain, const Int32U * pPallete)
 {
@@ -241,11 +216,8 @@ pInt32U pDst = (pInt32U) LCD_VRAM_BASE_ADDR;
 /*************************************************************************
  * Function Name: GLCD_SetPallet
  * Parameters: const Int32U * pPallete
- *
  * Return: none
- *
  * Description: GLCD init colour pallete
- *
  *************************************************************************/
 void GLCD_SetPallet (const Int32U * pPallete)
 {
@@ -260,11 +232,8 @@ pInt32U pDst = (pInt32U)LCD_PAL_BASE;
 /*************************************************************************
  * Function Name: GLCD_Ctrl
  * Parameters: Boolean bEna
- *
  * Return: none
- *
  * Description: GLCD enable disabe sequence
- *
  *************************************************************************/
 void GLCD_Ctrl (Boolean bEna)
 {

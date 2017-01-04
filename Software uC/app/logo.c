@@ -1,20 +1,13 @@
 /*************************************************************************
- *
- *    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2008
- *
- *    File name   : logo.c
- *    Description : Logos picture
- *
- *    History :
- *    1. Date        : 7, March 2008
- *       Author      : Stanimir Bonev
- *       Description : Create
- *
- *    $Revision: 28 $
+ *     File name   : logo.c
+ *     Description : Logos picture
+
+ *       Date        : 
+ *       Author      : 
+ *       Description : 
  **************************************************************************/
 #include "logo.h"
+   
 
 const Int32U LogoStream[] =
 {
@@ -9622,6 +9615,7 @@ const Int32U LogoStream[] =
 
 Bmp_t LogoPic =
 {
+
   320,
   240,
   24,
