@@ -180,7 +180,9 @@ ShowTiming=1
 [Disassemble mode]
 mode=0
 [Breakpoints2]
-Count=0
+Bp0=_ 0 "EMUL_DATA" "VIC_AD0" 0 0 0 0 4294967295
+Count=1
 [Aliases]
-Count=0
+A0=_ "C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\sdram_64M_32bit_drv.c" ""
+Count=1
 SuppressDialog=0
