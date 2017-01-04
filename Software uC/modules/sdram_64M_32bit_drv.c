@@ -2,6 +2,7 @@
  *    File name   : sdram_64M_32bit_drv.c
  *    Description : SDRAM driver K4S561632E-TC(L)75 16MBx16bitx2
  *
+ *    History :
  *       Date        : 
  *       Author      : 
  *       Description : 
@@ -44,8 +45,11 @@ extern Int32U SDRAM_BASE_ADDR;
 /*************************************************************************
  * Function Name: SDRAM_Init
  * Parameters: none
+ *
  * Return: none
+ *
  * Description: SDRAM controller and memory init
+ *
  *************************************************************************/
 void SDRAM_Init (void)
 {

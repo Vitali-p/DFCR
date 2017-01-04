@@ -1,10 +1,19 @@
 /*************************************************************************
+ *
+*    Used with ICCARM and AARM.
+ *
+ *    (c) Copyright IAR Systems 2007
+ *
  *    File name   : smb380_drv.c
  *    Description : SMB380 acceleration sensor driver (I2C data mode)
  *
- *       Date        : 
- *       Author      : 
- *       Description : 
+ *    History :
+ *    1. Date        : 13, February 2008
+ *       Author      : Stanimir Bonev
+ *       Description : Create
+ *
+ *
+ *    $Revision: 28 $
  **************************************************************************/
 #include "smb380_drv.h"
 #include "i2c0_drv.h"
@@ -12,8 +21,11 @@
 /*************************************************************************
  * Function Name: SMB380_Init
  * Parameters: none
+ *
  * Return: SMB380_Status_t
+ *
  * Description: SMB380 init
+ *
  *************************************************************************/
 SMB380_Status_t SMB380_Init(void)
 {
@@ -25,8 +37,11 @@ SMB380_Status_t SMB380_Init(void)
 /*************************************************************************
  * Function Name: SMB380_GetID
  * Parameters: none
+ *
  * Return: SMB380_Status_t
+ *
  * Description: SMB380 get chip ID and revision
+ *
  *************************************************************************/
 SMB380_Status_t SMB380_GetID (pInt8U pChipId, pInt8U pRevision)
 {
@@ -44,8 +59,11 @@ unsigned char buf[2] = {SMB380_CHIP_ID};
 /*************************************************************************
  * Function Name: SMB380_Init
  * Parameters: none
+ *
  * Return: SMB380_Status_t
+ *
  * Description: SMB380 init
+ *
  *************************************************************************/
 SMB380_Status_t SMB380_GetData (pSMB380_Data_t pData)
 {

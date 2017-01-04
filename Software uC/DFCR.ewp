@@ -1945,10 +1945,22 @@
       <name>$PROJ_DIR$\app\Cursor.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\app\DAC.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\DAC.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\app\logo.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\app\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Timer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Timer.h</name>
     </file>
   </group>
   <group>
