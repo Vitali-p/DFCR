@@ -13,7 +13,10 @@
  * Return: none
  * Description: Initiazion Digital to Analog Converter
  *************************************************************************/
-void DACInit(){
-
+void DACInit(ADC_value){
+  
+  DAC_value = (ADC_value/1024)*230);
+  
+    
   
 }
