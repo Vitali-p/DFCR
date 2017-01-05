@@ -6,4 +6,4 @@
  *       Author      : Vitali Parolia
  *       Description : DAC header.
  */
-void DACInit(ADC_value);
+//void DACInit(ADC_value);

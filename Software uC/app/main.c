@@ -4,18 +4,26 @@
 #include "sys.h"
 #include "ADC.h"
 #include <stdbool.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
 //#include "sdram_64M_32bit_drv.h"
 
 #include "smb380_drv.h"
 #include "Timer.h"
 
+#define LenCircReg 2000
+#define fs 20000
+
+
 Int32U _ADCVal;
 Int32U _ADCStatus;
 Int32U _regCount = 0;
-Int32U _waveForm[1000];
+Int32U _waveForm[LenCircReg];
 Boolean CountFlag = false;
 Int32U _NumberOfCrossings = 0;
 Int32U _Debugvar = 0;
+float LOWfilterWave[LenCircReg];
 
 #define NONPROT 0xFFFFFFFF
 #define CRP1  	0x12345678
@@ -52,6 +60,20 @@ void Timer0IntrHandler (void)
 //   _ADCStatus = ADSTAT;
  }
 
+//Filter
+void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate)
+{
+	float fc = 50; //frequency
+	float dt = 0.0001; //delta t maybe "1/sample rate"
+	float RC = 1/(2*3.1415*fc); //RC
+	float alpha = dt/(RC+dt); //alpha
+	
+	for(Int32U ii = 1; ii <= LenCircReg-1; ii++)
+	{
+	   LOWfilterWave[ii] = (alpha*input[ii]) + (1-alpha)*LOWfilterWave[ii-1];
+	}      
+}
+
 int main(void)
 {
   // Init GPIO
@@ -72,7 +94,7 @@ int main(void)
   USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
 
   //Timer init ---
-  Timer0Init(10000);
+  Timer0Init(fs);
   
   //Init timer 0 interrupt:
   VIC_SetVectoredIRQ(Timer0IntrHandler,0,VIC_TIMER0);
@@ -82,10 +104,14 @@ int main(void)
   while(1){
     if(CountFlag == true){
       _NumberOfCrossings = 0;
-      for (Int32U ii = 1; ii <= 999; ii++){
+      for (Int32U ii = 1; ii <= LenCircReg-1; ii++){
         
-        if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
-        _NumberOfCrossings++;
+        lowPassFilter(_waveForm, LenCircReg, fs);
+        
+        
+        //if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
+        if(((Int32U)LOWfilterWave[ii]<511)^((Int32U)LOWfilterWave[ii + 1]<511)){
+          _NumberOfCrossings++;
         }
       }
       CountFlag = false;
