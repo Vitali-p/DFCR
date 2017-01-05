@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.80.3.12102/W32 for ARM                04/Jan/2017  17:31:35
+# IAR ELF Linker V7.80.3.12102/W32 for ARM                05/Jan/2017  13:15:21
 # Copyright 2007-2016 IAR Systems AB.
 #
 #    Output file  =  
@@ -55,212 +55,215 @@ __SystemLibrary = DLib
 do not initialize { section .noinit };
 initialize by copy { rw };
 
-  Section            Kind        Address   Size  Object
-  -------            ----        -------   ----  ------
-"A0":                                      0x3c
-  .intvec            ro code  0x00000000   0x3c  cstartup.o [4]
-                            - 0x0000003c   0x3c
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0x3c
+  .intvec            ro code  0x00000000    0x3c  cstartup.o [4]
+                            - 0x0000003c    0x3c
 
-"P1", part 1 of 2:                          0x8
-  .rodata            const    0x0000003c    0x0  zero_init3.o [4]
-  .rodata            const    0x0000003c    0x0  copy_init3.o [4]
-  Initializer bytes  const    0x0000003c    0x8  <for P2 s0>
-                            - 0x00000044    0x8
+"P1", part 1 of 2:                           0x8
+  .rodata            const    0x0000003c     0x0  zero_init3.o [4]
+  .rodata            const    0x0000003c     0x0  copy_init3.o [4]
+  Initializer bytes  const    0x0000003c     0x8  <for P2 s0>
+                            - 0x00000044     0x8
 
-"P1", part 2 of 2:                        0xf20
-  .text              ro code  0x00000200  0x6ac  sys.o [1]
-  .text              ro code  0x000008ac  0x1a4  I32DivMod.o [4]
-  .text              ro code  0x00000a50    0x4  IntDivZer.o [4]
-  .text              ro code  0x00000a54  0x2e8  main.o [1]
-  .text              ro code  0x00000d3c  0x1e8  ADC.o [1]
-  .text              ro code  0x00000f24   0x58  cstartup.o [4]
-  Veneer             ro code  0x00000f7c    0xc  - Linker created -
-  .text              ro code  0x00000f88   0x2c  cmain.o [4]
-  .text              ro code  0x00000fb4    0x8  low_level_init.o [3]
-  .text              ro code  0x00000fbc   0x32  data_init.o [4]
-  .text              ro code  0x00000ff0    0x4  exit.o [3]
-  .text              ro code  0x00000ff4   0x20  exit.o [5]
-  .text              ro code  0x00001014   0x10  cexit.o [4]
-  .text              ro code  0x00001024   0x58  iarttio.o [5]
-  .text              ro code  0x0000107c    0xc  XShttio.o [3]
-  .text              ro code  0x00001088   0x3c  zero_init3.o [4]
-  .text              ro code  0x000010c4   0x30  copy_init3.o [4]
-  .iar.init_table    const    0x000010f4   0x24  - Linker created -
-  .text              ro code  0x00001118    0x4  vectortrap.o [4]
-  .text              ro code  0x0000111c    0x4  xreturnswi.o [5]
-                            - 0x00001120  0xf20
+"P1", part 2 of 2:                        0x1008
+  .text              ro code  0x00000200   0x6ac  sys.o [1]
+  .text              ro code  0x000008ac   0x1a4  I32DivMod.o [4]
+  .text              ro code  0x00000a50     0x4  IntDivZer.o [4]
+  .text              ro code  0x00000a54   0x3d0  main.o [1]
+  .text              ro code  0x00000e24   0x1e8  ADC.o [1]
+  .text              ro code  0x0000100c    0x58  cstartup.o [4]
+  Veneer             ro code  0x00001064     0xc  - Linker created -
+  .text              ro code  0x00001070    0x2c  cmain.o [4]
+  .text              ro code  0x0000109c     0x8  low_level_init.o [3]
+  .text              ro code  0x000010a4    0x32  data_init.o [4]
+  .text              ro code  0x000010d8     0x4  exit.o [3]
+  .text              ro code  0x000010dc    0x20  exit.o [5]
+  .text              ro code  0x000010fc    0x10  cexit.o [4]
+  .text              ro code  0x0000110c    0x58  iarttio.o [5]
+  .text              ro code  0x00001164     0xc  XShttio.o [3]
+  .text              ro code  0x00001170    0x3c  zero_init3.o [4]
+  .text              ro code  0x000011ac    0x30  copy_init3.o [4]
+  .iar.init_table    const    0x000011dc    0x24  - Linker created -
+  .text              ro code  0x00001200     0x4  vectortrap.o [4]
+  .text              ro code  0x00001204     0x4  xreturnswi.o [5]
+                            - 0x00001208  0x1008
 
-Absolute sections, part 1 of 32:            0x4
-  .noinit            uninit   0x3fffc000    0x4  sys.o [1]
-                            - 0x3fffc004    0x4
+Absolute sections, part 1 of 32:             0x4
+  .noinit            uninit   0x3fffc000     0x4  sys.o [1]
+                            - 0x3fffc004     0x4
 
-Absolute sections, part 2 of 32:            0x4
-  .noinit            uninit   0x3fffc010    0x4  sys.o [1]
-                            - 0x3fffc014    0x4
+Absolute sections, part 2 of 32:             0x4
+  .noinit            uninit   0x3fffc010     0x4  sys.o [1]
+                            - 0x3fffc014     0x4
 
-Absolute sections, part 3 of 32:            0x4
-  .noinit            uninit   0x3fffc020    0x4  sys.o [1]
-                            - 0x3fffc024    0x4
+Absolute sections, part 3 of 32:             0x4
+  .noinit            uninit   0x3fffc020     0x4  sys.o [1]
+                            - 0x3fffc024     0x4
 
-Absolute sections, part 4 of 32:            0xc
-  .noinit            uninit   0x3fffc030    0x4  sys.o [1]
-  .noinit            uninit   0x3fffc034    0x4  main.o [1]
-  .noinit            uninit   0x3fffc038    0x4  main.o [1]
-                            - 0x3fffc03c    0xc
+Absolute sections, part 4 of 32:             0xc
+  .noinit            uninit   0x3fffc030     0x4  sys.o [1]
+  .noinit            uninit   0x3fffc034     0x4  main.o [1]
+  .noinit            uninit   0x3fffc038     0x4  main.o [1]
+                            - 0x3fffc03c     0xc
 
-Absolute sections, part 5 of 32:            0x4
-  .noinit            uninit   0x3fffc040    0x4  sys.o [1]
-                            - 0x3fffc044    0x4
+Absolute sections, part 5 of 32:             0x4
+  .noinit            uninit   0x3fffc040     0x4  sys.o [1]
+                            - 0x3fffc044     0x4
 
-Absolute sections, part 6 of 32:            0x4
-  .noinit            uninit   0x3fffc050    0x4  sys.o [1]
-                            - 0x3fffc054    0x4
+Absolute sections, part 6 of 32:             0x4
+  .noinit            uninit   0x3fffc050     0x4  sys.o [1]
+                            - 0x3fffc054     0x4
 
-Absolute sections, part 7 of 32:            0x4
-  .noinit            uninit   0x3fffc060    0x4  sys.o [1]
-                            - 0x3fffc064    0x4
+Absolute sections, part 7 of 32:             0x4
+  .noinit            uninit   0x3fffc060     0x4  sys.o [1]
+                            - 0x3fffc064     0x4
 
-Absolute sections, part 8 of 32:            0x4
-  .noinit            uninit   0x3fffc070    0x4  sys.o [1]
-                            - 0x3fffc074    0x4
+Absolute sections, part 8 of 32:             0x4
+  .noinit            uninit   0x3fffc070     0x4  sys.o [1]
+                            - 0x3fffc074     0x4
 
-Absolute sections, part 9 of 32:            0x4
-  .noinit            uninit   0x3fffc080    0x4  sys.o [1]
-                            - 0x3fffc084    0x4
+Absolute sections, part 9 of 32:             0x4
+  .noinit            uninit   0x3fffc080     0x4  sys.o [1]
+                            - 0x3fffc084     0x4
 
-Absolute sections, part 10 of 32:           0x4
-  .noinit            uninit   0x3fffc090    0x4  sys.o [1]
-                            - 0x3fffc094    0x4
+Absolute sections, part 10 of 32:            0x4
+  .noinit            uninit   0x3fffc090     0x4  sys.o [1]
+                            - 0x3fffc094     0x4
 
-"P2", part 1 of 3:                          0x8
-  P2 s0                       0x40000120    0x8  <Init block>
-    .data            inited   0x40000120    0x8  XShttio.o [3]
-                            - 0x40000128    0x8
+"P2", part 1 of 3:                           0x8
+  P2 s0                       0x40000120     0x8  <Init block>
+    .data            inited   0x40000120     0x8  XShttio.o [3]
+                            - 0x40000128     0x8
 
-"P2", part 2 of 3:                        0xfa8
-  .bss               zero     0x40000128  0xfa0  main.o [1]
-  .bss               zero     0x400010c8    0x4  main.o [1]
-  .bss               zero     0x400010cc    0x4  main.o [1]
-                            - 0x400010d0  0xfa8
+"P2", part 2 of 3:                         0xfb4
+  .bss               zero     0x40000128   0xfa0  main.o [1]
+  .bss               zero     0x400010c8     0x4  main.o [1]
+  .bss               zero     0x400010cc     0x4  main.o [1]
+  .bss               zero     0x400010d0     0x4  main.o [1]
+  .bss               zero     0x400010d4     0x4  main.o [1]
+  .bss               zero     0x400010d8     0x4  main.o [1]
+                            - 0x400010dc   0xfb4
 
-"P2", part 3 of 3:                        0x840
-  CSTACK                      0x400010d0  0x400  <Block>
-    CSTACK           uninit   0x400010d0  0x400  <Block tail>
-  IRQ_STACK                   0x400014d0  0x400  <Block>
-    IRQ_STACK        uninit   0x400014d0  0x400  <Block tail>
-  FIQ_STACK                   0x400018d0   0x40  <Block>
-    FIQ_STACK        uninit   0x400018d0   0x40  <Block tail>
-                            - 0x40001910  0x840
+"P2", part 3 of 3:                         0x840
+  CSTACK                      0x400010e0   0x400  <Block>
+    CSTACK           uninit   0x400010e0   0x400  <Block tail>
+  IRQ_STACK                   0x400014e0   0x400  <Block>
+    IRQ_STACK        uninit   0x400014e0   0x400  <Block tail>
+  FIQ_STACK                   0x400018e0    0x40  <Block>
+    FIQ_STACK        uninit   0x400018e0    0x40  <Block tail>
+                            - 0x40001920   0x840
 
-Absolute sections, part 11 of 32:           0x8
-  .noinit            uninit   0xe0004000    0x4  main.o [1]
-  .noinit            uninit   0xe0004004    0x4  main.o [1]
-                            - 0xe0004008    0x8
+Absolute sections, part 11 of 32:            0x8
+  .noinit            uninit   0xe0004000     0x4  main.o [1]
+  .noinit            uninit   0xe0004004     0x4  main.o [1]
+                            - 0xe0004008     0x8
 
-Absolute sections, part 12 of 32:           0x4
-  .noinit            uninit   0xe000400c    0x4  main.o [1]
-                            - 0xe0004010    0x4
+Absolute sections, part 12 of 32:            0x4
+  .noinit            uninit   0xe000400c     0x4  main.o [1]
+                            - 0xe0004010     0x4
 
-Absolute sections, part 13 of 32:           0x8
-  .noinit            uninit   0xe0004014    0x4  main.o [1]
-  .noinit            uninit   0xe0004018    0x4  main.o [1]
-                            - 0xe000401c    0x8
+Absolute sections, part 13 of 32:            0x8
+  .noinit            uninit   0xe0004014     0x4  main.o [1]
+  .noinit            uninit   0xe0004018     0x4  main.o [1]
+                            - 0xe000401c     0x8
 
-Absolute sections, part 14 of 32:           0x4
-  .noinit            uninit   0xe0004070    0x4  main.o [1]
-                            - 0xe0004074    0x4
+Absolute sections, part 14 of 32:            0x4
+  .noinit            uninit   0xe0004070     0x4  main.o [1]
+                            - 0xe0004074     0x4
 
-Absolute sections, part 15 of 32:           0x4
-  .noinit            uninit   0xe0028008    0x4  sys.o [1]
-                            - 0xe002800c    0x4
+Absolute sections, part 15 of 32:            0x4
+  .noinit            uninit   0xe0028008     0x4  sys.o [1]
+                            - 0xe002800c     0x4
 
-Absolute sections, part 16 of 32:           0x4
-  .noinit            uninit   0xe0028018    0x4  sys.o [1]
-                            - 0xe002801c    0x4
+Absolute sections, part 16 of 32:            0x4
+  .noinit            uninit   0xe0028018     0x4  sys.o [1]
+                            - 0xe002801c     0x4
 
-Absolute sections, part 17 of 32:          0x28
-  .noinit            uninit   0xe002c000    0x4  sys.o [1]
-  .noinit            uninit   0xe002c004    0x4  sys.o [1]
-  .noinit            uninit   0xe002c008    0x4  sys.o [1]
-  .noinit            uninit   0xe002c00c    0x4  sys.o [1]
-  .noinit            uninit   0xe002c010    0x4  sys.o [1]
-  .noinit            uninit   0xe002c014    0x4  sys.o [1]
-  .noinit            uninit   0xe002c018    0x4  sys.o [1]
-  .noinit            uninit   0xe002c01c    0x4  sys.o [1]
-  .noinit            uninit   0xe002c020    0x4  sys.o [1]
-  .noinit            uninit   0xe002c024    0x4  sys.o [1]
-                            - 0xe002c028   0x28
+Absolute sections, part 17 of 32:           0x28
+  .noinit            uninit   0xe002c000     0x4  sys.o [1]
+  .noinit            uninit   0xe002c004     0x4  sys.o [1]
+  .noinit            uninit   0xe002c008     0x4  sys.o [1]
+  .noinit            uninit   0xe002c00c     0x4  sys.o [1]
+  .noinit            uninit   0xe002c010     0x4  sys.o [1]
+  .noinit            uninit   0xe002c014     0x4  sys.o [1]
+  .noinit            uninit   0xe002c018     0x4  sys.o [1]
+  .noinit            uninit   0xe002c01c     0x4  sys.o [1]
+  .noinit            uninit   0xe002c020     0x4  sys.o [1]
+  .noinit            uninit   0xe002c024     0x4  sys.o [1]
+                            - 0xe002c028    0x28
 
-Absolute sections, part 18 of 32:           0x4
-  .noinit            uninit   0xe002c044    0x4  ADC.o [1]
-                            - 0xe002c048    0x4
+Absolute sections, part 18 of 32:            0x4
+  .noinit            uninit   0xe002c044     0x4  ADC.o [1]
+                            - 0xe002c048     0x4
 
-Absolute sections, part 19 of 32:           0x8
-  .noinit            uninit   0xe0034000    0x4  ADC.o [1]
-  .noinit            uninit   0xe0034004    0x4  main.o [1]
-                            - 0xe0034008    0x8
+Absolute sections, part 19 of 32:            0x8
+  .noinit            uninit   0xe0034000     0x4  ADC.o [1]
+  .noinit            uninit   0xe0034004     0x4  main.o [1]
+                            - 0xe0034008     0x8
 
-Absolute sections, part 20 of 32:           0x4
-  .noinit            uninit   0xe003400c    0x4  ADC.o [1]
-                            - 0xe0034010    0x4
+Absolute sections, part 20 of 32:            0x4
+  .noinit            uninit   0xe003400c     0x4  ADC.o [1]
+                            - 0xe0034010     0x4
 
-Absolute sections, part 21 of 32:           0x8
-  .noinit            uninit   0xe01fc000    0x4  main.o [1]
-  .noinit            uninit   0xe01fc004    0x4  main.o [1]
-                            - 0xe01fc008    0x8
+Absolute sections, part 21 of 32:            0x8
+  .noinit            uninit   0xe01fc000     0x4  main.o [1]
+  .noinit            uninit   0xe01fc004     0x4  main.o [1]
+                            - 0xe01fc008     0x8
 
-Absolute sections, part 22 of 32:          0x10
-  .noinit            uninit   0xe01fc080    0x4  sys.o [1]
-  .noinit            uninit   0xe01fc084    0x4  sys.o [1]
-  .noinit            uninit   0xe01fc088    0x4  sys.o [1]
-  .noinit            uninit   0xe01fc08c    0x4  sys.o [1]
-                            - 0xe01fc090   0x10
+Absolute sections, part 22 of 32:           0x10
+  .noinit            uninit   0xe01fc080     0x4  sys.o [1]
+  .noinit            uninit   0xe01fc084     0x4  sys.o [1]
+  .noinit            uninit   0xe01fc088     0x4  sys.o [1]
+  .noinit            uninit   0xe01fc08c     0x4  sys.o [1]
+                            - 0xe01fc090    0x10
 
-Absolute sections, part 23 of 32:           0x4
-  .noinit            uninit   0xe01fc0c4    0x4  sys.o [1]
-                            - 0xe01fc0c8    0x4
+Absolute sections, part 23 of 32:            0x4
+  .noinit            uninit   0xe01fc0c4     0x4  sys.o [1]
+                            - 0xe01fc0c8     0x4
 
-Absolute sections, part 24 of 32:           0xc
-  .noinit            uninit   0xe01fc104    0x4  sys.o [1]
-  .noinit            uninit   0xe01fc108    0x4  sys.o [1]
-  .noinit            uninit   0xe01fc10c    0x4  sys.o [1]
-                            - 0xe01fc110    0xc
+Absolute sections, part 24 of 32:            0xc
+  .noinit            uninit   0xe01fc104     0x4  sys.o [1]
+  .noinit            uninit   0xe01fc108     0x4  sys.o [1]
+  .noinit            uninit   0xe01fc10c     0x4  sys.o [1]
+                            - 0xe01fc110     0xc
 
-Absolute sections, part 25 of 32:           0x4
-  .noinit            uninit   0xe01fc188    0x4  sys.o [1]
-                            - 0xe01fc18c    0x4
+Absolute sections, part 25 of 32:            0x4
+  .noinit            uninit   0xe01fc188     0x4  sys.o [1]
+                            - 0xe01fc18c     0x4
 
-Absolute sections, part 26 of 32:           0x4
-  .noinit            uninit   0xe01fc1a0    0x4  sys.o [1]
-                            - 0xe01fc1a4    0x4
+Absolute sections, part 26 of 32:            0x4
+  .noinit            uninit   0xe01fc1a0     0x4  sys.o [1]
+                            - 0xe01fc1a4     0x4
 
-Absolute sections, part 27 of 32:           0x8
-  .noinit            uninit   0xe01fc1a8    0x4  sys.o [1]
-  .noinit            uninit   0xe01fc1ac    0x4  sys.o [1]
-                            - 0xe01fc1b0    0x8
+Absolute sections, part 27 of 32:            0x8
+  .noinit            uninit   0xe01fc1a8     0x4  sys.o [1]
+  .noinit            uninit   0xe01fc1ac     0x4  sys.o [1]
+                            - 0xe01fc1b0     0x8
 
-Absolute sections, part 28 of 32:           0xc
-  .noinit            uninit   0xfffff00c    0x4  sys.o [1]
-  .noinit            uninit   0xfffff010    0x4  main.o [1]
-  .noinit            uninit   0xfffff014    0x4  sys.o [1]
-                            - 0xfffff018    0xc
+Absolute sections, part 28 of 32:            0xc
+  .noinit            uninit   0xfffff00c     0x4  sys.o [1]
+  .noinit            uninit   0xfffff010     0x4  main.o [1]
+  .noinit            uninit   0xfffff014     0x4  sys.o [1]
+                            - 0xfffff018     0xc
 
-Absolute sections, part 29 of 32:           0x8
-  .noinit            uninit   0xfffff01c    0x4  sys.o [1]
-  .noinit            uninit   0xfffff020    0x4  sys.o [1]
-                            - 0xfffff024    0x8
+Absolute sections, part 29 of 32:            0x8
+  .noinit            uninit   0xfffff01c     0x4  sys.o [1]
+  .noinit            uninit   0xfffff020     0x4  sys.o [1]
+                            - 0xfffff024     0x8
 
-Absolute sections, part 30 of 32:           0x4
-  .noinit            uninit   0xfffff100    0x4  sys.o [1]
-                            - 0xfffff104    0x4
+Absolute sections, part 30 of 32:            0x4
+  .noinit            uninit   0xfffff100     0x4  sys.o [1]
+                            - 0xfffff104     0x4
 
-Absolute sections, part 31 of 32:           0x4
-  .noinit            uninit   0xfffff200    0x4  sys.o [1]
-                            - 0xfffff204    0x4
+Absolute sections, part 31 of 32:            0x4
+  .noinit            uninit   0xfffff200     0x4  sys.o [1]
+                            - 0xfffff204     0x4
 
-Absolute sections, part 32 of 32:           0x4
-  .noinit            uninit   0xffffff00    0x4  sys.o [1]
-                            - 0xffffff04    0x4
+Absolute sections, part 32 of 32:            0x4
+  .noinit            uninit   0xffffff00     0x4  sys.o [1]
+                            - 0xffffff04     0x4
 
 
 *******************************************************************************
@@ -270,8 +273,8 @@ Absolute sections, part 32 of 32:           0x4
           Address     Size
           -------     ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0xfa8:
-          0x40000128  0xfa8
+    1 destination range, total size 0xfb4:
+          0x40000128  0xfb4
 
 Copy (__iar_copy_init3)
     1 source range, total size 0x8:
@@ -290,10 +293,10 @@ Copy (__iar_copy_init3)
     ------            -------  -------  -------  -------
 C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj: [1]
     ADC.o                 488                         12
-    main.o                744             4 008       48
+    main.o                976             4 020       48
     sys.o               1 708                        164
     ----------------------------------------------------
-    Total:              2 940             4 008      224
+    Total:              3 172             4 020      224
 
 command line: [2]
     ----------------------------------------------------
@@ -329,7 +332,7 @@ shs_l.a: [5]
     Gaps                    2
     Linker created         12       36    2 112
 --------------------------------------------------------
-    Grand Total:        3 896       44    6 128      224
+    Grand Total:        4 128       44    6 140      224
 
 
 *******************************************************************************
@@ -338,33 +341,34 @@ shs_l.a: [5]
 
 Entry                      Address   Size  Type      Object
 -----                      -------   ----  ----      ------
-.iar.init_table$$Base   0x000010f4          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x00001118          --   Gb  - Linker created -
-?main                   0x00000f88         Code  Gb  cmain.o [4]
-AD0IntrHandler          0x00000c54    0x4  Code  Gb  main.o [1]
-Abort_Handler           0x00001118         Code  Wk  vectortrap.o [4]
-CSTACK$$Base            0x400010d0          --   Gb  - Linker created -
-CSTACK$$Limit           0x400014d0          --   Gb  - Linker created -
+.iar.init_table$$Base   0x000011dc          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00001200          --   Gb  - Linker created -
+?main                   0x00001070         Code  Gb  cmain.o [4]
+AD0IntrHandler          0x00000c44    0x4  Code  Gb  main.o [1]
+Abort_Handler           0x00001200         Code  Wk  vectortrap.o [4]
+CSTACK$$Base            0x400010e0          --   Gb  - Linker created -
+CSTACK$$Limit           0x400014e0          --   Gb  - Linker created -
+CountFlag               0x400010d0    0x4  Data  Gb  main.o [1]
 FIQ_Handler             0x00000200    0x4  Code  Gb  sys.o [1]
-FIQ_STACK$$Base         0x400018d0          --   Gb  - Linker created -
-FIQ_STACK$$Limit        0x40001910          --   Gb  - Linker created -
+FIQ_STACK$$Base         0x400018e0          --   Gb  - Linker created -
+FIQ_STACK$$Limit        0x40001920          --   Gb  - Linker created -
 GpioInit                0x00000704  0x15c  Code  Gb  sys.o [1]
 IRQ_Handler             0x00000204   0x3c  Code  Gb  sys.o [1]
-IRQ_STACK$$Base         0x400014d0          --   Gb  - Linker created -
-IRQ_STACK$$Limit        0x400018d0          --   Gb  - Linker created -
+IRQ_STACK$$Base         0x400014e0          --   Gb  - Linker created -
+IRQ_STACK$$Limit        0x400018e0          --   Gb  - Linker created -
 InitClock               0x0000032c  0x284  Code  Gb  sys.o [1]
-Prefetch_Handler        0x00001118         Code  Wk  vectortrap.o [4]
-Region$$Table$$Base     0x000010f4          --   Gb  - Linker created -
-Region$$Table$$Limit    0x00001118          --   Gb  - Linker created -
+Prefetch_Handler        0x00001200         Code  Wk  vectortrap.o [4]
+Region$$Table$$Base     0x000011dc          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00001200          --   Gb  - Linker created -
 SDRAM_BASE_ADDR {Abs}   0xa0000000         Data  Gb  command line/config [2]
-SWI_Handler             0x00001118         Code  Wk  vectortrap.o [4]
+SWI_Handler             0x00001200         Code  Wk  vectortrap.o [4]
 SYS_GetFpclk            0x00000694   0x70  Code  Gb  sys.o [1]
 SYS_GetFsclk            0x000005b0   0xe4  Code  Gb  sys.o [1]
 T0MR0                   0xe0004018    0x4  Data  Gb  main.o [1]
 T0PR                    0xe000400c    0x4  Data  Gb  main.o [1]
 Timer0Init              0x00000a54  0x134  Code  Gb  main.o [1]
-Timer0IntrHandler       0x00000b88   0xb0  Code  Gb  main.o [1]
-Undefined_Handler       0x00001118         Code  Wk  vectortrap.o [4]
+Timer0IntrHandler       0x00000b88   0xbc  Code  Gb  main.o [1]
+Undefined_Handler       0x00001200         Code  Wk  vectortrap.o [4]
 VICADDRESS              0xffffff00    0x4  Data  Gb  sys.o [1]
 VICVECTADDR0            0xfffff100    0x4  Data  Gb  sys.o [1]
 VIC_Init                0x00000240   0x94  Code  Gb  sys.o [1]
@@ -422,29 +426,31 @@ _A_VICINTSELECT         0xfffff00c    0x4  Data  Gb  sys.o [1]
 _A_VICPROTECTION        0xfffff020    0x4  Data  Gb  sys.o [1]
 _A_VICSOFTINTCLEAR      0xfffff01c    0x4  Data  Gb  sys.o [1]
 _A_VICVECTPRIORITY0     0xfffff200    0x4  Data  Gb  sys.o [1]
+_Debugvar               0x400010d8    0x4  Data  Gb  main.o [1]
+_NumberOfCrossings      0x400010d4    0x4  Data  Gb  main.o [1]
 __aeabi_idiv0           0x00000a50         Code  Gb  IntDivZer.o [4]
 __aeabi_uidiv           0x000008ac         Code  Gb  I32DivMod.o [4]
 __aeabi_uidivmod        0x000008ac         Code  Gb  I32DivMod.o [4]
-__cmain                 0x00000f88         Code  Gb  cmain.o [4]
-__exit                  0x00000ff4   0x20  Code  Gb  exit.o [5]
-__iar_close_ttio        0x00001024   0x58  Code  Gb  iarttio.o [5]
-__iar_copy_init3        0x000010c5   0x30  Code  Gb  copy_init3.o [4]
-__iar_data_init3        0x00000fbd   0x30  Code  Gb  data_init.o [4]
-__iar_lookup_ttioh      0x0000107c    0xc  Code  Gb  XShttio.o [3]
-__iar_program_start     0x00000f24         Code  Gb  cstartup.o [4]
-__iar_return_from_swi   0x0000111c    0x4  Code  Gb  xreturnswi.o [5]
+__cmain                 0x00001070         Code  Gb  cmain.o [4]
+__exit                  0x000010dc   0x20  Code  Gb  exit.o [5]
+__iar_close_ttio        0x0000110c   0x58  Code  Gb  iarttio.o [5]
+__iar_copy_init3        0x000011ad   0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x000010a5   0x30  Code  Gb  data_init.o [4]
+__iar_lookup_ttioh      0x00001164    0xc  Code  Gb  XShttio.o [3]
+__iar_program_start     0x0000100c         Code  Gb  cstartup.o [4]
+__iar_return_from_swi   0x00001204    0x4  Code  Gb  xreturnswi.o [5]
 __iar_ttio_handles      0x40000120    0x8  Data  Lc  XShttio.o [3]
-__iar_zero_init3        0x00001089   0x3c  Code  Gb  zero_init3.o [4]
-__low_level_init        0x00000fb4    0x8  Code  Gb  low_level_init.o [3]
+__iar_zero_init3        0x00001171   0x3c  Code  Gb  zero_init3.o [4]
+__low_level_init        0x0000109c    0x8  Code  Gb  low_level_init.o [3]
 __vector                0x00000000         Data  Gb  cstartup.o [4]
-_call_main              0x00000f9c         Code  Gb  cmain.o [4]
-_exit                   0x00001014         Code  Gb  cexit.o [4]
-_main                   0x00000fa4         Code  Gb  cmain.o [4]
+_call_main              0x00001084         Code  Gb  cmain.o [4]
+_exit                   0x000010fc         Code  Gb  cexit.o [4]
+_main                   0x0000108c         Code  Gb  cmain.o [4]
 _regCount               0x400010cc    0x4  Data  Gb  main.o [1]
 _waveForm               0x40000128  0xfa0  Data  Gb  main.o [1]
-exit                    0x00000ff0    0x4  Code  Gb  exit.o [3]
-initADC2                0x00000d3c  0x1d8  Code  Gb  ADC.o [1]
-main                    0x00000c58   0xe4  Code  Gb  main.o [1]
+exit                    0x000010d8    0x4  Code  Gb  exit.o [3]
+initADC2                0x00000e24  0x1d8  Code  Gb  ADC.o [1]
+main                    0x00000c48  0x1b4  Code  Gb  main.o [1]
 
 
 [1] = C:\Users\OZ7TDA\Documents\DFCR\Software uC\Flash Debug\Obj
@@ -453,9 +459,9 @@ main                    0x00000c58   0xe4  Code  Gb  main.o [1]
 [4] = rt4t_al.a
 [5] = shs_l.a
 
-  3 896 bytes of readonly  code memory
+  4 128 bytes of readonly  code memory
      44 bytes of readonly  data memory
-  6 128 bytes of readwrite data memory (+ 224 absolute)
+  6 140 bytes of readwrite data memory (+ 224 absolute)
 
 Errors: none
 Warnings: none
