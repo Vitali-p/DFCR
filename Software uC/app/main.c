@@ -65,7 +65,7 @@ int main(void)
   USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
 
   //Timer init ---
-  Timer0Init(50);
+  Timer0Init(1);
   
   //Init timer 0 interrupt:
   VIC_SetVectoredIRQ(Timer0IntrHandler,0,VIC_TIMER0);
