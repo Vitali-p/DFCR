@@ -13,8 +13,7 @@
 #include "Timer.h"
 
 #define LenCircReg 2000
-#define fs 20000
-
+#define fs 100
 
 Int32U _ADCVal;
 Int32U _ADCStatus;
@@ -24,6 +23,8 @@ Boolean CountFlag = false;
 Int32U _NumberOfCrossings = 0;
 Int32U _Debugvar = 0;
 float LOWfilterWave[LenCircReg];
+Boolean flip = false;
+
 
 #define NONPROT 0xFFFFFFFF
 #define CRP1  	0x12345678
@@ -40,6 +41,18 @@ float LOWfilterWave[LenCircReg];
  *************************************************************************/
 void Timer0IntrHandler (void)
 {
+  //PINSEL1_bit.P0_26 = 0;//!PINSEL1_bit.P0_26;
+  if(flip)
+  {
+    IO0SET_bit.P0_26 = 1;
+  }
+  else
+  {
+    IO0CLR_bit.P0_26 = 1;  
+  }
+  flip = !flip;
+  
+    
   USB_D_LINK_LED_FIO ^= USB_D_LINK_LED_MASK; // Toggle USB Link LED
   
   T0IR_bit.MR0INT = 1; // Clear the timer 0 interrupt.
@@ -78,6 +91,8 @@ int main(void)
 {
   // Init GPIO
   GpioInit();
+  //IO0PIN_bit.P0_26 = 1;
+  IO0DIR_bit.P0_26 = 1;
 
   // MAM init
   MAMCR_bit.MODECTRL = 0;
@@ -107,8 +122,7 @@ int main(void)
       for (Int32U ii = 1; ii <= LenCircReg-1; ii++){
         
         lowPassFilter(_waveForm, LenCircReg, fs);
-        
-        
+               
         //if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
         if(((Int32U)LOWfilterWave[ii]<511)^((Int32U)LOWfilterWave[ii + 1]<511)){
           _NumberOfCrossings++;
