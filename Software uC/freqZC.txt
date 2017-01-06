@@ -1,0 +1,10 @@
+//calc freq Zero cross
+void FreqZC(double Fs, double f)
+{
+//Fs = 8000;
+//f  = 350; %Frequency test
+signal= 0.9*sin(2*pi*f/Fs*(0:2048));
+ZCR = sum(abs(diff(sign(signal(:)))))/(2*length(signal));
+F0_ZC=(ZCR * length(signal) * Fs) / (2 * (length(signal)));
+return F0_ZC;
+}
