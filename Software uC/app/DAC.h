@@ -1,22 +1,9 @@
 /*************************************************************************
- *    File name   : DAC.c
- *    Description : Digital to analog converter main file.
+ *    File name   : DAC.h
+ *    Description : Digital to analog converter header file.
  *
  *       Date        : 04.11.2017
  *       Author      : Vitali Parolia
- *       Description : DAC init doc.
+ *       Description : DAC header.
  */
-
-/*************************************************************************
- * Function Name: DACInit
- * Parameters: none
- * Return: none
- * Description: Initiazion Digital to Analog Converter
- *************************************************************************/
-void DACInit(ADC_value){
-  
-  DAC_value = (ADC_value/1024)*230);
-  
-    
-  
-}
+//void DACInit(ADC_value);

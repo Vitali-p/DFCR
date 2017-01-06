@@ -8,12 +8,18 @@
 #include <stdlib.h>
 #include <string.h>
 //#include "sdram_64M_32bit_drv.h"
-
 #include "smb380_drv.h"
 #include "Timer.h"
+#include "Relay.h"
 
-#define LenCircReg 2000
-#define fs 100
+#define NONPROT 0xFFFFFFFF
+#define CRP1  	0x12345678
+#define CRP2  	0x87654321
+/*If CRP3 is selected, no future factory testing can be performed on the device*/
+#define CRP3  	0x43218765
+
+#define fs 10000
+#define LenCircReg 1000
 
 Int32U _ADCVal;
 Int32U _ADCStatus;
@@ -23,14 +29,7 @@ Boolean CountFlag = false;
 Int32U _NumberOfCrossings = 0;
 Int32U _Debugvar = 0;
 float LOWfilterWave[LenCircReg];
-Boolean flip = false;
-
-
-#define NONPROT 0xFFFFFFFF
-#define CRP1  	0x12345678
-#define CRP2  	0x87654321
-/*If CRP3 is selected, no future factory testing can be performed on the device*/
-#define CRP3  	0x43218765
+Boolean flip = true;
 
 
 /*************************************************************************
@@ -40,19 +39,16 @@ Boolean flip = false;
  * Description: Timer 0 interrupt handler
  *************************************************************************/
 void Timer0IntrHandler (void)
-{
-  //PINSEL1_bit.P0_26 = 0;//!PINSEL1_bit.P0_26;
-  if(flip)
-  {
-    IO0SET_bit.P0_26 = 1;
+{ 
+  // Test ports for relay, turn on and off.
+  if(flip){
+  RelayControl(51);
+  flip = false;
   }
-  else
-  {
-    IO0CLR_bit.P0_26 = 1;  
+  else{
+  RelayControl(49);
+  flip = true;
   }
-  flip = !flip;
-  
-    
   USB_D_LINK_LED_FIO ^= USB_D_LINK_LED_MASK; // Toggle USB Link LED
   
   T0IR_bit.MR0INT = 1; // Clear the timer 0 interrupt.
@@ -89,34 +85,42 @@ void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate)
 
 int main(void)
 {
-  // Init GPIO
+  // Init GPIO:
   GpioInit();
-  //IO0PIN_bit.P0_26 = 1;
-  IO0DIR_bit.P0_26 = 1;
+  
+  // Init Relay and it ports:
+  initRelayPorts();
 
-  // MAM init
+
+  // Init MAM:
   MAMCR_bit.MODECTRL = 0;
   MAMTIM_bit.CYCLES  = 3;   // FCLK > 40 MHz
   MAMCR_bit.MODECTRL = 2;   // MAM functions fully enabled
-  // Init clock
+  // Init clock:
   InitClock();
 
-  // Init VIC
+  // Init VIC:
   VIC_Init();
 
-  // Init USB Link  LED
+  // Init USB Link  LED:
   USB_D_LINK_LED_FDIR = USB_D_LINK_LED_MASK;
   USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
 
-  //Timer init ---
+  // Init Timer:
   Timer0Init(fs);
   
-  //Init timer 0 interrupt:
+  // Init timer 0 interrupt:
   VIC_SetVectoredIRQ(Timer0IntrHandler,0,VIC_TIMER0);
   VICINTENABLE |= 1UL << VIC_TIMER0;
   T0TCR_bit.CE = 1;     // Enable counting.
+  
+  // Init ADC:
   initADC2();
-  while(1){
+  while(1)
+  {
+    
+    
+    
     if(CountFlag == true){
       _NumberOfCrossings = 0;
       for (Int32U ii = 1; ii <= LenCircReg-1; ii++){
@@ -131,5 +135,8 @@ int main(void)
       CountFlag = false;
       _Debugvar++;
     }
+  
+    
+  
   }
 }

@@ -1957,6 +1957,12 @@
       <name>$PROJ_DIR$\app\main.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\app\Relay.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Relay.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\app\Timer.c</name>
     </file>
     <file>

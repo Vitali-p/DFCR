@@ -1,28 +1,10 @@
 /**
 This File contains methods concerning the ADC
 
-Author: Toke Andersen
+Author: Toke Andersen and Vitali
 
 **/
-#include <intrinsics.h>
-#include <stdio.h>
-#include <time.h>
-#include "board.h"
 #include "sys.h"
-#include "sdram_64M_32bit_drv.h"
-#include "drv_glcd.h"
-#include "smb380_drv.h"
-
-
-#include <intrinsics.h>
-#include <stdio.h>
-#include "board.h"
-#include "sys.h"
-#include "sdram_64M_32bit_drv.h"
-#include "drv_glcd.h"
-#include "logo.h"
-#include "Cursor.h"
-#include "smb380_drv.h"
 #include "ADC.h"
 
 /************************************************************************
@@ -45,15 +27,19 @@ void initADC( void ){
   // AD0CR_bit.START = 0;
   // AD0CR_bit.CLKS   = 0;       // 10 bits resolution
   
-  AD0CR_bit.PDN = 0;
-  PCONP_bit.PCAD = 1;
-  PCLKSEL0_bit.PCLK_ADC = 0x1; //CCLK = 72MHz
-  AD0CR_bit.CLKDIV = 17; //72MHz/(17+1)= 4MHz<=4.5 MHz
-  AD0CR_bit.BURST = 0; //ADC is set to operate in software controlled mode
-  PINSEL1_bit.P0_25 = 0x1; //AD0[2]
+  AD0CR_bit.PDN = 0;         // Enable ADC.
+  PCONP_bit.PCAD = 1;        // Power on ADC.
+  PCLKSEL0_bit.PCLK_ADC = 1; // Enable ADC clock, CCLK = 72MHz.
+
+  AD0CR_bit.CLKDIV = 17;  //72MHz/(17+1)= 4MHz<=4.5 MHz
+  AD0CR_bit.BURST = 0;    //ADC is set to operate in software controlled mode
+
+  PINSEL1_bit.P0_25 = 0x1; //Set pin P0.25 to AD0[2].
+  PINSEL1_bit.P0_26 = 0x1; //Set pin P0.25 to AD0[3].
+  
   PINMODE1_bit.P0_25 = 0x2;
-  PINSEL1_bit.P0_26 = 0x1; //AD0[3]
   PINMODE1_bit.P0_26 = 0x2;
+  
   ADINTEN_bit.ADGINTEN = 0;
   ADINTEN_bit.ADINTEN0 = 1; //Enable interrupt
   ADINTEN_bit.ADINTEN1 = 1;
@@ -88,25 +74,32 @@ Int32U runADC(void){
   return result;
 }
 void initADC2( void ){
-  AD0CR_bit.PDN = 0;
-  PCONP_bit.PCAD = 1;
-  PCLKSEL0_bit.PCLK_ADC = 0x1; //CCLK = 72MHz
-  AD0CR_bit.CLKDIV = 17; //72MHz/(17+1)= 4MHz<=4.5 MHz
-  AD0CR_bit.BURST = 1; //ADC is set to operate in software controlled mode
-  PINSEL1_bit.P0_25 = 0x1; //AD0[2]
+  AD0CR_bit.PDN = 0;         // Disable ADC.
+  PCONP_bit.PCAD = 1;        // Power on ADC.
+
+  PCLKSEL0_bit.PCLK_ADC = 1; // Enable ADC clock, CCLK = 72MHz.
+  AD0CR_bit.CLKDIV = 17;    // 72MHz/(17+1)= 4MHz<=4.5 MHz.
+  AD0CR_bit.BURST = 1;     // ADC is set to operate burst mode.
+  
+  PINSEL1_bit.P0_25 = 1; // Set pin P0.25 to AD0[2].
+  PINSEL1_bit.P0_26 = 1; // Set pin P0.25 to AD0[3].
+  
   PINMODE1_bit.P0_25 = 0x2;
-//  PINSEL1_bit.P0_26 = 0x1; //AD0[3]
 //  PINMODE1_bit.P0_26 = 0x2;
+
   ADINTEN_bit.ADGINTEN = 0;
-  ADINTEN_bit.ADINTEN0 = 1; //Enable interrupt
+  ADINTEN_bit.ADINTEN0 = 1; // Enable interrupt
   ADINTEN_bit.ADINTEN1 = 1;
   ADINTEN_bit.ADINTEN2 = 1;
   ADINTEN_bit.ADINTEN3 = 1;
-  AD0CR_bit.START = 0;
-  VIC_SetVectoredIRQ (AD0IntrHandler,1,VIC_AD0);
+  
+  AD0CR_bit.START = 0;  // Control start of ADC.
+  
+  VIC_SetVectoredIRQ (AD0IntrHandler,1,VIC_AD0); // The priority is hight for ADC.
   VICINTENABLE |= 1UL << VIC_AD0;
-  AD0CR_bit.SEL = 0x4;
-  AD0CR_bit.PDN = 1; //The A/D Converter is operational
+  
+  AD0CR_bit.SEL = 4; // Selects which of the AD0.7:0 pins are to be sampled and converted.
+  AD0CR_bit.PDN = 1; // Enable the A/D, the converter is operational.
 }
 
 
