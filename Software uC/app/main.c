@@ -11,6 +11,11 @@
 #include "smb380_drv.h"
 #include "Timer.h"
 #include "Relay.h"
+#include "LCD.h"
+
+
+
+
 
 #define NONPROT 0xFFFFFFFF
 #define CRP1  	0x12345678
@@ -18,7 +23,7 @@
 /*If CRP3 is selected, no future factory testing can be performed on the device*/
 #define CRP3  	0x43218765
 
-#define fs 10000
+#define fs 1
 #define LenCircReg 1000
 
 Int32U _ADCVal;
@@ -90,21 +95,20 @@ int main(void)
   
   // Init Relay and it ports:
   initRelayPorts();
-
-
-  // Init MAM:
-  MAMCR_bit.MODECTRL = 0;
-  MAMTIM_bit.CYCLES  = 3;   // FCLK > 40 MHz
-  MAMCR_bit.MODECTRL = 2;   // MAM functions fully enabled
+  
+  
   // Init clock:
   InitClock();
-
+  
   // Init VIC:
   VIC_Init();
+  
+  //Init LCD
+  initLCD();
 
   // Init USB Link  LED:
-  USB_D_LINK_LED_FDIR = USB_D_LINK_LED_MASK;
-  USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
+  initLEDs();
+
 
   // Init Timer:
   Timer0Init(fs);
@@ -116,6 +120,10 @@ int main(void)
   
   // Init ADC:
   initADC2();
+  
+
+  
+  
   while(1)
   {
     

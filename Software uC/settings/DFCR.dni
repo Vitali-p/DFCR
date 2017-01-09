@@ -33,7 +33,7 @@ Stop=1
 Freq=10000000
 MultiCoreRunAll=1
 [DebugChecksum]
-Checksum=-1035462211
+Checksum=-1088091150
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -188,5 +188,6 @@ Bp0=_ 0 "EMUL_DATA" "VIC_AD0" 0 0 0 0 4294967295
 Count=1
 [Aliases]
 A0=_ "C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\sdram_64M_32bit_drv.c" ""
-Count=1
+A1=_ "C:\Users\Vitali\Desktop\DFCR\Software uC\app\main.c" ""
+Count=2
 SuppressDialog=0

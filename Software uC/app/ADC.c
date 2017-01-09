@@ -1,7 +1,7 @@
 /**
 This File contains methods concerning the ADC
 
-Author: Toke Andersen and Vitali
+Author: Toke Andersen
 
 **/
 #include "sys.h"

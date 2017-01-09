@@ -13,10 +13,6 @@
  * Return: none
  * Description: Initiazion Digital to Analog Converter
  *************************************************************************/
-void DACval(ADC_value){
+//void DACval(ADC_value){
   
 //  DAC_value = (ADC_value/1024)*230);
-  
-    
-  
-}

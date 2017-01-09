@@ -1951,6 +1951,9 @@
       <name>$PROJ_DIR$\app\DAC.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\app\LCD.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\app\logo.c</name>
     </file>
     <file>

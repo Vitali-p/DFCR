@@ -1,6 +1,6 @@
 /*************************************************************************
  *    File name   : Relay.c
- *    Description : Digital to analog converter main file.
+ *    Description : <Relay controler main file.
  *
  *       Date        : 06.11.2017
  *       Author      : Vitali Parolia
@@ -22,6 +22,7 @@ void initRelayPorts(void)
   FIO0DIR_bit.P0_19 = 1;
  
 }
+
 /*************************************************************************
  * Function Name: RelayCont
  * Parameters: Frequency
@@ -50,6 +51,16 @@ void RelayControl(float freq)
   } 
 }
 
+/*************************************************************************
+ * Function Name: initLED
+ * Parameters: none
+ * Return: none
+ * Description: Initiation of ports for controlling the intern board LEDs.
+ *************************************************************************/ 
+void initLEDs(){
+  USB_D_LINK_LED_FDIR = USB_D_LINK_LED_MASK;
+  USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
+}
 
 
 
