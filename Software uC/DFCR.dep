@@ -170,6 +170,16 @@
           <file> 4</file>
         </tool>
       </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19 40 46 68 35 7 38 76</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 76 68 7 19 38 40 35 46</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\app\Relay.c</name>
@@ -334,7 +344,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 19 68 7 38 79 76 35 40 46</file>
+          <file> 40 76 35 68 79 19 7 38 46</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -361,7 +371,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 7 60 15 42 79 45 68 52 76 14 88 71 72 35 40 64 23 46 50 33 92 53 20 32 19 38 12 3</file>
+          <file> 3 60 15 42 7 79 45 68 20 76 14 88 71 52 72 35 40 23 46 50 33 92 53 32 19 38 12 64</file>
         </tool>
         <tool>
           <name>ICCARM</name>

@@ -10,6 +10,7 @@ Author: Toke Andersen
 /************************************************************************
 Initialize the ADC Peripheral
 ************************************************************************/
+/*
 void initADC( void ){ 
   // PCONP_bit.PCAD = 1;         // Enable ADC clocks
   // PCLKSEL0_bit.PCLK_ADC = 1;
@@ -52,6 +53,7 @@ void initADC( void ){
   AD0CR_bit.PDN = 1; //The A/D Converter is operational
   
 }
+*/
 /************************************************************************
 This Function will start the ADC and return the value synchronus
 ************************************************************************/

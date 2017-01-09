@@ -20,7 +20,7 @@
 /*If CRP3 is selected, no future factory testing can be performed on the device*/
 #define CRP3  	0x43218765
 
-#define fs 10
+#define fs 10000
 #define LenCircReg 1000
 
 Int32U _ADCVal;
