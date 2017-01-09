@@ -27,6 +27,11 @@ Int32U _Debugvar = 0;
 float LOWfilterWave[LenCircReg];
 Boolean flip = true;
 
+////////////////////////////////
+double _freq;
+Int32U _CrossingsLocation[9];
+Int32U _CrossIndex;
+
 
 /*************************************************************************
  * Function Name: Timer0IntrHandler
@@ -70,6 +75,13 @@ void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate)
 	}      
 }
 
+void clearArray( void ){
+  Int32U len = sizeof(_CrossingsLocation);
+  for (Int32U ii = 0; ii<len; ii++){
+    _CrossingsLocation[ii] = 0;
+  }
+}
+
 int main(void)
 {
   // Init GPIO:
@@ -110,23 +122,33 @@ int main(void)
   {
     
     
-    
     if(CountFlag == true){
+      __disable_interrupt();
+      
       _NumberOfCrossings = 0;
-      for (Int32U ii = 1; ii <= LenCircReg-1; ii++){
+      
+      clearArray();
+      _CrossIndex = 0;
+      for (Int32U ii = 1; (ii <= LenCircReg-1) & (_CrossIndex<9); ii++){
         
         lowPassFilter(_waveForm, LenCircReg, fs);
-               
-        //if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
-        if(((Int32U)LOWfilterWave[ii]<511)^((Int32U)LOWfilterWave[ii + 1]<511)){
+        
+        //        if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
+        if((LOWfilterWave[ii]<511)^(LOWfilterWave[ii + 1]<511)){
           _NumberOfCrossings++;
+          _CrossingsLocation[_CrossIndex] = ii;
+          _CrossIndex++;
         }
       }
+      
+      _freq = 1/((double)(_CrossingsLocation[7] - _CrossingsLocation[5])*(double)(1/(double)fs));
       CountFlag = false;
       _Debugvar++;
+      
+      __enable_interrupt();
     }
-  
     
-  
+    
+    
   }
 }
