@@ -14,12 +14,6 @@
 #include "LCD.h"
 
 
-#define NONPROT 0xFFFFFFFF
-#define CRP1  	0x12345678
-#define CRP2  	0x87654321
-/*If CRP3 is selected, no future factory testing can be performed on the device*/
-#define CRP3  	0x43218765
-
 #define fs 10000
 #define LenCircReg 1000
 
@@ -33,11 +27,6 @@ Int32U _Debugvar = 0;
 float LOWfilterWave[LenCircReg];
 Boolean flip = true;
 
-////////////////////////////////
-double _freq;
-Int32U _CrossingsLocation[9];
-Int32U _CrossIndex;
-
 
 /*************************************************************************
  * Function Name: Timer0IntrHandler
@@ -47,7 +36,7 @@ Int32U _CrossIndex;
  *************************************************************************/
 void Timer0IntrHandler (void)
 { 
-  toogleLED();
+//  toogleLED();
   
   T0IR_bit.MR0INT = 1; // Clear the timer 0 interrupt.
   VICADDRESS = 0;
@@ -80,14 +69,6 @@ void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate)
 	   LOWfilterWave[ii] = (alpha*input[ii]) + (1-alpha)*LOWfilterWave[ii-1];
 	}      
 }
-
-void clearArray( void ){
-Int32U len = sizeof(_CrossingsLocation);
-for (Int32U ii = 0; ii<len; ii++){
-  _CrossingsLocation[ii] = 0;
-}
-}
-
 
 int main(void)
 {
@@ -122,37 +103,27 @@ int main(void)
   // Init ADC:
   initADC2();
   
-
-  
+   
+   __disable_interrupt();  
   
   while(1)
   {
     
     
+    
     if(CountFlag == true){
-      __disable_interrupt();
-          
       _NumberOfCrossings = 0;
-      
-      clearArray();
-      _CrossIndex = 0;
-      for (Int32U ii = 1; (ii <= LenCircReg-1) & (_CrossIndex<9); ii++){
+      for (Int32U ii = 1; ii <= LenCircReg-1; ii++){
         
         lowPassFilter(_waveForm, LenCircReg, fs);
                
-//        if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
-        if((LOWfilterWave[ii]<511)^(LOWfilterWave[ii + 1]<511)){
+        //if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
+        if(((Int32U)LOWfilterWave[ii]<511)^((Int32U)LOWfilterWave[ii + 1]<511)){
           _NumberOfCrossings++;
-          _CrossingsLocation[_CrossIndex] = ii;
-          _CrossIndex++;
         }
       }
-      
-      _freq = 1/((double)(_CrossingsLocation[7] - _CrossingsLocation[5])*(double)(1/(double)fs));
       CountFlag = false;
       _Debugvar++;
-      
-      __enable_interrupt();
     }
   
     
