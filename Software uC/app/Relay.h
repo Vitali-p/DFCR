@@ -9,3 +9,4 @@
 void initRelayPorts();
 void RelayControl(float freq);
 void initLEDs();
+void toogleLED();

@@ -6,341 +6,137 @@
   <configuration>
     <name>Flash Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\config\LPC2478_Flash.icf</file>
-      <file>$PROJ_DIR$\modules\drv_glcd.c</file>
-      <file>$PROJ_DIR$\modules\i2c0_drv.c</file>
-      <file>$PROJ_DIR$\board\board.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\logo.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\sdram_64M_32bit_drv.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\main.__cstat.et</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\logo.__cstat.et</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\sdram_64M_32bit_drv.__cstat.et</file>
-      <file>$PROJ_DIR$\modules\i2c0_drv.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Cursor.o</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\DAC.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\DFCR.pbd</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.o</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Cursor.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Relay.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\List\LCD_Demo.map</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Relay.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Timer.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\main.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Cursor.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\smb380_drv.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.__cstat.et</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\smb380_drv.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Timer.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$PROJ_DIR$\app\Cursor.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\logo.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\DAC.o</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2478.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$PROJ_DIR$\app\logo.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\i2c0_drv.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$PROJ_DIR$\modules\sdram_64M_32bit_drv.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\i2c0_drv.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\sys.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Timer.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\i2c0_drv.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\lib\rt4t_al.a</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\sdram_64M_32bit_drv.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Exe\LCD_Demo.out</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$PROJ_DIR$\modules\drv_glcd.h</file>
+      <file>$PROJ_DIR$\board\arm_comm.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\DAC.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2470.h</file>
+      <file>$PROJ_DIR$\modules\smb380_drv.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\io_macros.h</file>
+      <file>$TOOLKIT_DIR$\lib\dl4t_aln.a</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\ADC.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\lib\shs_l.a</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\board\sys.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\smb380_drv.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\ADC.pbi</file>
       <file>$TOOLKIT_DIR$\lib\m4t_al.a</file>
       <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
       <file>$PROJ_DIR$\Flash Debug\Obj\sys.__cstat.et</file>
       <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Relay.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\List\LCD_Demo.map</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\ADC.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\c\io_macros.h</file>
-      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2470.h</file>
-      <file>$PROJ_DIR$\app\Cursor.c</file>
-      <file>$PROJ_DIR$\app\ADC.h</file>
-      <file>$PROJ_DIR$\modules\sdram_64M_32bit_drv.c</file>
-      <file>$PROJ_DIR$\app\ADC.c</file>
-      <file>$PROJ_DIR$\board\sys.c</file>
-      <file>$PROJ_DIR$\app\Relay.h</file>
-      <file>$PROJ_DIR$\app\Relay.c</file>
+      <file>$PROJ_DIR$\app\LCD.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\LCD.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\sys.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\LCD.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\ADC.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\DAC.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\logo.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$PROJ_DIR$\modules\i2c0_drv.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Cursor.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\DFCR.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.o</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\Cursor.__cstat.et</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\sdram_64M_32bit_drv.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\logo.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$PROJ_DIR$\modules\smb380_drv.c</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\main.__cstat.et</file>
+      <file>$PROJ_DIR$\readme.txt</file>
+      <file>$PROJ_DIR$\board\board.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\sdram_64M_32bit_drv.pbi</file>
       <file>$PROJ_DIR$\app\Timer.c</file>
+      <file>$PROJ_DIR$\app\ADC.h</file>
+      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.pbi</file>
+      <file>$PROJ_DIR$\app\Relay.c</file>
+      <file>$PROJ_DIR$\config\LPC2478_Flash.icf</file>
       <file>$PROJ_DIR$\app\DAC.c</file>
+      <file>$PROJ_DIR$\app\LCD.c</file>
+      <file>$PROJ_DIR$\board\sys.c</file>
+      <file>$PROJ_DIR$\modules\drv_glcd.c</file>
+      <file>$PROJ_DIR$\modules\i2c0_drv.c</file>
+      <file>$PROJ_DIR$\app\Relay.h</file>
+      <file>$PROJ_DIR$\app\ADC.c</file>
       <file>$PROJ_DIR$\app\DAC.h</file>
-      <file>$PROJ_DIR$\app\logo.c</file>
       <file>$PROJ_DIR$\app\main.c</file>
       <file>$PROJ_DIR$\app\Timer.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\DAC.__cstat.et</file>
-      <file>$PROJ_DIR$\board\sys.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\smb380_drv.o</file>
-      <file>$PROJ_DIR$\modules\smb380_drv.c</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\assert.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Exe\LCD_Demo.out</file>
-      <file>$TOOLKIT_DIR$\lib\dl4t_aln.a</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\sys.pbi</file>
-      <file>$TOOLKIT_DIR$\lib\shs_l.a</file>
-      <file>$PROJ_DIR$\modules\smb380_drv.h</file>
-      <file>$TOOLKIT_DIR$\lib\rt4t_al.a</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\sdram_64M_32bit_drv.o</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\ADC.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Timer.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-      <file>$PROJ_DIR$\board\arm_comm.h</file>
-      <file>$PROJ_DIR$\modules\drv_glcd.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\i2c0_drv.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-      <file>$PROJ_DIR$\readme.txt</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\smb380_drv.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\i2c0_drv.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\smb380_drv.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\logo.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Timer.__cstat.et</file>
-      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2478.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\DAC.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\drv_glcd.__cstat.et</file>
-      <file>$PROJ_DIR$\modules\sdram_64M_32bit_drv.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Relay.o</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\main.o</file>
-      <file>$PROJ_DIR$\app\Cursor.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Cursor.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
-      <file>$PROJ_DIR$\app\logo.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\i2c0_drv.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\Timer.o</file>
-      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\ADC.o</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\sys.o</file>
-      <file>$PROJ_DIR$\app\LCD.c</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\LCD.pbi</file>
-      <file>$PROJ_DIR$\Flash Debug\Obj\LCD.o</file>
-      <file>$PROJ_DIR$\app\LCD.h</file>
+      <file>$PROJ_DIR$\modules\sdram_64M_32bit_drv.c</file>
+      <file>$PROJ_DIR$\app\Cursor.c</file>
+      <file>$PROJ_DIR$\app\logo.c</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>ILINK</name>
-          <file> 50 27</file>
+          <file> 31 1</file>
         </tool>
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\modules\drv_glcd.c</name>
+      <name>$PROJ_DIR$\Flash Debug\Exe\LCD_Demo.out</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 21</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 18</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 77</file>
+          <name>ILINK</name>
+          <file> 1</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 20 6 58 3 72 49 62 67 83 61 30 60 84 45 64 25 8 48 74 29 76</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 76 72 6 64 8 48 25 58 83 67 60 49 3 20 74 30 29 61 45 62</file>
+          <name>ILINK</name>
+          <file> 82 57 62 18 65 22 54 17 6 2 30 47 55 13 44 29 49 41</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\modules\i2c0_drv.c</name>
+      <name>$PROJ_DIR$\modules\smb380_drv.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 68</file>
+          <file> 9</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 86</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 63</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 29 3 61 20 45 74 72 30 13</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 13 45 3 20 72 74 30 29 61</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Cursor.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 82</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 14</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 19</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 81</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 81</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\modules\sdram_64M_32bit_drv.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 7</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 56</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 12</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 6 58 72 61 78 67 20 29 3 83 64 25 8 48 74 30 76</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 76 72 6 64 8 48 25 58 83 67 3 20 74 30 29 61 78</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\ADC.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 57</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 90</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 28</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 74 20 72 30 32 3 61 29 45</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 45 3 20 72 74 30 29 61 32</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\board\sys.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 52</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 91</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 24</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 29 61 20 3 74 72 30 45</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 45 3 20 72 74 30 29 61</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Relay.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 26</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 79</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 72 30 20 74 61 29 3</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 3 20 72 74 30 29 61</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Timer.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 59</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 88</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 73</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\DAC.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 15</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 75</file>
-        </tool>
-        <tool>
-          <name>__cstat</name>
-          <file> 44</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\logo.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 70</file>
+          <file> 47</file>
         </tool>
         <tool>
           <name>__cstat</name>
@@ -350,24 +146,131 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 20 61 62 72 85</file>
+          <file> 19 61 40 76 68 35 7 38 46 39</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 85 62 61 20 72</file>
+          <file> 39 76 68 7 19 38 40 35 61 46</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\app\main.c</name>
+      <name>$PROJ_DIR$\app\Timer.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 9</file>
+          <file> 27</file>
         </tool>
         <tool>
           <name>ICCARM</name>
+          <file> 13</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Relay.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19 68 7 38 35 40 76</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 76 68 7 19 38 40 35</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\DAC.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 58</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\LCD.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 54</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40 19 16 35 21 46 68 7 34 76 38</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 34 35 68 7 21 16 46 76 19 38 40</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\board\sys.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 55</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40 35 68 76 19 7 38 46</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 46 76 68 7 19 38 40 35</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\modules\drv_glcd.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
           <file> 80</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 65</file>
         </tool>
         <tool>
           <name>__cstat</name>
@@ -377,16 +280,70 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 6 5 72 32 95 83 30 3 89 43 58 74 76 45 23 60 54 36 67 64 25 8 48 20 61 29 71 13 87 17</file>
+          <file> 68 71 32 76 7 37 34 15 20 35 38 33 5 46 42 52 72 45 19 40 23</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 20 72 76 6 64 8 48 25 58 83 67 3 74 30 29 61 45 32 23 89 87 71 60 5 17 54 13 43 36 95</file>
+          <file> 23 7 71 42 72 45 52 32 20 15 33 37 76 68 19 38 40 35 46 34</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\modules\smb380_drv.c</name>
+      <name>$PROJ_DIR$\modules\i2c0_drv.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40 76 35 68 46 19 7 38 61</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 61 46 76 68 7 19 38 40 35</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\ADC.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 57</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19 68 7 38 79 76 35 40 46</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 46 76 68 7 19 38 40 35 79</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\main.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
@@ -394,7 +351,61 @@
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 46</file>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 60 15 42 79 45 68 52 76 14 88 71 72 35 40 64 23 46 50 33 92 53 20 32 19 38 12 3</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 68 7 23 71 42 72 45 52 32 20 15 76 19 38 40 35 46 79 50 14 12 3 33 60 64 92 88 53</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\modules\sdram_64M_32bit_drv.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 77</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 67</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 71 32 7 35 24 15 68 40 76 20 42 52 72 45 19 38 23</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 23 7 71 42 72 45 52 32 20 15 76 68 19 38 40 35 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\Cursor.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 62</file>
         </tool>
         <tool>
           <name>__cstat</name>
@@ -404,49 +415,38 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 74 13 29 3 20 61 72 30 45 54</file>
+          <file> 16</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 54 3 20 72 74 30 29 61 13 45</file>
+          <file> 16</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\Flash Debug\Exe\LCD_Demo.out</name>
-      <outputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 27</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ILINK</name>
-          <file> 0 90 14 75 18 86 94 70 80 79 56 46 91 88 53 55 22 51</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\LCD.c</name>
+      <name>$PROJ_DIR$\app\logo.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 93</file>
+          <file> 70</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 94</file>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 59</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 29 74 81 61 85 45 20 72 62 3 30</file>
+          <file> 68 35 34 7 21</file>
         </tool>
         <tool>
           <name>ICCARM</name>
-          <file> 62 61 20 72 85 81 45 3 74 30 29</file>
+          <file> 21 34 35 68 7</file>
         </tool>
       </inputs>
     </file>

@@ -32,9 +32,7 @@ void initLCD(){
 
   // SDRAM Init
   SDRAM_Init();
-#endif // SDRAM_DEBUG
-  
-  
+#endif // SDRAM_DEBUG  
   
   GLCD_Init (LogoPic.pPicStream, NULL);
 

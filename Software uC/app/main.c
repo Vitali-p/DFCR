@@ -8,13 +8,10 @@
 #include <stdlib.h>
 #include <string.h>
 //#include "sdram_64M_32bit_drv.h"
-#include "smb380_drv.h"
+//#include "smb380_drv.h"
 #include "Timer.h"
 #include "Relay.h"
 #include "LCD.h"
-
-
-
 
 
 #define NONPROT 0xFFFFFFFF
@@ -23,7 +20,7 @@
 /*If CRP3 is selected, no future factory testing can be performed on the device*/
 #define CRP3  	0x43218765
 
-#define fs 1
+#define fs 10
 #define LenCircReg 1000
 
 Int32U _ADCVal;
@@ -45,16 +42,7 @@ Boolean flip = true;
  *************************************************************************/
 void Timer0IntrHandler (void)
 { 
-  // Test ports for relay, turn on and off.
-  if(flip){
-  RelayControl(51);
-  flip = false;
-  }
-  else{
-  RelayControl(49);
-  flip = true;
-  }
-  USB_D_LINK_LED_FIO ^= USB_D_LINK_LED_MASK; // Toggle USB Link LED
+  toogleLED();
   
   T0IR_bit.MR0INT = 1; // Clear the timer 0 interrupt.
   VICADDRESS = 0;

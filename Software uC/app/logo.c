@@ -1,19 +1,11 @@
 /*************************************************************************
- *
- *    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2008
- *
  *    File name   : logo.c
- *    Description : Logos picture
+ *    Description : Logo screen main file.
  *
- *    History :
- *    1. Date        : 7, March 2008
- *       Author      : Stanimir Bonev
- *       Description : Create
- *
- *    $Revision: 28 $
- **************************************************************************/
+ *       Date        : 07.11.2017
+ *       Author      : Vitali Parolia
+ *       Description : Logo screen functions. 
+ */
 #include "logo.h"
 
 const Int32U LogoStream[] =
@@ -870,7 +862,7 @@ const Int32U LogoStream[] =
 		0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff,
 		0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff,
 		0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff,
-		0x00ffffff, 0x00c0c0c0, 0x00808080, 0x00808080, 0x00180dfd, 0x001509fe, 0x00180dfd, 0x001d12fe,
+		0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff,
 		0x002218fe, 0x002016ff, 0x001d12fe, 0x00180dfd, 0x001509fe, 0x001a10f5, 0x00808080, 0x00c0c0c0,
 		0x00c0c0c0, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff,
 		0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00ffffff, 0x00000000,

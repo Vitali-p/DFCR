@@ -8,7 +8,6 @@
  */
 #include "board.h"
 
-
 /*************************************************************************
  * Function Name: initRelayPorts
  * Parameters: none
@@ -62,7 +61,30 @@ void initLEDs(){
   USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
 }
 
+/*************************************************************************
+ * Function Name: funcLED
+ * Parameters: func
+ * Return: none
+ * Description: Control boar LED.
+ *************************************************************************/ 
+void toogleLED(){
+  
+  USB_D_LINK_LED_FIO ^= USB_D_LINK_LED_MASK; // Toggle USB Link LED
 
+}
+
+
+/*
+  // Test ports for relay, turn on and off.
+  if(flip){
+    RelayControl(51);
+    flip = false;
+  }
+  else{
+    RelayControl(49);
+    flip = true;
+  }
+*/
 
 
 
