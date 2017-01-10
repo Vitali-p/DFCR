@@ -13,6 +13,18 @@
 #include "Relay.h"
 #include "LCD.h"
 
+//#include <includes.h>
+#define NONPROT 0xFFFFFFFF
+#define CRP1  	0x12345678
+#define CRP2  	0x87654321
+/*If CRP3 is selected, no future factory testing can be performed on the device*/
+#define CRP3  	0x43218765
+
+#ifndef SDRAM_DEBUG
+#pragma segment=".crp"
+#pragma location=".crp"
+__root const unsigned crp = NONPROT;
+#endif
 
 #define fs 10000
 #define T  0.0001
@@ -85,14 +97,13 @@ void clearArray( void ){
 }
 
 int main(void)
-{
+{  
   // Init GPIO:
   GpioInit();
   
   // Init Relay and it ports:
   initRelayPorts();
-  
-  
+   
   // Init clock:
   InitClock();
   
@@ -101,10 +112,26 @@ int main(void)
   
   //Init LCD
   initLCD();
+/*  
+  Int32U cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
+  ToushRes_t XY_Touch;
+  Boolean Touch = FALSE;
+  
+  GLCD_Cursor_Dis(0);
+  GLCD_Copy_Cursor ((Int32U *)Cursor, 0, sizeof(Cursor)/sizeof(Int32U));
+  GLCD_Cursor_Cfg(CRSR_FRAME_SYNC | CRSR_PIX_32);
+  GLCD_Move_Cursor(cursor_x, cursor_y);
+  GLCD_Cursor_En(0); 
+ */
+  
+  
+  
+  initTouchLCD();
+ // touchOnLCD();
+  
 
   // Init USB Link  LED:
   initLEDs();
-
 
   // Init Timer:
   Timer0Init(fs);
@@ -152,6 +179,8 @@ int main(void)
       _Debugvar++;
       FIO0CLR_bit.P0_11 = 1;
       __enable_interrupt();
+      
+      textToScreen(0,0,"Frequency:",_freq);
      
     }
     

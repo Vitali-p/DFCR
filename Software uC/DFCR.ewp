@@ -1954,6 +1954,9 @@
       <name>$PROJ_DIR$\app\LCD.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\app\LCD.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\app\logo.c</name>
     </file>
     <file>

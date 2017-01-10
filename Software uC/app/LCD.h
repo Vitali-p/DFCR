@@ -7,3 +7,8 @@
  *       Description : LCD header.
  */
 void initLCD();
+void textToScreen(Int32U X_Pos, Int32U Y_Pos, char Desc[], double Reading);
+
+void initTouchLCD();
+void initCursor();
+void touchOnLCD();
