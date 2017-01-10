@@ -15,7 +15,8 @@
 
 
 #define fs 10000
-#define LenCircReg 1000
+#define T  0.0001
+#define LenCircReg 3000
 
 Int32U _ADCVal;
 Int32U _ADCStatus;
@@ -29,8 +30,9 @@ Boolean flip = true;
 
 ////////////////////////////////
 double _freq;
-Int32U _CrossingsLocation[9];
+Int32U _CrossingsLocation[29];
 Int32U _CrossIndex;
+Int32U _ii = 0;
 
 
 /*************************************************************************
@@ -50,7 +52,7 @@ void Timer0IntrHandler (void)
   _ADCVal = ((AD0GDR & 0xFFC0)>>6);  //Get ADC Value
   _waveForm[_regCount] = _ADCVal;    // Store ADC Value in circular register
   _regCount++;                       //Increment regcount
-  if(_regCount == 1000){             //Check if regcount need to start over
+  if(_regCount == LenCircReg){             //Check if regcount need to start over
   _regCount = 0;
   CountFlag = true;
   }
@@ -115,8 +117,7 @@ int main(void)
   // Init ADC:
   initADC2();
   
-   
-   __disable_interrupt();  
+
   
   while(1)
   {
@@ -124,28 +125,34 @@ int main(void)
     
     if(CountFlag == true){
       __disable_interrupt();
+      FIO0SET_bit.P0_11 = 1;
       
       _NumberOfCrossings = 0;
       
       clearArray();
       _CrossIndex = 0;
-      for (Int32U ii = 1; (ii <= LenCircReg-1) & (_CrossIndex<9); ii++){
+      
+      lowPassFilter(_waveForm, LenCircReg, fs);
+      _ii = 0;
+      for (_ii = 0; (_ii <= LenCircReg-1) & (_CrossIndex<27); _ii++){
         
-        lowPassFilter(_waveForm, LenCircReg, fs);
+        
         
         //        if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
-        if((LOWfilterWave[ii]<511)^(LOWfilterWave[ii + 1]<511)){
+        if((LOWfilterWave[_ii]<511)^(LOWfilterWave[_ii + 1]<511)){
           _NumberOfCrossings++;
-          _CrossingsLocation[_CrossIndex] = ii;
+          _CrossingsLocation[_CrossIndex] = _ii;
           _CrossIndex++;
         }
       }
-      
-      _freq = 1/((double)(_CrossingsLocation[7] - _CrossingsLocation[5])*(double)(1/(double)fs));
+       
+      _freq = 10/((double)(_CrossingsLocation[25] - _CrossingsLocation[5])*(double)(1/(double)fs));
+      RelayControl(_freq);
       CountFlag = false;
       _Debugvar++;
-      
+      FIO0CLR_bit.P0_11 = 1;
       __enable_interrupt();
+     
     }
     
     
