@@ -75,6 +75,8 @@ Int32U runADC(void){
   Int32U result = AD0GDR;    
   return result;
 }
+
+
 void initADC2( void ){
   AD0CR_bit.PDN = 0;         // Disable ADC.
   PCONP_bit.PCAD = 1;        // Power on ADC.
@@ -103,8 +105,6 @@ void initADC2( void ){
   AD0CR_bit.SEL = 4; // Selects which of the AD0.7:0 pins are to be sampled and converted.
   AD0CR_bit.PDN = 1; // Enable the A/D, the converter is operational.
 }
-
-
 
 /************************************************************************
 Start the ADC in async mode (Interrupt driven)

@@ -33,7 +33,7 @@ Stop=1
 Freq=10000000
 MultiCoreRunAll=1
 [DebugChecksum]
-Checksum=-1864404033
+Checksum=1480194981
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -158,9 +158,10 @@ TraceBufferSize=0x00000000
 TraceShowTime=0
 TraceShowTimeFreq=1000000
 [watch_formats]
-Fmt0={W}42:FIO0DIR	1	0
-Fmt1={W}42:FIO0PIN	1	0
-Fmt2={W}42:FIO1PIN	1	0
+Fmt0={W}42:AD0CR_bit.SEL	1	0
+Fmt1={W}42:FIO0DIR	1	0
+Fmt2={W}42:FIO0PIN	1	0
+Fmt3={W}42:FIO1PIN	1	0
 [Trace1]
 Enabled=0
 ShowSource=1

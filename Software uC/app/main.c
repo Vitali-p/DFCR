@@ -2,29 +2,17 @@
 #include <stdio.h>
 #include "board.h"
 #include "sys.h"
-#include "ADC.h"
+//#include "ADC.h"
 #include <stdbool.h>
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
 //#include "sdram_64M_32bit_drv.h"
 //#include "smb380_drv.h"
-#include "Timer.h"
-#include "Relay.h"
-#include "LCD.h"
-
-//#include <includes.h>
-#define NONPROT 0xFFFFFFFF
-#define CRP1  	0x12345678
-#define CRP2  	0x87654321
-/*If CRP3 is selected, no future factory testing can be performed on the device*/
-#define CRP3  	0x43218765
-
-#ifndef SDRAM_DEBUG
-#pragma segment=".crp"
-#pragma location=".crp"
-__root const unsigned crp = NONPROT;
-#endif
+#include <Timer.h>
+#include <Relay.h>
+#include <LED.h>
+//#include <LCD.h>
 
 #define fs 10000
 #define T  0.0001
@@ -46,6 +34,30 @@ Int32U _CrossingsLocation[29];
 Int32U _CrossIndex;
 Int32U _ii = 0;
 
+//-Touch-screen-----------------------------------------------------------------------------
+#include <includes.h>
+
+#define NONPROT 0xFFFFFFFF
+#define CRP1  	0x12345678
+#define CRP2  	0x87654321
+/*If CRP3 is selected, no future factory testing can be performed on the device*/
+#define CRP3  	0x43218765
+
+#ifndef SDRAM_DEBUG
+#pragma segment=".crp"
+#pragma location=".crp"
+__root const unsigned crp = NONPROT;
+#endif
+
+#define LCD_VRAM_BASE_ADDR ((Int32U)&SDRAM_BASE_ADDR)
+
+extern Int32U SDRAM_BASE_ADDR;
+extern FontType_t Terminal_6_8_6;
+extern FontType_t Terminal_9_12_6;
+extern FontType_t Terminal_18_24_12;
+//--------------------------------------------------------------------------------
+
+
 
 /*************************************************************************
  * Function Name: Timer0IntrHandler
@@ -53,11 +65,12 @@ Int32U _ii = 0;
  * Return: none
  * Description: Timer 0 interrupt handler
  *************************************************************************/
+/*
 void Timer0IntrHandler (void)
 { 
-//  toogleLED();
+//  toogleTopLED();
   
-  T0IR_bit.MR0INT = 1; // Clear the timer 0 interrupt.
+  T0IR_bit.MR0INT = 1; // Clear the Timer 0 interrupt.
   VICADDRESS = 0;
   
   // ADC Related
@@ -69,18 +82,20 @@ void Timer0IntrHandler (void)
   CountFlag = true;
   }
 }
-
+*/
+/*
  void AD0IntrHandler (void) {
 //   _ADCVal = ((AD0GDR & 0xFFC0)>>6);
 //   _ADCStatus = ADSTAT;
  }
-
+*/
+/*
 //Filter
 void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate)
 {
 	float fc = 50; //frequency
 	float dt = 0.0001; //delta t maybe "1/sample rate"
-	float RC = 1/(2*3.1415*fc); //RC
+	float RC = 1/(2*3.3.1415*fc); //RC  3.14159265359
 	float alpha = dt/(RC+dt); //alpha
 	
 	for(Int32U ii = 1; ii <= LenCircReg-1; ii++)
@@ -88,21 +103,59 @@ void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate)
 	   LOWfilterWave[ii] = (alpha*input[ii]) + (1-alpha)*LOWfilterWave[ii-1];
 	}      
 }
-
+*/
+/*
 void clearArray( void ){
   Int32U len = sizeof(_CrossingsLocation);
   for (Int32U ii = 0; ii<len; ii++){
     _CrossingsLocation[ii] = 0;
   }
 }
+*/
+
 
 int main(void)
-{  
+{ 
+ Int32U cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
+ ToushRes_t XY_Touch;
+ Boolean Touch = FALSE;
+
+  GLCD_Ctrl (FALSE);
+  // Init GPIO
+  GpioInit();
+#ifndef SDRAM_DEBUG
+  // MAM init
+  MAMCR_bit.MODECTRL = 0;
+  MAMTIM_bit.CYCLES  = 3;   // FCLK > 40 MHz
+  MAMCR_bit.MODECTRL = 2;   // MAM functions fully enabled
+  // Init clock
+  InitClock();
+  // SDRAM Init
+  SDRAM_Init();
+#endif // SDRAM_DEBUG
+  // Init VIC
+  VIC_Init();
+  // GLCD init
+  GLCD_Init (LogoPic.pPicStream, NULL);
+  GLCD_Cursor_Dis(0);
+  GLCD_Copy_Cursor ((Int32U *)Cursor, 0, sizeof(Cursor)/sizeof(Int32U));
+  GLCD_Cursor_Cfg(CRSR_FRAME_SYNC | CRSR_PIX_32);
+  GLCD_Move_Cursor(cursor_x, cursor_y);
+  GLCD_Cursor_En(0);
+
+  // Init touch screen
+  TouchScrInit();
+
+
+
+  __enable_interrupt();
+  GLCD_Ctrl (TRUE);
+  
+  
+//--------------------------------------------------------------------------------------------------  
+/*
   // Init GPIO:
   GpioInit();
-  
-  // Init Relay and it ports:
-  initRelayPorts();
    
   // Init clock:
   InitClock();
@@ -112,24 +165,9 @@ int main(void)
   
   //Init LCD
   initLCD();
-/*  
-  Int32U cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
-  ToushRes_t XY_Touch;
-  Boolean Touch = FALSE;
   
-  GLCD_Cursor_Dis(0);
-  GLCD_Copy_Cursor ((Int32U *)Cursor, 0, sizeof(Cursor)/sizeof(Int32U));
-  GLCD_Cursor_Cfg(CRSR_FRAME_SYNC | CRSR_PIX_32);
-  GLCD_Move_Cursor(cursor_x, cursor_y);
-  GLCD_Cursor_En(0); 
- */
-  
-  
-  
-  initTouchLCD();
- // touchOnLCD();
-  
-
+  // Init Relay and it ports:
+  initRelayPorts();
   // Init USB Link  LED:
   initLEDs();
 
@@ -143,13 +181,32 @@ int main(void)
   
   // Init ADC:
   initADC2();
-  
+  */
 
   
   while(1)
   {
+    if(TouchGet(&XY_Touch))
+    {
+      cursor_x = XY_Touch.X;
+      cursor_y = XY_Touch.Y;
+      GLCD_Move_Cursor(cursor_x, cursor_y);
+      if (FALSE == Touch)
+      {
+        Touch = TRUE;
+        USB_H_LINK_LED_FCLR = USB_H_LINK_LED_MASK;
+      }
+    }
+    else if(Touch)
+    {
+      USB_H_LINK_LED_FSET = USB_H_LINK_LED_MASK;
+      Touch = FALSE;
+    } 
     
     
+    
+    
+ /*   
     if(CountFlag == true){
       __disable_interrupt();
       FIO0SET_bit.P0_11 = 1;
@@ -184,7 +241,7 @@ int main(void)
      
     }
     
-    
+  */  
     
   }
 }

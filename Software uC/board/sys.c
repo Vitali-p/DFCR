@@ -57,9 +57,7 @@ unsigned int vector;
  * Function Name: VIC_Init
  * Parameters: void
  * Return: void
- *
  * Description: Initialize VIC
- *
  *************************************************************************/
 void VIC_Init(void)
 {
@@ -89,11 +87,8 @@ int i;
  * Parameters:  void(*pIRQSub)()
  *              unsigned int VicIrqSlot
  *              unsigned int VicIntSouce
- *
  * Return: void
- *
  * Description:  Init vectored interrupts
- *
  *************************************************************************/
 void VIC_SetVectoredIRQ(void(*pIRQSub)(), unsigned int Priority, unsigned int VicIntSource)
 {

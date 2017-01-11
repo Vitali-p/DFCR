@@ -5,9 +5,7 @@
  *       Date        : 07.11.2017
  *       Author      : Vitali Parolia
  *       Description : LCD and touch screen functions. 
- */
-#include <cursor.h>
-
+ **************************************************************************/
 #include <drv_glcd.h>
 #include <logo.h>
 #include <sys.h>
@@ -20,28 +18,11 @@
 extern Int32U SDRAM_BASE_ADDR;
 #define LCD_VRAM_BASE_ADDR ((Int32U)&SDRAM_BASE_ADDR)
 
-// Fonts for the screen size range;6, 9, 18.
+// Fonts for the LCD screen size range;6, 9, 18.
 extern FontType_t Terminal_6_8_6;
 extern FontType_t Terminal_9_12_6;
 extern FontType_t Terminal_18_24_12;
 
-// Touuch screen variables.
-Boolean Touch = FALSE;
-
-#define NONPROT 0xFFFFFFFF
-#define CRP1  	0x12345678
-#define CRP2  	0x87654321
-/*If CRP3 is selected, no future factory testing can be performed on the device*/
-#define CRP3  	0x43218765
-
-#ifndef SDRAM_DEBUG
-#pragma segment=".crp"
-#pragma location=".crp"
-__root const unsigned crp = NONPROT;
-#endif
-
-// Cursor variables.
-Int32U cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
 
 /*************************************************************************
  * Function Name: initLCD
@@ -125,44 +106,6 @@ void initLCD(){
 }
 
 
-void initTouchLCD(){
-
-  TouchScrInit();    // Init touch screen
-}
-
-
-void initCursor(){
-  GLCD_Cursor_Dis(0);
-  GLCD_Copy_Cursor ((Int32U *)Cursor, 0, sizeof(Cursor)/sizeof(Int32U));
-  GLCD_Cursor_Cfg(CRSR_FRAME_SYNC | CRSR_PIX_32);
-  GLCD_Move_Cursor(cursor_x, cursor_y);
-  GLCD_Cursor_En(0); 
-}
-
-
-
-void touchOnLCD(){
-  
-    if(TouchGet(&XY_Touch))
-    {
-      cursor_x = XY_Touch.X;
-      cursor_y = XY_Touch.Y;
-      GLCD_Move_Cursor(cursor_x, cursor_y);
-      if (FALSE == Touch)
-      {
-        Touch = TRUE;
-        USB_H_LINK_LED_FCLR = USB_H_LINK_LED_MASK;
-      }
-    }
-    else if(Touch)
-    {
-      USB_H_LINK_LED_FSET = USB_H_LINK_LED_MASK;
-      Touch = FALSE;
-    }
-}
-
-
-
 /*************************************************************************
  * Function Name: textToScreen
  * Parameters: Position XY on screen, name of the reading, and value.
@@ -170,7 +113,7 @@ void touchOnLCD(){
  * Description: Print readings on to the screen.
  *************************************************************************/
 void textToScreen(Int32U X_Pos, Int32U Y_Pos, char Desc[], double Reading){
-  Int32U d1, d2, DeltaY = 13;
+  Int32U d1, d2; //DeltaY = 13;
   char digitString [10];
   
   // Calculation from digit to string.  

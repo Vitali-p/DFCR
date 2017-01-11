@@ -5,7 +5,7 @@
  *       Date        : 04.11.2017
  *       Author      : Vitali Parolia
  *       Description : Timer init doc.
- */
+ **************************************************************************/
 #include "board.h"
 #include "sys.h"
 
@@ -13,11 +13,11 @@
  * Function Name: Timer0Init
  * Parameters: Timer ticker pr. second.
  * Return: none
- * Description: Initiazion of timer 0, and enables global interrupt.
+ * Description: Initiazion of Timer 0, and enables global interrupt.
  *************************************************************************/
 void Timer0Init(int TIMER0_TICK_PER_SEC){
   // Enable TIM0 clock.
-  PCONP_bit.PCTIM0 = 1; // Enable clock.
+  PCONP_bit.PCTIM0 = 1; // Enable TIM0 clock.
 
   // Init Time0
   T0TCR_bit.CE = 0;     // Counting is disabled.
@@ -43,5 +43,5 @@ void Timer0Init(int TIMER0_TICK_PER_SEC){
     __enable_interrupt(); // Enable global interrup.
     
   }
- 
 }
+

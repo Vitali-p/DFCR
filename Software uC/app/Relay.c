@@ -1,11 +1,11 @@
 /*************************************************************************
  *    File name   : Relay.c
- *    Description : <Relay controler main file.
+ *    Description : Relay main file, control ports on uC.
  *
  *       Date        : 06.11.2017
  *       Author      : Vitali Parolia
  *       Description : Relay source file.
- */
+ **************************************************************************/
 #include "board.h"
 
 /*************************************************************************
@@ -19,7 +19,6 @@ void initRelayPorts(void)
   // Set bit 11 and 19 as outputs.
   FIO0DIR_bit.P0_11 = 1;
   FIO0DIR_bit.P0_19 = 1;
- 
 }
 
 /*************************************************************************
@@ -50,29 +49,6 @@ void RelayControl(float freq)
     FIO0SET_bit.P0_19 = 1;
   }
   */
-}
-
-/*************************************************************************
- * Function Name: initLED
- * Parameters: none
- * Return: none
- * Description: Initiation of ports for controlling the intern board LEDs.
- *************************************************************************/ 
-void initLEDs(){
-  USB_D_LINK_LED_FDIR = USB_D_LINK_LED_MASK;
-  USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
-}
-
-/*************************************************************************
- * Function Name: funcLED
- * Parameters: func
- * Return: none
- * Description: Control boar LED.
- *************************************************************************/ 
-void toogleLED(){
-  
-  USB_D_LINK_LED_FIO ^= USB_D_LINK_LED_MASK; // Toggle USB Link LED
-
 }
 
 
