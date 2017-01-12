@@ -10,7 +10,7 @@
     <Static>
       <Debug-Log>
         <ColumnWidth0>20</ColumnWidth0>
-        <ColumnWidth1>950</ColumnWidth1>
+        <ColumnWidth1>1307</ColumnWidth1>
       </Debug-Log>
       <Workspace>
         <ColumnWidths>
@@ -25,7 +25,7 @@
       <Wnd0>
         <Tabs>
           <Tab>
-            <Identity>TabID-13663-24434</Identity>
+            <Identity>TabID-22738-25492</Identity>
             <TabName>Workspace</TabName>
             <Factory>Workspace</Factory>
             <Session>
@@ -41,7 +41,7 @@
       <Wnd1>
         <Tabs>
           <Tab>
-            <Identity>TabID-24411-24437</Identity>
+            <Identity>TabID-719-25495</Identity>
             <TabName>Debug Log</TabName>
             <Factory>Debug-Log</Factory>
             <Session/>
@@ -60,9 +60,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>224</YPos2>
-          <SelStart2>287</SelStart2>
-          <SelEnd2>287</SelEnd2>
+          <YPos2>138</YPos2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
         </Tab>
         <ActiveTab>0</ActiveTab>
       </Pane>
@@ -79,9 +79,9 @@
       <Top>
         <Row0>
           <Sizes>
-            <Toolbar-00742E20>
+            <Toolbar-00E52E20>
               <key>iaridepm.enu1</key>
-            </Toolbar-00742E20>
+            </Toolbar-00E52E20>
           </Sizes>
         </Row0>
       </Top>

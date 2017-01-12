@@ -1,2 +1,6 @@
 [MainWindow]
+<<<<<<< Updated upstream
 WindowPlacement=_ 150 150 1175 676 3
+=======
+WindowPlacement=_ 150 150 1175 676 1
+>>>>>>> Stashed changes
