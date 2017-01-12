@@ -188,9 +188,7 @@ mode=0
 Bp0=_ 0 "EMUL_DATA" "VIC_AD0" 0 0 0 0 4294967295
 Count=1
 [Aliases]
-A0=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\board\sys.c" ""
-A1=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\modules\drv_glcd.c" ""
-A2=_ "C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\sdram_64M_32bit_drv.c" ""
-A3=_ "C:\Users\Vitali\Desktop\DFCR\Software uC\app\main.c" ""
-Count=4
+A0=_ "C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\sdram_64M_32bit_drv.c" ""
+A1=_ "C:\Users\Vitali\Desktop\DFCR\Software uC\app\main.c" ""
+Count=2
 SuppressDialog=0

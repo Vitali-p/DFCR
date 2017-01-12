@@ -1,0 +1,8 @@
+
+
+
+
+void initEthernet( void ){
+
+
+}
