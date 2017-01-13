@@ -34,14 +34,12 @@ void Timer0Init(int TIMER0_TICK_PER_SEC){
   T0PR = 0;   // The prescale register not set.
  
   //Interrupt timer 0 setup. Activate only interrupt if time-tick is active.
-  if(TIMER0_TICK_PER_SEC > 0)
-  {
+  if(TIMER0_TICK_PER_SEC > 0){
      T0MCR_bit.MR0I = 1;   // Enable Interrupt on MR0
     //Match register value to make interrupt 1/10000s.
     T0MR0 = SYS_GetFpclk(TIMER0_PCLK_OFFSET)/(TIMER0_TICK_PER_SEC);
-   
     T0IR_bit.MR0INT = 1;  // Clear pending interrupt.
- //   __enable_interrupt(); // Enable global interrup.
+    __enable_interrupt(); // Enable global interrup.
   }
 }
 

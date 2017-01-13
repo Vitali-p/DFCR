@@ -2,13 +2,13 @@
 
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\bin\armjlink2.dll" 
 
-"C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Exe\LCD_Demo.out" 
+"C:\Users\Vitali\Desktop\Software uC\Flash Debug\Exe\LCD_Demo.out" 
 
 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\bin\armbat.dll" 
 
 --device_macro "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\config\debugger\NXP\LPC24xx.dmac" 
 
---macro "C:\Users\Vitali\Desktop\DFCR\Software uC\config\lpc2478.mac" 
+--macro "C:\Users\Vitali\Desktop\Software uC\config\lpc2478.mac" 
 
 --flash_loader "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\config\flashloader\NXP\FlashNXPLPC512K2.board" 
 

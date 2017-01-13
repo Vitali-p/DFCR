@@ -285,8 +285,7 @@ void OnTouchIntr_Handler (void){
  * Return: none
  * Description: Init Touch screen
  *************************************************************************/
-void TouchScrInit (void)
-{
+void TouchScrInit (void){
   // Init variable
   Touch_temp = Touch = FALSE;
   X = Y = 0;
@@ -315,9 +314,11 @@ void TouchScrInit (void)
   TS_X2_INTR_R  &= ~TS_X2_MASK; // disable X2 rising edge interrupt
   TS_X2_INTR_CLR =  TS_X2_MASK;
   EXTINT = 1UL<<3;
+
+  // Init timer 1 interrupt: touch screen.
   VIC_SetVectoredIRQ(OnTouchIntr_Handler,TS_INTR_PRIORITY,VIC_EINT3);
   VICINTENABLE |= 1UL << VIC_EINT3;
-/*
+
 // Init ADC
   PCONP_bit.PCAD = 1;         // Enable ADC clocks
   AD0CR_bit.PDN  = 1;         // converter is operational
@@ -331,7 +332,7 @@ void TouchScrInit (void)
   
   AD0CR_bit.BURST  = 1;       // disable burst (CHANGED original settings from 0 to 1)
   AD0CR_bit.CLKS   = 0;       // 10 bits resolution
-*/
+
 /*  
   // clear all pending interrupts
   while(ADSTAT_bit.ADINT)
@@ -343,7 +344,7 @@ void TouchScrInit (void)
 //  VIC_SetVectoredIRQ(ADC_Intr_Handler,TS_INTR_PRIORITY,VIC_AD0);
 //  VICINTENABLE |= 1UL << VIC_AD0;
 
-/*
+
 // Init delay Timer 1
   PCONP_bit.PCTIM1 = 1; // Enable TIM1 clocks.
   T1TCR = 2;            // Stop and reset timer 1.
@@ -357,7 +358,7 @@ void TouchScrInit (void)
   VIC_SetVectoredIRQ(TimerIntr_Handler,TS_INTR_PRIORITY,VIC_TIMER1);
   VICINTENABLE |= 1UL << VIC_TIMER1;
   T1TCR = 1;            // start timer 1
-*/
+
 }
 
 /*************************************************************************
@@ -367,8 +368,7 @@ void TouchScrInit (void)
  *                1 - touched
  * Description: Return current state of the touch screen.
  *************************************************************************/
-Boolean TouchGet (ToushRes_t * pData)
-{
+Boolean TouchGet (ToushRes_t * pData){
 Boolean  TouchResReadyHold = Touch;
 Int32U X_coordinate, Y_coordinate;
 

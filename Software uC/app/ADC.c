@@ -76,8 +76,7 @@ Int32U runADC(void){
   return result;
 }
 
-
-void initADC2( void ){
+void initADC2(void){
   AD0CR_bit.PDN = 0;         // Disable ADC.
   PCONP_bit.PCAD = 1;        // Power on ADC.
 

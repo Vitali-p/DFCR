@@ -2,7 +2,6 @@
  *    File name   : drv_touch_scr.h
  *    Description : Touch screen driver include file
  *
- *    History :
  *       Date        : August, 8 2008
  *       Author      : Stanimir Bonev
  *       Description : Create

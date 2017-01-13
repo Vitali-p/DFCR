@@ -14,9 +14,13 @@
 #include <Relay.h>
 #include <LED.h>
 #include <LCD.h>
+#include "drv_touch_scr.h"
+#include "NXP/iolpc2478.h"
+#include "assert.h"
+
 
 #define fs 10000
-#define T  0.0001
+//#define T  0.0001
 #define LenCircReg 3000
 
 Int32U _ADCVal;
@@ -33,8 +37,8 @@ Boolean flip = true;
 double _freq;
 Int32U _CrossingsLocation[29];
 Int32U _CrossIndex;
-Int32U _ii = 0;
-
+//Int32U _ii = 0;
+Int32U ff = 0;
 
 /*************************************************************************
  * Function Name: Timer0IntrHandler
@@ -42,8 +46,7 @@ Int32U _ii = 0;
  * Return: none
  * Description: Timer 0 interrupt handler
  *************************************************************************/
-void Timer0IntrHandler (void)
-{ 
+void Timer0IntrHandler(void){ 
 //  toogleTopLED();
  
   T0IR_bit.MR0INT = 1; // Clear the Timer 0 interrupt.
@@ -93,35 +96,34 @@ int main(void){
   InitClock();  // Init clock.
   VIC_Init();   // Init VIC.
   
-  initADC2();   // Init ADC readings.
-
-  // Initiating LCD and touch screen:
-  initLCD();    // Init LCD display.
-  initCursor(cursor_x, cursor_y);  // Init cursor.
-  initADCtouchscreen();
-  Timer1Init();
-  TouchScrInit();
-  
-  // LCD and touch screen.
-//  __enable_interrupt();
-    
+  initADC2();         // Init ADC readings.
   Timer0Init(fs);     // Init Timer 0.
   initRelayPorts();   // Init Relay and it ports.
   initLEDs();         // Init USB Link LED.
 
+  // Initiating LCD and touch screen:
+  initLCD();    // Init LCD display.
+  initCursor(cursor_x, cursor_y);  // Init cursor.
+//  initADCtouchscreen();
+//  Timer1Init();
+  TouchScrInit();
+  __enable_interrupt(); // Enable global interrup.
+
     
-  // Init timer 0 interrupt:
+  // Init timer 0 interrupt: readings.
   VIC_SetVectoredIRQ(Timer0IntrHandler,0,VIC_TIMER0);
   VICINTENABLE |= 1UL << VIC_TIMER0;
   T0TCR_bit.CE = 1;     // Enable counting.
-
-
-//  __enable_interrupt();
+  
+  // LCD touch screen and ADC.
+  __enable_interrupt(); // Enable interrupt. 
+  
+//  __disable_interrupt(); // Disable interrupt.
     
   while(1)
-  {
+  {    
     if(TouchGet(&XY_Touch))
-    {
+    {     
       cursor_x = XY_Touch.X;
       cursor_y = XY_Touch.Y;
       GLCD_Move_Cursor(cursor_x, cursor_y);
@@ -132,30 +134,28 @@ int main(void){
       }
     }
     else if(Touch)
-    {
+    {  
       USB_H_LINK_LED_FSET = USB_H_LINK_LED_MASK;
       Touch = FALSE;
-    } 
+    }
     
+
     
-       
-    if(CountFlag == true){
-      __disable_interrupt();     
+    if(CountFlag == true)
+    {
+//      __disable_interrupt(); // Disable interrupt.
       _NumberOfCrossings = 0;
-      
       clearArray();
-      _CrossIndex = 0;
-      
+      _CrossIndex = 0;     
       lowPassFilter(_waveForm, LenCircReg, fs);
-      _ii = 0;
-      for (_ii = 0; (_ii <= LenCircReg-1) & (_CrossIndex<27); _ii++){
-        
-        
-        
+//      _ii = 0;
+      
+      for(Int32U ii = 0; (ii <= LenCircReg-1) & (_CrossIndex<27); ii++)
+      {
         //        if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
-        if((LOWfilterWave[_ii]<511)^(LOWfilterWave[_ii + 1]<511)){
+        if((LOWfilterWave[ii]<511)^(LOWfilterWave[ii + 1]<511)){
           _NumberOfCrossings++;
-          _CrossingsLocation[_CrossIndex] = _ii;
+          _CrossingsLocation[_CrossIndex] = ii;
           _CrossIndex++;
         }
       }
@@ -163,10 +163,9 @@ int main(void){
       _freq = 10/((double)(_CrossingsLocation[25] - _CrossingsLocation[5])*(double)(1/(double)fs));
       RelayControl(_freq);
       CountFlag = false;
-  //    __enable_interrupt();
+     // __enable_interrupt(); // Enable interrupt.  
       
       textToScreen(0,0,"Frequency:",_freq);
-     
     }
      
     
