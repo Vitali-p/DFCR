@@ -7,6 +7,7 @@
  *       Description : LED source file.
  **************************************************************************/
 #include "board.h"
+#include "sys.h"
 
 /*************************************************************************
  * Function Name: initLED
@@ -23,6 +24,7 @@ void initLEDs(){
   USB_H_LINK_LED_SEL = 0; // GPIO
   USB_H_LINK_LED_FDIR |= USB_H_LINK_LED_MASK;
   USB_H_LINK_LED_FSET = USB_H_LINK_LED_MASK;
+
 }
 
 /*************************************************************************

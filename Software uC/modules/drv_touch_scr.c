@@ -75,8 +75,8 @@ void ADC_Intr_Handler (void){
       TS_Y2_FCLR = TS_Y2_MASK;
       TS_Y1_FSET = TS_Y1_MASK;
       // Init setup delay
-      T0MR0 = TS_SETUP_DLY;
-      T0TCR = 1;
+      T1MR0 = TS_SETUP_DLY;
+      T1TCR = 1;
     }
     else
     {
@@ -105,8 +105,8 @@ void ADC_Intr_Handler (void){
 //      AD0CR_bit.SEL  = 1UL<<0;    // select Ch0
 
       // Init setup delay
-      T0MR0 = TS_SETUP_DLY;
-      T0TCR = 1;
+      T1MR0 = TS_SETUP_DLY;
+      T1TCR = 1;
     }
     else
     {
@@ -124,8 +124,8 @@ void ADC_Intr_Handler (void){
       TS_X2_FCLR = TS_X2_MASK;
       TS_X1_FSET = TS_X1_MASK;
       // Init setup delay
-      T0MR0 = TS_SETUP_DLY;
-      T0TCR = 1;
+      T1MR0 = TS_SETUP_DLY;
+      T1TCR = 1;
     }
     else
     {
@@ -154,8 +154,8 @@ void ADC_Intr_Handler (void){
 //      AD0CR_bit.SEL  = 1UL<<1;    // select Ch1
 
       // Init setup delay
-      T0MR0 = TS_SAMPLE_DLY;
-      T0TCR = 1;
+      T1MR0 = TS_SAMPLE_DLY;
+      T1TCR = 1;
       Touch_temp = TRUE;
     }
     else
@@ -176,10 +176,9 @@ void ADC_Intr_Handler (void){
  * Return: none
  * Description: Sample timer 1 interrupt handler.
  *************************************************************************/
-void TimerIntr_Handler (void)
-{
-  T0IR_bit.MR0INT = 1;  // clear pending interrupt
-  T0TCR_bit.CR = 1;
+void TimerIntr_Handler (void){
+  T1IR_bit.MR0INT = 1;  // clear pending interrupt
+  T1TCR_bit.CR = 1;
   
   switch(State)
   {
@@ -223,14 +222,14 @@ void TimerIntr_Handler (void)
         // Init setup delay
         if(Touch)
         {
-          T0MR0 = TS_SETUP_DLY;
+          T1MR0 = TS_SETUP_DLY;
         }
         else
         {
-          T0MR0 = TS_INIT_DLY;
+          T1MR0 = TS_INIT_DLY;
         }
           State = TS_X1_SETUP_DLY;
-          T0TCR = 1;
+          T1TCR = 1;
         }
         break;
     default:
@@ -246,8 +245,7 @@ void TimerIntr_Handler (void)
  * Return: none
  * Description: On touch interrupt handler
  *************************************************************************/
-void OnTouchIntr_Handler (void)
-{
+void OnTouchIntr_Handler (void){
   // Disable and clear interrupt
   TS_X2_INTR_R  &= ~TS_X2_MASK;
   TS_X2_INTR_CLR =  TS_X2_MASK;
@@ -265,14 +263,14 @@ void OnTouchIntr_Handler (void)
     // Init setup delay
     if(Touch)
     {
-      T0MR0 = TS_SETUP_DLY;
+      T1MR0 = TS_SETUP_DLY;
     }
     else
     {
-      T0MR0 = TS_INIT_DLY;
+      T1MR0 = TS_INIT_DLY;
     }
     State = TS_X1_SETUP_DLY;
-    T0TCR = 1;
+    T1TCR = 1;
   }
   else
   {
@@ -280,7 +278,6 @@ void OnTouchIntr_Handler (void)
   }
   VICADDRESS = 0;
 }
-
 
 /*************************************************************************
  * Function Name: TouchScrInit
@@ -320,7 +317,7 @@ void TouchScrInit (void)
   EXTINT = 1UL<<3;
   VIC_SetVectoredIRQ(OnTouchIntr_Handler,TS_INTR_PRIORITY,VIC_EINT3);
   VICINTENABLE |= 1UL << VIC_EINT3;
-
+/*
 // Init ADC
   PCONP_bit.PCAD = 1;         // Enable ADC clocks
   AD0CR_bit.PDN  = 1;         // converter is operational
@@ -334,7 +331,7 @@ void TouchScrInit (void)
   
   AD0CR_bit.BURST  = 1;       // disable burst (CHANGED original settings from 0 to 1)
   AD0CR_bit.CLKS   = 0;       // 10 bits resolution
-
+*/
 /*  
   // clear all pending interrupts
   while(ADSTAT_bit.ADINT)
@@ -346,21 +343,21 @@ void TouchScrInit (void)
 //  VIC_SetVectoredIRQ(ADC_Intr_Handler,TS_INTR_PRIORITY,VIC_AD0);
 //  VICINTENABLE |= 1UL << VIC_AD0;
 
-
+/*
 // Init delay Timer 1
-  PCONP_bit.PCTIM0 = 1; // Enable TIM1 clocks.
-  T0TCR = 2;            // Stop and reset timer 1.
-  T0CTCR_bit.CTM = 0;   // Timer Mode: every rising PCLK edge
-  T0MCR_bit.MR0S = 1;   // stop timer 1 if MR1 matches the TC
-  T0MCR_bit.MR0R = 1;   // enable timer 1 reset if MR1 matches the TC
-  T0MCR_bit.MR0I = 1;   // Enable Interrupt on MR1
-  T0PR = (SYS_GetFpclk(TIMER0_PCLK_OFFSET)/ 1000000) - 1; // 1us resolution
-  T0MR0 = TS_SETUP_DLY;
-  T0IR_bit.MR0INT = 1;  // clear pending interrupt
-  VIC_SetVectoredIRQ(TimerIntr_Handler,TS_INTR_PRIORITY,VIC_TIMER0);
-  VICINTENABLE |= 1UL << VIC_TIMER0;
-  T0TCR = 1;            // start timer 1
-
+  PCONP_bit.PCTIM1 = 1; // Enable TIM1 clocks.
+  T1TCR = 2;            // Stop and reset timer 1.
+  T1CTCR_bit.CTM = 0;   // Timer Mode: every rising PCLK edge
+  T1MCR_bit.MR0S = 1;   // stop timer 1 if MR1 matches the TC
+  T1MCR_bit.MR0R = 1;   // enable timer 1 reset if MR1 matches the TC
+  T1MCR_bit.MR0I = 1;   // Enable Interrupt on MR1
+  T1PR = (SYS_GetFpclk(TIMER1_PCLK_OFFSET)/ 1000000) - 1; // 1us resolution
+  T1MR0 = TS_SETUP_DLY;
+  T1IR_bit.MR0INT = 1;  // clear pending interrupt
+  VIC_SetVectoredIRQ(TimerIntr_Handler,TS_INTR_PRIORITY,VIC_TIMER1);
+  VICINTENABLE |= 1UL << VIC_TIMER1;
+  T1TCR = 1;            // start timer 1
+*/
 }
 
 /*************************************************************************

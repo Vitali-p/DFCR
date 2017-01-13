@@ -8,3 +8,4 @@
  **************************************************************************/
 void initLCD();
 void textToScreen(Int32U X_Pos, Int32U Y_Pos, char Desc[], double Reading);
+void initCursor(Int32U X_cursor, Int32U Y_cursor);

@@ -8,10 +8,11 @@
  **************************************************************************/
 #include "board.h"
 #include "sys.h"
+#include "drv_touch_scr.h"
 
 /*************************************************************************
  * Function Name: Timer0Init
- * Parameters: Timer ticker pr. second.
+ * Parameters: Timer ticker (pr. second.)
  * Return: none
  * Description: Initiazion of Timer 0, and enables global interrupt.
  *************************************************************************/
@@ -40,8 +41,28 @@ void Timer0Init(int TIMER0_TICK_PER_SEC){
     T0MR0 = SYS_GetFpclk(TIMER0_PCLK_OFFSET)/(TIMER0_TICK_PER_SEC);
    
     T0IR_bit.MR0INT = 1;  // Clear pending interrupt.
-    __enable_interrupt(); // Enable global interrup.
-    
+ //   __enable_interrupt(); // Enable global interrup.
   }
 }
 
+/*************************************************************************
+ * Function Name: Timer1Init
+ * Parameters: none
+ * Return: none
+ * Description: Initiazion of Timer 1, for touch screen.
+ *************************************************************************/
+void Timer1Init(){
+// Init delay Timer 1
+  PCONP_bit.PCTIM1 = 1; // Enable TIM1 clocks.
+  T1TCR = 2;            // Stop and reset timer 1.
+  T1CTCR_bit.CTM = 0;   // Timer Mode: every rising PCLK edge
+  T1MCR_bit.MR0S = 1;   // stop timer 1 if MR1 matches the TC
+  T1MCR_bit.MR0R = 1;   // enable timer 1 reset if MR1 matches the TC
+  T1MCR_bit.MR0I = 1;   // Enable Interrupt on MR1
+  T1PR = (SYS_GetFpclk(TIMER1_PCLK_OFFSET)/ 1000000) - 1; // 1us resolution
+  T1MR0 = TS_SETUP_DLY;
+  T1IR_bit.MR0INT = 1;  // clear pending interrupt
+  VIC_SetVectoredIRQ(TimerIntr_Handler,TS_INTR_PRIORITY,VIC_TIMER1);
+  VICINTENABLE |= 1UL << VIC_TIMER1;
+  T1TCR = 1;            // start timer 1
+}

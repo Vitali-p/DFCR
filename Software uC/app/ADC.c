@@ -86,29 +86,43 @@ void initADC2( void ){
   AD0CR_bit.BURST = 1;     // ADC is set to operate burst mode.
   
   PINSEL1_bit.P0_25 = 1; // Set pin P0.25 to AD0[2].
-  PINSEL1_bit.P0_26 = 1; // Set pin P0.25 to AD0[3].
+  PINSEL1_bit.P0_26 = 1; // Set pin P0.25 to AD0[3]. 
   
-  PINMODE1_bit.P0_25 = 0x2;
+//  PINMODE1_bit.P0_25 = 0x2;
 //  PINMODE1_bit.P0_26 = 0x2;
-
+/*
   ADINTEN_bit.ADGINTEN = 0;
   ADINTEN_bit.ADINTEN0 = 1; // Enable interrupt
   ADINTEN_bit.ADINTEN1 = 1;
   ADINTEN_bit.ADINTEN2 = 1;
   ADINTEN_bit.ADINTEN3 = 1;
-  
-  AD0CR_bit.START = 0;  // Control start of ADC.
+
+//  AD0CR_bit.START = 0;  // Control start of ADC.
   
   VIC_SetVectoredIRQ (AD0IntrHandler,1,VIC_AD0); // The priority is hight for ADC.
   VICINTENABLE |= 1UL << VIC_AD0;
-  
-  AD0CR_bit.SEL = 4; // Selects which of the AD0.7:0 pins are to be sampled and converted.
+*/  
+  AD0CR_bit.SEL |= 0x0000000C; // Select Ch.2 and 3. Selects which of the AD0.7:0 pins are to be sampled and converted.
   AD0CR_bit.PDN = 1; // Enable the A/D, the converter is operational.
 }
-
 /************************************************************************
 Start the ADC in async mode (Interrupt driven)
 ************************************************************************/
 void runADCasync(void){
   AD0CR_bit.START = 0;
+}
+
+void initADCtouchscreen(){
+  // Init ADC
+  PCONP_bit.PCAD = 1;         // Enable ADC clocks
+  AD0CR_bit.PDN  = 1;         // converter is operational
+// ALWAY OFF  AD0CR_bit.START = 0;        // Control start of ADC.  
+  PINSEL1_bit.P0_23 = 1; // Set pin P0.25 to AD0[0].
+  PINSEL1_bit.P0_24 = 1; // Set pin P0.25 to AD0[1].
+  
+  AD0CR_bit.SEL |= 0x00000003;  // Select Ch.2 and 3.
+
+//  AD0CR_bit.CLKDIV = 17; //SYS_GetFpclk(ADC_PCLK_OFFSET)/ 500000;
+//  AD0CR_bit.BURST  = 1;       // Enable burst (CHANGED original settings from 0 to 1)
+  AD0CR_bit.CLKS = 0;       // 10 bits resolution for touch screen.
 }
