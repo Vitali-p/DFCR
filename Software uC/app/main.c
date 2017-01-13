@@ -40,6 +40,8 @@ Int32U _CrossIndex;
 //Int32U _ii = 0;
 Int32U ff = 0;
 
+char _str7[7];
+
 /*************************************************************************
  * Function Name: Timer0IntrHandler
  * Parameters: none
@@ -54,13 +56,54 @@ void Timer0IntrHandler(void){
   
   // ADC Related
   _ADCVal = ((ADDR2 & 0xFFC0)>>6);  //((AD0GDR & 0xFFC0)>>6);  //Get ADC Value
-  _waveForm[_regCount] = _ADCVal;    // Store ADC Value in circular register
+  _waveForm[_regCount] = _ADCVal;    // Store ADC Value         in circular register
   _regCount++;                       //Increment regcount
   if(_regCount == LenCircReg){             //Check if regcount need to start over
   _regCount = 0;
   CountFlag = true;
   }
 }
+
+void getString(double freq){
+//Aquire 100s
+  char hundreds = (char)(freq / 100);
+  char tens = (char)((freq - (double)hundreds*100) / 10);
+  char ones = (char)((freq - (double)hundreds*100 - (double)tens*10) / 1);
+  char tenths = (char)((freq - (double)hundreds*100 - (double)tens*10 - (double)ones*1) / 0.1);
+  char hundreths = (char)((freq - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1) / 0.01);
+  char thous = (char)((freq - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1 - (double)hundreths*0.01) / 0.001);
+  _str7[0] = hundreds + 0x30;
+  _str7[1] =tens + 0x30;
+  _str7[2] =ones + 0x30;
+  _str7[3] =0x2E; // Decimal marker
+  _str7[4] =tenths + 0x30;
+  _str7[5] =hundreths + 0x30;
+  _str7[6] =thous + 0x30;
+}
+
+double getRMS(Int32U Vector[]){
+  Int32U length = sizeof(Vector);
+  double result = 0;
+  double sum = 0;
+  for(Int32U ii = 0; ii< length; ii++){ //Sum up the array
+    sum += Vector[ii]*Vector[ii];
+  }
+  result = sqrt(sum/(double)length);  // must include math.h
+  return result;
+}
+
+double getAverage(Int32U Vector[]){
+  Int32U length = sizeof(Vector);
+  double result = 0;
+  double sum = 0;
+  for(Int32U ii = 0; ii< length; ii++){ //Sum up the array
+    sum += Vector[ii]*Vector[ii];
+  }
+  result = sum/(double)length;
+  return result;
+}
+
+
 
 void AD0IntrHandler (void) {
 ////   _ADCVal = ((AD0GDR & 0xFFC0)>>6);
@@ -119,7 +162,7 @@ int main(void){
   __enable_interrupt(); // Enable interrupt. 
   
 //  __disable_interrupt(); // Disable interrupt.
-    
+    getString(50.01234);
   while(1)
   {    
     if(TouchGet(&XY_Touch))
@@ -167,7 +210,5 @@ int main(void){
       
       textToScreen(0,0,"Frequency:",_freq);
     }
-     
-    
   }
 }
