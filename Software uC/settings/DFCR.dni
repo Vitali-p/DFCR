@@ -45,8 +45,8 @@ ShowArgs=0
 MixedMode=1
 [JLinkDriver]
 WatchCond=_ 0
-Watch0=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 0 0 0
-Watch1=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 0 0 0
+Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
 LeaveTargetRunning=_ 0
 ETM_Cookie=ID100_127104120001100101001
@@ -172,12 +172,6 @@ Fmt10={W}42:VICINTENABLE	1	0
 [Trace1]
 Enabled=0
 ShowSource=1
-[Disassemble mode]
-mode=0
-[Breakpoints2]
-Bp0=_ 0 "EMUL_DATA" "VIC_AD0" 0 0 0 0 4294967295
-Bp1=_ 0 "EMUL_CODE" "{$TOOLKIT_DIR$\inc\c\assert.h}.90.1" 0 0 1 "" 0 "" 0
-Count=2
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -185,14 +179,6 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[Aliases]
-A0=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\board\sys.c" ""
-A1=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\modules\drv_glcd.c" ""
-A2=_ "C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\sdram_64M_32bit_drv.c" ""
-A3=_ "C:\Users\Vitali\Desktop\DFCR\Software uC\app\main.c" ""
-A4=_ "C:\Users\Vitali\Desktop\Software uC\app\main.c" ""
-Count=5
-SuppressDialog=0
 [DriverProfiling]
 Enabled=0
 Mode=1
@@ -203,3 +189,17 @@ Exclusions=
 Enabled=0
 [CallStackStripe]
 ShowTiming=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "EMUL_DATA" "VIC_AD0" 0 0 0 0 4294967295
+Bp1=_ 0 "EMUL_CODE" "{$TOOLKIT_DIR$\inc\c\assert.h}.90.1" 0 0 1 "" 0 "" 0
+Count=2
+[Aliases]
+A0=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\board\sys.c" ""
+A1=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\modules\drv_glcd.c" ""
+A2=_ "C:\Users\Vitali\Desktop\DFCR Software\Software uC\modules\sdram_64M_32bit_drv.c" ""
+A3=_ "C:\Users\Vitali\Desktop\DFCR\Software uC\app\main.c" ""
+A4=_ "C:\Users\Vitali\Desktop\Software uC\app\main.c" ""
+Count=5
+SuppressDialog=0

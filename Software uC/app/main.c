@@ -42,8 +42,15 @@ Int32U _CrossingsLocation[29];
 Int32U _CrossIndex;
 Int32U ff = 0;
 char _str7[7];
-double RMS;
-double av;
+
+/////// Current  /////////////////
+Int32U _CurrentWave[LenCircReg];
+double _CurrnetCorrectionFactor;
+double _RMSCurrent;
+/////// Power  /////////////////
+double _RMSVoltage;
+double _Power;
+
 
 
 
@@ -63,10 +70,12 @@ void getString(double freq){
   _str7[5] =hundreths + 0x30;
   _str7[6] =thous + 0x30;
 }
-double getRMS(Int32U Vector[]){
-  Int32U length = sizeof(Vector);
+double getRMS(Int32U Vector[], Int32U length){
+//  Int32U length = sizeof(Vector);
   double result = 0;
   double sum = 0;
+//  Int32U dd[] = Vector;
+//  Int32U length = sizeof(*Vector);
   for(Int32U ii = 0; ii< length; ii++){ //Sum up the array
     sum += Vector[ii]*Vector[ii];
   }
@@ -227,16 +236,17 @@ void Timer1IntrHandler(void){
   T1IR_bit.MR0INT = 1; // Clear the Timer 0 interrupt.
   VICADDRESS = 0;
 
-/*  
+
   // ADC Related
   _ADCVal = ((ADDR2 & 0xFFC0)>>6);  //((AD0GDR & 0xFFC0)>>6);  //Get ADC Value
   _waveForm[_regCount] = _ADCVal;    // Store ADC Value         in circular register
+  _CurrentWave[_regCount] = ((ADDR3 & 0xFFC0)>>6);
   _regCount++;                       //Increment regcount
   if(_regCount == LenCircReg){             //Check if regcount need to start over
   _regCount = 0;
   CountFlag = true;
   }
-*/
+
 }
 
 
@@ -519,34 +529,31 @@ int main(void){
     RelayControl(47);  // TEST frequency (remove).
     textToScreen(50.1234);
 
-/*  
+  
     if(CountFlag == true)
     {
-//      __disable_interrupt(); // Disable interrupt.
       _NumberOfCrossings = 0;
       clearArray();
       _CrossIndex = 0;     
       lowPassFilter(_waveForm, LenCircReg, fs);
-//      _ii = 0;
       
       for(Int32U ii = 0; (ii <= LenCircReg-1) & (_CrossIndex<27); ii++)
       {
-        //        if((_waveForm[ii]<511)^(_waveForm[ii + 1]<511)){
         if((LOWfilterWave[ii]<511)^(LOWfilterWave[ii + 1]<511)){
           _NumberOfCrossings++;
           _CrossingsLocation[_CrossIndex] = ii;
           _CrossIndex++;
         }
       }
-       
+      
       _freq = 10/((double)(_CrossingsLocation[25] - _CrossingsLocation[5])*(double)(1/(double)fs));
+      _RMSCurrent = getRMS(_CurrentWave,sizeof(_CurrentWave)/sizeof(Int32U) );
+      _RMSVoltage = getRMS(_waveForm, sizeof(_waveForm)/sizeof(Int32U));
+      _Power = _RMSCurrent * _RMSVoltage;
       RelayControl(_freq);
       CountFlag = false;
-     // __enable_interrupt(); // Enable interrupt.  
-      
-      textToScreen(0,0,"Frequency:",_freq);
     }
-    */
+    
   }
 
 }
