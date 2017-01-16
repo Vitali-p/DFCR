@@ -113,15 +113,9 @@ void runADCasync(void){
 
 void initADCtouchscreen(){
   // Init ADC
-  PCONP_bit.PCAD = 1;         // Enable ADC clocks
-  AD0CR_bit.PDN  = 1;         // converter is operational
-// ALWAY OFF  AD0CR_bit.START = 0;        // Control start of ADC.  
-  PINSEL1_bit.P0_23 = 1; // Set pin P0.25 to AD0[0].
-  PINSEL1_bit.P0_24 = 1; // Set pin P0.25 to AD0[1].
-  
+  PCONP_bit.PCAD = 1;      // Enable ADC clocks
+  PINSEL1_bit.P0_23 = 1;   // Set pin P0.25 to AD0[0].
+  PINSEL1_bit.P0_24 = 1;   // Set pin P0.25 to AD0[1].
   AD0CR_bit.SEL |= 0x00000003;  // Select Ch.2 and 3.
-
-//  AD0CR_bit.CLKDIV = 17; //SYS_GetFpclk(ADC_PCLK_OFFSET)/ 500000;
-//  AD0CR_bit.BURST  = 1;       // Enable burst (CHANGED original settings from 0 to 1)
-  AD0CR_bit.CLKS = 0;       // 10 bits resolution for touch screen.
+  AD0CR_bit.PDN  = 1;      // converter is operational
 }

@@ -1,10 +1,18 @@
 /*************************************************************************
+ *
+ *    Used with ICCARM and AARM.
+ *
+ *    (c) Copyright IAR Systems 2008
+ *
  *    File name   : drv_touch_scr.h
  *    Description : Touch screen driver include file
  *
- *       Date        : August, 8 2008
+ *    History :
+ *    1. Date        : August, 8 2008
  *       Author      : Stanimir Bonev
  *       Description : Create
+ *
+ *    $Revision: 28 $
  **************************************************************************/
 #include "includes.h"
 
@@ -32,7 +40,9 @@ typedef union
 /*************************************************************************
  * Function Name: TimerIntr_Handler
  * Parameters: none
+ *
  * Return: none
+ *
  * Description: Sample timer interrupt handler
  *
  *************************************************************************/
@@ -41,25 +51,34 @@ void TimerIntr_Handler (void);
 /*************************************************************************
  * Function Name: OnTouchIntr_Handler
  * Parameters: none
+ *
  * Return: none
+ *
  * Description: On touch interrupt handler
+ *
  *************************************************************************/
 void OnTouchIntr_Handler (void);
 
 /*************************************************************************
  * Function Name: TouchScrInit
  * Parameters: none
+ *
  * Return: none
+ *
  * Description: Init Touch screen
+ *
  *************************************************************************/
 void TouchScrInit (void);
 
 /*************************************************************************
  * Function Name: TouchScrGetStatus
  * Parameters: ToushRes_t * pData X,Y data
+ *
  * Return: Int32U 0 - untouched
  *                1 - touched
+ *
  * Description: Return current state of the touchscreen
+ *
  *************************************************************************/
 Boolean TouchGet (ToushRes_t * pData);
 

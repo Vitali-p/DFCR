@@ -2317,49 +2317,16 @@
   <group>
     <name>app</name>
     <file>
-      <name>$PROJ_DIR$\app\ADC.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\ADC.h</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\app\cursor_arrow.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\app\cursor_arrow.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\app\DAC.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\DAC.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\includes.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\LCD.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\LCD.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\LED.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\LED.h</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\app\logo.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\app\main.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Relay.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Relay.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\app\Terminal_18_24x12.c</name>
@@ -2369,12 +2336,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\app\Terminal_9_12x6.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Timer.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\app\Timer.h</name>
     </file>
   </group>
   <group>
@@ -2401,13 +2362,7 @@
       <name>$PROJ_DIR$\modules\drv_touch_scr.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\modules\i2c0_drv.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\modules\sdram_64M_32bit_drv.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\modules\smb380_drv.c</name>
     </file>
   </group>
   <file>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <header>
+    <h1>DFRC System</h1>
+   
+  </header>
+<body>
+<script>
+function light(sw) {
+    var pic = "";
+    if (sw == 0) {
+        pic = "C:\\Users\\Vitali\\Desktop\\Webpage\\bulbOff.jpg";
+    } 
+	else if (sw == 1){
+        pic = "C:\\Users\\Vitali\\Desktop\\Webpage\\bulbOn.jpg";
+    }
+	else{
+		pic = "C:\\Users\\Vitali\\Desktop\\Webpage\\auto.jpg";
+	}
+	 
+    document.getElementById('myImage').src = pic;
+}
+
+function myFunction(sw) { 
+
+ if (sw == 1)
+{
+	document.getElementById("demo").innerHTML = "Switch Always On";
+}
+else if (sw == 2)
+{
+	document.getElementById("demo").innerHTML = "Switch Always off";
+}
+else  {
+	document.getElementById("demo").innerHTML = "Switch Auto";
+	}
+
+	
+}
+</script>
+
+<iframe height="600px" width="100%" src="frequency.html" name="iframe_a"></iframe>
+<p>Voltage (V): </p>
+<p>Power (W):</p>
+<p>Current (A):</p>
+
+  
+<P>Lamp:    
+<img id="myImage" src="C:\\Users\\Vitali\\Desktop\\Webpage\\bulbOff.jpg" width="30" height="30">
+</p>
+<p>
+<button type="button" onclick="light(2)">Light Auto</button>
+<button type="button" onclick="light(1)">Light On</button>
+<button type="button" onclick="light(0)">Light Off</button>
+</p>
+
+<p id="demo"> Switch</p>
+<p>
+<button type="button" onclick="myFunction(0)">Switch Auto</button>
+<button type="button" onclick="myFunction(1)">Switch Always On</button>
+<button type="button" onclick="myFunction(2)">Switch Always Off</button>
+</p>
+</body>
+</html>

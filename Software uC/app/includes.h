@@ -3,7 +3,7 @@
  **
  **    Used with ARM IAR C/C++ Compiler
  **
-**    Revertion: 
+ **    Revertion: 
            v0.1: Changes; #include "iar_logo.h" -- to --> #include "logo.h"
                      
  ***************************************************************************/
@@ -31,5 +31,11 @@
 #include "sdram_64M_32bit_drv.h"
 #include "drv_glcd.h"
 #include "drv_touch_scr.h"
+
+#include "autoON.h"
+#include "autoOFF.h"
+#include "buttomON.h"
+#include "buttomOFF.h"
+
 
 #endif  // __INCLUDES_H

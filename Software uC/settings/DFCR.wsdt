@@ -16,7 +16,7 @@
           
           
           
-        <Column0>227</Column0><Column1>4</Column1><Column2>33</Column2><Column3>0</Column3></ColumnWidths>
+        <Column0>299</Column0><Column1>4</Column1><Column2>33</Column2><Column3>0</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
@@ -25,11 +25,11 @@
         
       <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>873</ColumnWidth1><ColumnWidth2>241</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
       <TerminalIO/>
-    <Select-Ambiguous-Definitions><ColumnWidth0>274</ColumnWidth0><ColumnWidth1>39</ColumnWidth1><ColumnWidth2>469</ColumnWidth2></Select-Ambiguous-Definitions><Find-in-Files><ColumnWidth0>379</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>569</ColumnWidth2><ColumnWidth3>253</ColumnWidth3></Find-in-Files><Find-All-References><ColumnWidth0>443</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>759</ColumnWidth2></Find-All-References></Static>
+    <Select-Ambiguous-Definitions><ColumnWidth0>274</ColumnWidth0><ColumnWidth1>39</ColumnWidth1><ColumnWidth2>469</ColumnWidth2></Select-Ambiguous-Definitions><Find-in-Files><ColumnWidth0>379</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>569</ColumnWidth2><ColumnWidth3>253</ColumnWidth3></Find-in-Files><Find-All-References><ColumnWidth0>443</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>759</ColumnWidth2></Find-All-References><PROJECT_GUI_CALL_GRAPH><col-names><item>File</item><item>Function</item><item>Line</item></col-names><col-widths><item>200</item><item>700</item><item>100</item></col-widths></PROJECT_GUI_CALL_GRAPH></Static>
     <Windows>
       
       
-    <Wnd0>
+    <Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-28008-975</Identity>
@@ -37,11 +37,11 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>DFCR</ExpandedNode><ExpandedNode>DFCR/Modules</ExpandedNode><ExpandedNode>DFCR/app</ExpandedNode><ExpandedNode>DFCR/app/main.c</ExpandedNode><ExpandedNode>DFCR/board</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>DFCR</ExpandedNode><ExpandedNode>DFCR/Modules</ExpandedNode><ExpandedNode>DFCR/app</ExpandedNode><ExpandedNode>DFCR/board</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
         <Tabs>
           <Tab>
             <Identity>TabID-5988-978</Identity>
@@ -55,22 +55,22 @@
             <Factory>Build</Factory>
             <Session/>
           </Tab>
-        <Tab><Identity>TabID-11846-26226</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab><Tab><Identity>TabID-30920-16001</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-13766-12909</Identity><TabName>References</TabName><Factory>Find-All-References</Factory><Session/></Tab></Tabs>
+        <Tab><Identity>TabID-11846-26226</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab><Tab><Identity>TabID-30920-16001</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-13766-12909</Identity><TabName>References</TabName><Factory>Find-All-References</Factory><Session/></Tab><Tab><Identity>TabID-17545-22031</Identity><TabName>Call Graph</TabName><Factory>PROJECT_GUI_CALL_GRAPH</Factory></Tab></Tabs>
         
-      <SelectedTab>1</SelectedTab></Wnd1></Windows>
+      <SelectedTab>1</SelectedTab></Wnd3></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>89</YPos2><SelStart2>3014</SelStart2><SelEnd2>3014</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\Timer.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>13</YPos2><SelStart2>793</SelStart2><SelEnd2>793</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\ADC.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>101</YPos2><SelStart2>2870</SelStart2><SelEnd2>2870</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_touch_scr.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>257</YPos2><SelStart2>7378</SelStart2><SelEnd2>7378</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c\assert.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>72</YPos2><SelStart2>2716</SelStart2><SelEnd2>2716</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\NXP\iolpc2470.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>4261</YPos2><SelStart2>101762</SelStart2><SelEnd2>101762</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>128</YPos2><SelStart2>11360</SelStart2><SelEnd2>11360</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_glcd.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>32</YPos2><SelStart2>2739</SelStart2><SelEnd2>2739</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\includes.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>159</SelStart2><SelEnd2>159</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\buttomON.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>64855</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\buttomOFF.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>64858</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\autoOFF.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>38259</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\autoON.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>38254</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_touch_scr.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>292</YPos2><SelStart2>7506</SelStart2><SelEnd2>7506</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\logo.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>883367</SelStart2><SelEnd2>883367</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-00D52E20><key>iaridepm.enu1</key></Toolbar-00D52E20></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>360</Bottom><Right>301</Right><x>-2</x><y>-2</y><xscreen>173</xscreen><yscreen>466</yscreen><sizeHorzCX>126647</sizeHorzCX><sizeHorzCY>679300</sizeHorzCY><sizeVertCX>221816</sizeVertCX><sizeVertCY>527697</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>281</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>283</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>412536</sizeHorzCY><sizeVertCX>126647</sizeVertCX><sizeVertCY>679300</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-06021228><key>iaridepm.enu1</key></Toolbar-06021228></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>894</Bottom><Right>356</Right><x>-2</x><y>-2</y><xscreen>243</xscreen><yscreen>766</yscreen><sizeHorzCX>126563</sizeHorzCX><sizeHorzCY>679681</sizeHorzCY><sizeVertCX>186458</sizeVertCX><sizeVertCY>795031</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>188</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>190</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>168589</sizeHorzCY><sizeVertCX>126563</sizeVertCX><sizeVertCY>679681</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

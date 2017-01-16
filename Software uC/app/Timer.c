@@ -61,6 +61,6 @@ void Timer1Init(){
   T1MR0 = TS_SETUP_DLY;
   T1IR_bit.MR0INT = 1;  // clear pending interrupt
   VIC_SetVectoredIRQ(TimerIntr_Handler,TS_INTR_PRIORITY,VIC_TIMER1);
-  VICINTENABLE |= 1UL << VIC_TIMER1;
+  VICINTENABLE_bit.TIMER1 = 1;
   T1TCR = 1;            // start timer 1
 }
