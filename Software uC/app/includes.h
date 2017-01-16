@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <limits.h>
+#include <math.h>
 #include <intrinsics.h>
 #include <assert.h>
 #include <nxp/iolpc2478.h>

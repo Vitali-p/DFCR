@@ -12,8 +12,6 @@
 __root const unsigned crp = NONPROT;
 #endif
 
-#define TIMER1_TICK_PER_SEC   10
-
 #define LCD_VRAM_BASE_ADDR ((Int32U)&SDRAM_BASE_ADDR)
 extern Int32U SDRAM_BASE_ADDR;
 
@@ -28,49 +26,27 @@ extern FontType_t Terminal_18_24_12;
 #define LenCircReg 3000
 Boolean LightSwitch = false, LightAuto = false, SocketSwitch = false, SocketAuto = false;
 
-//Int32U _ADCVal;
-//Int32U _ADCStatus;
-//Int32U _regCount = 0;
-//Int32U _waveForm[LenCircReg];
-//Boolean CountFlag = false;
-//Int32U _NumberOfCrossings = 0;
-//Int32U _Debugvar = 0;
-//float LOWfilterWave[LenCircReg];
-//Boolean flip = true;
-//
-//////////////////////////////////
-//double _freq;
-//Int32U _CrossingsLocation[29];
-//Int32U _CrossIndex;
-//Int32U ff = 0;
-//char _str7[7];
+Int32U _ADCVal;
+Int32U _ADCStatus;
+Int32U _regCount = 0;
+Int32U _waveForm[LenCircReg];
+Boolean CountFlag = false;
+Int32U _NumberOfCrossings = 0;
+Int32U _Debugvar = 0;
+float LOWfilterWave[LenCircReg];
+Boolean flip = true;
+
+////////////////////////////////
+double _freq;
+Int32U _CrossingsLocation[29];
+Int32U _CrossIndex;
+Int32U ff = 0;
+char _str7[7];
+double RMS;
+double av;
 
 
 
-/*************************************************************************
- * Function Name: Timer0IntrHandler
- * Parameters: none
- * Return: none
- * Description: Timer 0 interrupt handler
- *************************************************************************/
-void Timer1IntrHandler(void){ 
-//  toogleTopLED();
- 
-  T1IR_bit.MR0INT = 1; // Clear the Timer 0 interrupt.
-  VICADDRESS = 0;
-
-/*  
-  // ADC Related
-  _ADCVal = ((ADDR2 & 0xFFC0)>>6);  //((AD0GDR & 0xFFC0)>>6);  //Get ADC Value
-  _waveForm[_regCount] = _ADCVal;    // Store ADC Value         in circular register
-  _regCount++;                       //Increment regcount
-  if(_regCount == LenCircReg){             //Check if regcount need to start over
-  _regCount = 0;
-  CountFlag = true;
-  }
-*/
-}
-/*
 void getString(double freq){
 //Aquire 100s
   char hundreds = (char)(freq / 100);
@@ -87,7 +63,6 @@ void getString(double freq){
   _str7[5] =hundreths + 0x30;
   _str7[6] =thous + 0x30;
 }
-
 double getRMS(Int32U Vector[]){
   Int32U length = sizeof(Vector);
   double result = 0;
@@ -98,7 +73,6 @@ double getRMS(Int32U Vector[]){
   result = sqrt(sum/(double)length);  // must include math.h
   return result;
 }
-
 double getAverage(Int32U Vector[]){
   Int32U length = sizeof(Vector);
   double result = 0;
@@ -110,12 +84,46 @@ double getAverage(Int32U Vector[]){
   return result;
 }
 
+/*************************************************************************
+ * Function Name: textToScreen
+ * Parameters: Reading of frequency.
+ * Return: none
+ * Description: Print readings on to the screen.
+ *************************************************************************/
+void textToScreen(double Reading){
+/*
+  Int32U d1, d2;
+  char digitString [10];
+  
+  // Calculation from digit to string.  
+  d1 = (Int32U)Reading; // Decimal precision: 5 digits
+  d2 = (Int32U)((Reading-d1)*100000);
+  sprintf(digitString, "%d.%d", d1, d2); // Convert digital reading to string.
+*/   
+  // Convert reading to comma values.
+  getString(Reading);
+   
+  //Power
+  GLCD_SetWindow(17,67,99,86);  // Set draw window XY coordinate in pixels. (X_Left, Y_Up, X_Right, Y_Down)  
+  GLCD_TextSetPos(0,0);          // Set text X,Y coordinate in characters.
+  GLCD_print(_str7); // Print formated string on the LCD.
 
-
-void AD0IntrHandler (void) {
-////   _ADCVal = ((AD0GDR & 0xFFC0)>>6);
-////   _ADCStatus = ADSTAT;
+  // Voltage
+  GLCD_SetWindow(17,107,99,126);
+  GLCD_TextSetPos(0,0);
+  GLCD_print(_str7); // Print formated string on the LCD.
+  
+  // Voltage
+  GLCD_SetWindow(17,147,99,166);
+  GLCD_TextSetPos(0,0);
+  GLCD_print(_str7); // Print formated string on the LCD.
+  
+  // Frequency
+  GLCD_SetWindow(17,186,99,205);
+  GLCD_TextSetPos(0,0);      
+  GLCD_print(_str7); // Print formated string on the LCD.    
 }
+
 
 // Lowpass filter (50Hz).
 void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate){
@@ -135,7 +143,70 @@ void clearArray( void ){
     _CrossingsLocation[ii] = 0;
   }
 }
-*/
+
+// Ports.
+/**************************************************************************
+ * Function Name: initRelayPorts
+ * Parameters: none
+ * Return: none
+ * Description: Initiation of ports for controlling the relays.
+ *************************************************************************/ 
+void initRelayPorts(void) {
+  // Set bit 11 and 19 as outputs.
+  FIO0DIR_bit.P0_11 = 1;
+  FIO0DIR_bit.P0_19 = 1;
+}
+/*************************************************************************
+ * Function Name: RelayCont
+ * Parameters: Frequency
+ * Return: none
+ * Description: Controlling output ports for the relay
+ *************************************************************************/ 
+void RelayControl(float freq) {
+  if(freq <= 49.975 & (LightAuto || SocketAuto)) {
+    // Switch off the relays. Set ports individual ports P0.11 or P0.19 as low.
+    if(LightAuto){
+      FIO0CLR_bit.P0_11 = 1;    // Light.
+    }
+    if(SocketAuto){
+      FIO0CLR_bit.P0_19 = 1;    // Socket.
+    }
+  }
+  else if(freq >= 50.025 & (LightAuto || SocketAuto)) {
+    // Switch on the relays. Set ports individual ports P0.11 or P0.19 as high.
+    if(LightAuto){
+      FIO0SET_bit.P0_11 = 1;    // Light.
+    }
+    if(SocketAuto){
+      FIO0SET_bit.P0_19 = 1;    // Socket.
+    }
+  }
+  else if((LightSwitch || SocketSwitch)){
+    if(LightSwitch){
+      FIO0SET_bit.P0_11 = 1;    // Light on.
+    }
+    if(SocketSwitch){
+      FIO0SET_bit.P0_19 = 1;    // Socket on.
+    }    
+  }
+  else if((LightSwitch == false || SocketSwitch == false)&(LightAuto == false || SocketAuto == false)){
+    if(LightSwitch == false){
+      FIO0CLR_bit.P0_11 = 1;    // Light off.    
+    }
+    if(SocketSwitch == false){
+      FIO0CLR_bit.P0_19 = 1;    // Socket off.    
+    }
+  }
+}
+/*************************************************************************
+ * Function Name: funcLED
+ * Parameters: func
+ * Return: none
+ * Description: Control boar LED.
+ *************************************************************************/ 
+void toogleTopLED(){
+  USB_D_LINK_LED_FIO ^= USB_D_LINK_LED_MASK;    // Toggle USB Link LED.
+}
 
 // Software delay function.
 void softDelay(Int32U delayU32BitCount){
@@ -143,6 +214,32 @@ void softDelay(Int32U delayU32BitCount){
     delayU32BitCount--;
   }
 }
+
+/*Timer1*Handler***********************************************************
+ * Function Name: Timer1IntrHandler
+ * Parameters: none
+ * Return: none
+ * Description: Timer 1 interrupt handler
+ *************************************************************************/
+void Timer1IntrHandler(void){ 
+  toogleTopLED();
+ 
+  T1IR_bit.MR0INT = 1; // Clear the Timer 0 interrupt.
+  VICADDRESS = 0;
+
+/*  
+  // ADC Related
+  _ADCVal = ((ADDR2 & 0xFFC0)>>6);  //((AD0GDR & 0xFFC0)>>6);  //Get ADC Value
+  _waveForm[_regCount] = _ADCVal;    // Store ADC Value         in circular register
+  _regCount++;                       //Increment regcount
+  if(_regCount == LenCircReg){             //Check if regcount need to start over
+  _regCount = 0;
+  CountFlag = true;
+  }
+*/
+}
+
+
 
 
 int main(void){ 
@@ -200,16 +297,36 @@ int main(void){
   // Init VIC
   VIC_Init();
    
+//______________INIT_HOMEMADE_FUNCTIONS_____________________
+  initRelayPorts();
+  
+//***_ADC_*************************************************
+  AD0CR_bit.PDN = 0;         // Disable ADC.
+  PCONP_bit.PCAD = 1;        // Power on ADC, enable clock.
+
+  PCLKSEL0_bit.PCLK_ADC = 1; // Enable ADC clock, CCLK = 72MHz.
+  AD0CR_bit.CLKDIV = 17;    // 72MHz/(17+1)= 4MHz<=4.5 MHz.
+  AD0CR_bit.BURST = 1;     // ADC is set to operate burst mode.
+
+  PINSEL1_bit.P0_23 = 1;  // Set pin P0.25 to AD0[0], touch screen.
+  PINSEL1_bit.P0_24 = 1;  // Set pin P0.25 to AD0[1], touch screen.  
+  PINSEL1_bit.P0_25 = 1;  // Set pin P0.25 to AD0[2], ADC Voltage.
+  PINSEL1_bit.P0_26 = 1;  // Set pin P0.25 to AD0[3], ADC Current.
+   
+  AD0CR_bit.SEL |= 0x0000000F; // Select Ch.0 to 3. Selects which of the AD0.7:0 pins are to be sampled and converted.
+  AD0CR_bit.PDN = 1; // Enable the A/D, the converter is operational. 
+  
+//__________________________________________________________ 
   // GLCD init
   GLCD_Init (LogoPic.pPicStream, NULL);
-/*  
+  
   // Init cursor
   GLCD_Cursor_Dis(0);
   GLCD_Copy_Cursor ((Int32U *)Cursor, 0, sizeof(Cursor)/sizeof(Int32U));
   GLCD_Cursor_Cfg(CRSR_FRAME_SYNC | CRSR_PIX_32);
   GLCD_Move_Cursor(cursor_x, cursor_y);
   GLCD_Cursor_En(0);
-*/  
+  
   // Init touch screen
   TouchScrInit();
   
@@ -267,7 +384,7 @@ int main(void){
   T1MCR_bit.MR0S = 0;   // Disable stop on MR0
   // set timer 1 period
   T1PR = 0;
-  T1MR0 = SYS_GetFpclk(TIMER1_PCLK_OFFSET)/(TIMER1_TICK_PER_SEC);
+  T1MR0 = SYS_GetFpclk(TIMER1_PCLK_OFFSET)/(fs);
   
   // init timer 1 interrupt
   T1IR_bit.MR0INT = 1;  // clear pending interrupt
@@ -275,6 +392,7 @@ int main(void){
 ////  VICINTENABLE |= 1UL << VIC_TIMER1;
   VICINTENABLE_bit.TIMER1 = 1;
   T1TCR_bit.CE = 1;     // counting Enable
+  
   __enable_interrupt();
   GLCD_Ctrl (TRUE);
 
@@ -321,12 +439,13 @@ int main(void){
     }
   }
 #endif
-
+   
+  
 
   while(1)
   {    
-    if(TouchGet(&XY_Touch))
-    {     
+    if(TouchGet(&XY_Touch)){
+      // On touch.
       cursor_x = XY_Touch.X;
       cursor_y = XY_Touch.Y;
       GLCD_Move_Cursor(cursor_x, cursor_y);
@@ -345,7 +464,8 @@ int main(void){
         else {
           GLCD_LoadPic(121,109,&buttomONPic,0); // Load picture to screen, position:"light on".
           GLCD_LoadPic(247,109,&autoOFFPic,0); // Load picture to screen, position "light auto off".
-          LightSwitch = true;          
+          LightSwitch = true;
+          LightAuto = false;
         }
       }     
       // Turn on/off socket.
@@ -357,7 +477,8 @@ int main(void){
         else {
           GLCD_LoadPic(121,190,&buttomONPic,0); // Load picture to screen, position:"socket on".
           GLCD_LoadPic(247,190,&autoOFFPic,0); // Load picture to screen, position:"socket auto off". 
-          SocketSwitch = true;          
+          SocketSwitch = true;
+          SocketAuto = false;
         }
       }
       
@@ -370,12 +491,12 @@ int main(void){
         else {
           GLCD_LoadPic(247,109,&autoONPic,0); // Load picture to screen, position "light auto ON".
           GLCD_LoadPic(121,109,&buttomOFFPic,0); // Load picture to screen, position:"light OFF".
-          LightAuto = true;          
+          LightAuto = true;
+          LightSwitch = false; // TEST!
         }
-      }
-      
+      } 
       // Turn auto socket.
-       if((cursor_x >= 247)&(cursor_x <= 319) & (cursor_y >= 190)&(cursor_y <= 238)){
+      if((cursor_x >= 247)&(cursor_x <= 319) & (cursor_y >= 190)&(cursor_y <= 238)){
         if(SocketAuto){
           GLCD_LoadPic(247,190,&autoOFFPic,0); // Load picture to screen, position "socket auto OFF".  
           SocketAuto = false;
@@ -383,19 +504,20 @@ int main(void){
         else {
           GLCD_LoadPic(247,190,&autoONPic,0); // Load picture to screen, position "socket auto ON".  
           GLCD_LoadPic(121,190,&buttomOFFPic,0); // Load picture to screen, position:"socket OFF".
-          SocketAuto = true;          
+          SocketAuto = true; 
+          SocketSwitch = false; // TEST!!
         }
       }          
       
       softDelay(1000000); // Delay program, prevent jitter on buttom press.
 
     }
-    else if(Touch)
-    {  
+    else if(Touch) {  
       USB_H_LINK_LED_FSET = USB_H_LINK_LED_MASK;
       Touch = FALSE;
     }
-    
+    RelayControl(47);  // TEST frequency (remove).
+    textToScreen(50.1234);
 
 /*  
     if(CountFlag == true)
