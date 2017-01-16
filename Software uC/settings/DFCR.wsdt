@@ -9,23 +9,23 @@
       <Debug-Log>
         
         
-      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1229</ColumnWidth1></Debug-Log>
+      <PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Build</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Find-All-References</Factory></Window><Window><Factory>PROJECT_GUI_CALL_GRAPH</Factory></Window></Windows></PreferedWindows><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1229</ColumnWidth1></Debug-Log>
       <Workspace>
         <ColumnWidths>
           
           
           
           
-        <Column0>101</Column0><Column1>4</Column1><Column2>33</Column2><Column3>0</Column3></ColumnWidths>
+        <Column0>289</Column0><Column1>4</Column1><Column2>33</Column2><Column3>0</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
         
         
         
-      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>873</ColumnWidth1><ColumnWidth2>241</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
+      <PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Find-All-References</Factory></Window><Window><Factory>PROJECT_GUI_CALL_GRAPH</Factory></Window></Windows></PreferedWindows><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>873</ColumnWidth1><ColumnWidth2>241</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
       <TerminalIO/>
-    <Select-Ambiguous-Definitions><ColumnWidth0>274</ColumnWidth0><ColumnWidth1>39</ColumnWidth1><ColumnWidth2>469</ColumnWidth2></Select-Ambiguous-Definitions><Find-in-Files><ColumnWidth0>379</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>569</ColumnWidth2><ColumnWidth3>253</ColumnWidth3></Find-in-Files><Find-All-References><ColumnWidth0>443</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>759</ColumnWidth2></Find-All-References><PROJECT_GUI_CALL_GRAPH><col-names><item>File</item><item>Function</item><item>Line</item></col-names><col-widths><item>200</item><item>700</item><item>100</item></col-widths></PROJECT_GUI_CALL_GRAPH></Static>
+    <Select-Ambiguous-Definitions><ColumnWidth0>274</ColumnWidth0><ColumnWidth1>39</ColumnWidth1><ColumnWidth2>469</ColumnWidth2><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Find-All-References</Factory></Window><Window><Factory>PROJECT_GUI_CALL_GRAPH</Factory></Window></Windows></PreferedWindows></Select-Ambiguous-Definitions><Find-in-Files><ColumnWidth0>379</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>569</ColumnWidth2><ColumnWidth3>253</ColumnWidth3><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Find-All-References</Factory></Window><Window><Factory>PROJECT_GUI_CALL_GRAPH</Factory></Window></Windows></PreferedWindows></Find-in-Files><Find-All-References><ColumnWidth0>443</ColumnWidth0><ColumnWidth1>63</ColumnWidth1><ColumnWidth2>759</ColumnWidth2><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>PROJECT_GUI_CALL_GRAPH</Factory></Window></Windows></PreferedWindows></Find-All-References><PROJECT_GUI_CALL_GRAPH><col-names><item>File</item><item>Function</item><item>Line</item></col-names><col-widths><item>200</item><item>700</item><item>100</item></col-widths><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Find-All-References</Factory></Window></Windows></PreferedWindows></PROJECT_GUI_CALL_GRAPH></Static>
     <Windows>
       
       
@@ -37,40 +37,24 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>DFCR</ExpandedNode><ExpandedNode>DFCR/Modules</ExpandedNode><ExpandedNode>DFCR/app</ExpandedNode><ExpandedNode>DFCR/board</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>DFCR</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
-        <Tabs>
-          <Tab>
-            <Identity>TabID-5988-978</Identity>
-            <TabName>Debug Log</TabName>
-            <Factory>Debug-Log</Factory>
-            <Session/>
-          </Tab>
-          <Tab>
-            <Identity>TabID-26439-1004</Identity>
-            <TabName>Build</TabName>
-            <Factory>Build</Factory>
-            <Session/>
-          </Tab>
-        <Tab><Identity>TabID-11846-26226</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab><Tab><Identity>TabID-30920-16001</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-13766-12909</Identity><TabName>References</TabName><Factory>Find-All-References</Factory><Session/></Tab><Tab><Identity>TabID-17545-22031</Identity><TabName>Call Graph</TabName><Factory>PROJECT_GUI_CALL_GRAPH</Factory></Tab></Tabs>
-        
-      <SelectedTab>0</SelectedTab></Wnd3></Windows>
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd0><Tabs><Tab><Identity>TabID-12948-9059</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd0></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>194</YPos2><SelStart2>12591</SelStart2><SelEnd2>12591</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_touch_scr.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>24</YPos2><SelStart2>8328</SelStart2><SelEnd2>8328</SelEnd2></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>23</SelStart2><SelEnd2>23</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd-cgi.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>39</YPos2><SelStart2>1805</SelStart2><SelEnd2>1805</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\uip-conf.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>3631</SelStart2><SelEnd2>3631</SelEnd2></Tab><ActiveTab>2</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-02A72E20><key>iaridepm.enu1</key></Toolbar-02A72E20></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>30</Bottom><Right>175</Right><x>-2</x><y>-2</y><xscreen>119</xscreen><yscreen>318</yscreen><sizeHorzCX>826389</sizeHorzCX><sizeHorzCY>-2147483648</sizeHorzCY><sizeVertCX>1229167</sizeVertCX><sizeVertCY>-2147483648</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>85</Bottom><Right>146</Right><x>-2</x><y>-2</y><xscreen>148</xscreen><yscreen>87</yscreen><sizeHorzCX>1027778</sizeHorzCX><sizeHorzCY>-2147483648</sizeHorzCY><sizeVertCX>826389</sizeVertCX><sizeVertCY>-2147483648</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-00A82E20><key>iaridepm.enu1</key></Toolbar-00A82E20></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>443</Bottom><Right>346</Right><x>-2</x><y>-2</y><xscreen>834</xscreen><yscreen>-1005004</yscreen><sizeHorzCX>610542</sizeHorzCX><sizeHorzCY>-1465020407</sizeHorzCY><sizeVertCX>254758</sizeVertCX><sizeVertCY>648688</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>200</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>291545</sizeHorzCY><sizeVertCX>146413</sizeVertCX><sizeVertCY>291545</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 
