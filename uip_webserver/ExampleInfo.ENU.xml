@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<infocenter_data version="1.0">
+  <iar_name>uIP WEB Server</iar_name>                                                                         <!--App-->
+  <iar_description>WEB server application running on the top of the uIP 1.0 TCP-IP stack</iar_description>   <!--App short description-->
+  <iar_curdir>$CUR_DIR$</iar_curdir>
+</infocenter_data>

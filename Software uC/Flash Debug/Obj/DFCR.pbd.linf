@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Obj\DFCR.pbd.linf
 C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Obj\cursor_arrow.pbi
 C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Obj\drv_glcd.pbi
@@ -9,3 +10,27 @@ C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Obj\sys.pbi
 C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Obj\Terminal_18_24x12.pbi
 C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Obj\Terminal_6_8x6.pbi
 C:\Users\Vitali\Desktop\DFCR\Software uC\Flash Debug\Obj\Terminal_9_12x6.pbi
+=======
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\DFCR.pbd.linf
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\clock-arch.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\cursor_arrow.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\logo.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\main.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\Terminal_18_24x12.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\Terminal_6_8x6.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\Terminal_9_12x6.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\sys.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\drv_glcd.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\drv_touch_scr.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\sdram_64M_32bit_drv.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\http-strings.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\httpd-cgi.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\httpd-fs.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\httpd-fsdata.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\httpd.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\psock.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\timer.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\uip.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\uip_arp.pbi
+C:\Users\OZ7TDA\Desktop\DFCR\Software uC\Flash Debug\Obj\uiplib.pbi
+>>>>>>> fe662fad3df904c0d0b49d0bdce31a4779f875ac

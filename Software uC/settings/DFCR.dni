@@ -194,7 +194,8 @@ mode=0
 [Breakpoints2]
 Bp0=_ 0 "EMUL_DATA" "VIC_AD0" 0 0 0 0 4294967295
 Bp1=_ 0 "EMUL_CODE" "{$TOOLKIT_DIR$\inc\c\assert.h}.90.1" 0 0 1 "" 0 "" 0
-Count=2
+Bp2=_ 1 "EMUL_TRACE_FILTER" "EXTINT" 0 0 0 0 4294967295 1922915907 0 0
+Count=3
 [Aliases]
 A0=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\board\sys.c" ""
 A1=_ "C:\Users\OZ7TDA\Documents\DFCR\Software uC\modules\drv_glcd.c" ""
