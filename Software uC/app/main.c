@@ -39,7 +39,7 @@ Boolean flip = true;
 
 ////////////////////////////////
 double _freq;
-Int32U _CrossingsLocation[29];
+Int32U _CrossingsLocation[100];
 Int32U _CrossIndex;
 Int32U ff = 0;
 char _str7[7];
@@ -53,19 +53,6 @@ double _RMSVoltage;
 double _Power;
 
 
-/*************************************************************************
-* Function Name: uip_log
-* Parameters: none
-*
-* Return: none
-*
-* Description: Events logging
-*
-*************************************************************************/
-void uip_log (char *m)
-{
-  
-}
 
 void getString(double freq){
   //Aquire 100s
@@ -129,9 +116,9 @@ void textToScreen(double Reading){
   //Power
   GLCD_SetWindow(17,67,99,86);  // Set draw window XY coordinate in pixels. (X_Left, Y_Up, X_Right, Y_Down)  
   GLCD_TextSetPos(0,0);          // Set text X,Y coordinate in characters.
-  GLCD_print("\f_str7"); // Print formated string on the LCD.
+  GLCD_print(_str7); // Print formated string on the LCD.
   
-  // Voltage
+  // Current
   GLCD_SetWindow(17,107,99,126);
   GLCD_TextSetPos(0,0);
   GLCD_print(_str7); // Print formated string on the LCD.
@@ -159,14 +146,14 @@ void lowPassFilter (Int32U input[], Int32U points, Int32U sampleRate){
     LOWfilterWave[ii] = (alpha*input[ii]) + (1-alpha)*LOWfilterWave[ii-1];
   }      
 }
-
+/*
 void clearArray( void ){
   Int32U len = sizeof(_CrossingsLocation);
   for (Int32U ii = 0; ii<len; ii++){
     _CrossingsLocation[ii] = 0;
   }
 }
-
+*/
 // Ports.
 /**************************************************************************
 * Function Name: initRelayPorts
@@ -238,6 +225,33 @@ void softDelay(Int32U delayU32BitCount){
   }
 }
 
+// Preload on screen.
+void preLoadScreen(){
+    // Print on screen.
+  GLCD_SetFont(&Terminal_18_24_12,0,0xEFEFEF); // Set current font, font color and background color.
+  
+  //Power
+  GLCD_SetWindow(17,67,99,86);  // Set draw window XY coordinate in pixels. (X_Left, Y_Up, X_Right, Y_Down)  
+  GLCD_TextSetPos(0,0);          // Set text X,Y coordinate in characters.
+  GLCD_print("\f60.123");   // Print formated string on the LCD.  
+  
+  // Current
+  GLCD_SetWindow(17,107,99,126);
+  GLCD_TextSetPos(0,0);
+  GLCD_print("\f230.123");
+  
+  // Voltage
+  GLCD_SetWindow(17,147,99,166);
+  GLCD_TextSetPos(0,0);
+  GLCD_print("\f0.123");
+  
+  // Frequency
+  GLCD_SetWindow(17,186,99,205);
+  GLCD_TextSetPos(0,0);
+  GLCD_print("\f50.123");
+}
+
+
 /*Timer1*Handler***********************************************************
 * Function Name: Timer1IntrHandler
 * Parameters: none
@@ -266,43 +280,7 @@ void Timer1IntrHandler(void){
 
 
 
-int main(void){ 
-  
-  /*
-  Int32U cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
-  ToushRes_t XY_Touch;
-  Boolean Touch = FALSE;
-  
-  GpioInit();   // Init GPIO.
-  InitClock();  // Init clock.
-  VIC_Init();   // Init VIC.
-  
-  initADC2();         // Init ADC readings.
-  Timer0Init(fs);     // Init Timer 0.
-  initRelayPorts();   // Init Relay and it ports.
-  initLEDs();         // Init USB Link LED.
-  
-  // Initiating LCD and touch screen:
-  initLCD();    // Init LCD display.
-  initCursor(cursor_x, cursor_y);  // Init cursor.
-  initADCtouchscreen();
-  Timer1Init();
-  TouchScrInit();
-  
-  
-  // Init timer 0 interrupt: readings.
-  VIC_SetVectoredIRQ(Timer0IntrHandler,0,VIC_TIMER0);
-  VICINTENABLE_bit.TIMER0 = 1;
-  T0TCR_bit.CE = 1;     // Enable counting.
-  
-  // LCD touch screen and ADC.
-  __enable_interrupt(); // Enable interrupt. 
-  */
-  
-  unsigned int i;
-  uip_ipaddr_t ipaddr;
-  struct timer periodic_timer, arp_timer;
-  
+int main(void){   
   typedef Int32U ram_unit;
   Int32U cursor_x = (C_GLCD_H_SIZE - CURSOR_H_SIZE)/2, cursor_y = (C_GLCD_V_SIZE - CURSOR_V_SIZE)/2;
   ToushRes_t XY_Touch;
@@ -311,7 +289,7 @@ int main(void){
   
   // Init GPIO
   GpioInit();
-  
+ 
 #ifndef SDRAM_DEBUG
   // MAM init
   MAMCR_bit.MODECTRL = 0;
@@ -322,37 +300,37 @@ int main(void){
   // SDRAM Init
   SDRAM_Init();
 #endif // SDRAM_DEBUG
+ 
   
   // Init VIC
   VIC_Init();
-  
-  // Sys timer init 1/100 sec tick
-  clock_init(2); // Used for UIP
-  timer_set(&periodic_timer, CLOCK_SECOND / 2);
-  timer_set(&arp_timer, CLOCK_SECOND * 10);
-  do
-  {
-  }
-  while(!tapdev_init());
-  // uIP web server
-  // Initialize the uIP TCP/IP stack.
-  uip_init();
-  
-  uip_ipaddr(ipaddr, 192,168,0,100);
-  uip_sethostaddr(ipaddr);
-  uip_ipaddr(ipaddr, 192,168,0,1);
-  uip_setdraddr(ipaddr);
-  uip_ipaddr(ipaddr, 255,255,255,0);
-  uip_setnetmask(ipaddr);
-  
-  // Initialize the HTTP server.
-  httpd_init();
-  
-  
+   
   
   //______________INIT_HOMEMADE_FUNCTIONS_____________________
   initRelayPorts();
   
+  //***_TIMER1_*************************************************
+  // Enable TIMER1 clocks
+  PCONP_bit.PCTIM1 = 1; // enable clock
+  // Init Time1
+  T1TCR_bit.CE = 0;     // counting  disable
+  T1TCR_bit.CR = 1;     // set reset
+  T1TCR_bit.CR = 0;     // release reset
+  T1CTCR_bit.CTM = 0;   // Timer Mode: every rising PCLK edge
+  T1MCR_bit.MR0I = 1;   // Enable Interrupt on MR0
+  T1MCR_bit.MR0R = 1;   // Enable reset on MR0
+  T1MCR_bit.MR0S = 0;   // Disable stop on MR0
+  // set timer 1 period
+  T1PR = 0;
+  T1MR0 = SYS_GetFpclk(TIMER1_PCLK_OFFSET)/(fs);
+  // init timer 1 interrupt
+  T1IR_bit.MR0INT = 1;  // clear pending interrupt
+  VIC_SetVectoredIRQ(Timer1IntrHandler,2,VIC_TIMER1);
+  VICINTENABLE_bit.TIMER1 = 1;    //  VICINTENABLE |= 1UL << VIC_TIMER1;
+  T1TCR_bit.CE = 1;     // counting Enable 
+  
+//  VICINTENCLEAR_bit   VICSOFTINT_bit    VICPROTECTION_bit   VICADDRESS_bit
+ 
   //***_ADC_*************************************************
   AD0CR_bit.PDN = 0;         // Disable ADC.
   PCONP_bit.PCAD = 1;        // Power on ADC, enable clock.
@@ -365,6 +343,10 @@ int main(void){
   PINSEL1_bit.P0_24 = 1;  // Set pin P0.25 to AD0[1], touch screen.  
   PINSEL1_bit.P0_25 = 1;  // Set pin P0.25 to AD0[2], ADC Voltage.
   PINSEL1_bit.P0_26 = 1;  // Set pin P0.25 to AD0[3], ADC Current.
+  
+//  PINMODE1 // Sets the controls the pull-up/pull-down.
+  ADINTEN_bit.ADGINTEN = 0;   // Disable A/D global interrupt.
+  AD0CR_bit.START = 0;        // Controll A/D conversion.
   
   AD0CR_bit.SEL |= 0x0000000F; // Select Ch.0 to 3. Selects which of the AD0.7:0 pins are to be sampled and converted.
   AD0CR_bit.PDN = 1; // Enable the A/D, the converter is operational. 
@@ -381,74 +363,31 @@ int main(void){
   GLCD_Cursor_En(0);
   
   // Init touch screen
-  //  TouchScrInit();
+  TouchScrInit();
   
   // Touched indication LED
   USB_H_LINK_LED_SEL = 0; // GPIO
   USB_H_LINK_LED_FSET = USB_H_LINK_LED_MASK;
   USB_H_LINK_LED_FDIR |= USB_H_LINK_LED_MASK;
   
-  __enable_interrupt();
-  GLCD_Ctrl (TRUE);
-  
-  // Print on screen.
-  GLCD_SetFont(&Terminal_18_24_12,0,0xEFEFEF); // Set current font, font color and background color.
-  
-  //Power
-  GLCD_SetWindow(17,67,99,86);  // Set draw window XY coordinate in pixels. (X_Left, Y_Up, X_Right, Y_Down)  
-  GLCD_TextSetPos(0,0);          // Set text X,Y coordinate in characters.
-  GLCD_print("\f60.123");   // Print formated string on the LCD.  
-  
-  // Voltage
-  GLCD_SetWindow(17,107,99,126);
-  GLCD_TextSetPos(0,0);
-  GLCD_print("\f230.123");
-  
-  // Voltage
-  GLCD_SetWindow(17,147,99,166);
-  GLCD_TextSetPos(0,0);
-  GLCD_print("\f0.123");
-  
-  // Frequency
-  GLCD_SetWindow(17,186,99,205);
-  GLCD_TextSetPos(0,0);
-  GLCD_print("\f50.123");
-  
+  // Load buttons.
   GLCD_LoadPic(121,109,&buttomOFFPic,0); // Load picture to screen, position "light".
   GLCD_LoadPic(247,109,&autoOFFPic,0); // Load picture to screen, position "light auto".
   
   GLCD_LoadPic(121,190,&buttomOFFPic,0); // Load picture to screen, position "socket".
   GLCD_LoadPic(247,190,&autoOFFPic,0); // Load picture to screen, position "socket auto".  
+
   
   // Init USB Link  LED
   USB_D_LINK_LED_FDIR = USB_D_LINK_LED_MASK;
   USB_D_LINK_LED_FSET = USB_D_LINK_LED_MASK;
   
-  // Enable TIM1 clocks
-  PCONP_bit.PCTIM1 = 1; // enable clock
-  
-  // Init Time1
-  T1TCR_bit.CE = 0;     // counting  disable
-  T1TCR_bit.CR = 1;     // set reset
-  T1TCR_bit.CR = 0;     // release reset
-  T1CTCR_bit.CTM = 0;   // Timer Mode: every rising PCLK edge
-  T1MCR_bit.MR0I = 1;   // Enable Interrupt on MR0
-  T1MCR_bit.MR0R = 1;   // Enable reset on MR0
-  T1MCR_bit.MR0S = 0;   // Disable stop on MR0
-  // set timer 1 period
-  T1PR = 0;
-  T1MR0 = SYS_GetFpclk(TIMER1_PCLK_OFFSET)/(fs);
-  
-  // init timer 1 interrupt
-  T1IR_bit.MR0INT = 1;  // clear pending interrupt
-  VIC_SetVectoredIRQ(Timer1IntrHandler,0,VIC_TIMER1);
-  ////  VICINTENABLE |= 1UL << VIC_TIMER1;
-  VICINTENABLE_bit.TIMER1 = 1;
-  T1TCR_bit.CE = 1;     // counting Enable
+
   
   __enable_interrupt();
   GLCD_Ctrl (TRUE);
-  
+
+
 #if 0
   SDRAM_Test();
 #endif
@@ -495,71 +434,7 @@ int main(void){
   
   
   
-  while(1)
-  {    
-    
-    uip_len = tapdev_read(uip_buf);
-    if(uip_len > 0)
-    {
-      if(BUF->type == htons(UIP_ETHTYPE_IP))
-      {
-        uip_arp_ipin();
-        uip_input();
-        /* If the above function invocation resulted in data that
-        should be sent out on the network, the global variable
-        uip_len is set to a value > 0. */
-        if(uip_len > 0)
-        {
-          uip_arp_out();
-          tapdev_send(uip_buf,uip_len);
-        }
-      }
-      else if(BUF->type == htons(UIP_ETHTYPE_ARP))
-      {
-        uip_arp_arpin();
-        /* If the above function invocation resulted in data that
-        should be sent out on the network, the global variable
-        uip_len is set to a value > 0. */
-        if(uip_len > 0)
-        {
-          tapdev_send(uip_buf,uip_len);
-        }
-      }
-    }
-    else if(timer_expired(&periodic_timer))
-    {
-      timer_reset(&periodic_timer);
-      for(i = 0; i < UIP_CONNS; i++)
-      {
-      	uip_periodic(i);
-        /* If the above function invocation resulted in data that
-        should be sent out on the network, the global variable
-        uip_len is set to a value > 0. */
-        if(uip_len > 0)
-        {
-          uip_arp_out();
-          tapdev_send(uip_buf,uip_len);
-        }
-      }
-#if UIP_UDP
-      for(i = 0; i < UIP_UDP_CONNS; i++) {
-        uip_udp_periodic(i);
-        /* If the above function invocation resulted in data that
-        should be sent out on the network, the global variable
-        uip_len is set to a value > 0. */
-        if(uip_len > 0) {
-          uip_arp_out();
-          tapdev_send();
-        }
-      }
-#endif /* UIP_UDP */
-      /* Call the ARP timer function every 10 seconds. */
-      if(timer_expired(&arp_timer))
-      {
-        timer_reset(&arp_timer);
-        uip_arp_timer();
-      }
-    }
+  while(1){    
     
     if(TouchGet(&XY_Touch)){
       // On touch.
@@ -633,19 +508,17 @@ int main(void){
       USB_H_LINK_LED_FSET = USB_H_LINK_LED_MASK;
       Touch = FALSE;
     }
-    //    RelayControl(47);  // TEST frequency (remove).
+//    RelayControl(47);  // TEST frequency (remove).
     //    textToScreen(50.1234);
     
     
-    if(CountFlag == true)
-    {
+    if(CountFlag == true){
       _NumberOfCrossings = 0;
-      clearArray();
+//      clearArray();
       _CrossIndex = 0;     
       lowPassFilter(_waveForm, LenCircReg, fs);
       
-      for(Int32U ii = 0; (ii <= LenCircReg-1) & (_CrossIndex<27); ii++)
-      {
+      for(Int32U ii = 0; (ii <= LenCircReg-1) & (_CrossIndex<46); ii++) {
         if((LOWfilterWave[ii]<511)^(LOWfilterWave[ii + 1]<511)){
           _NumberOfCrossings++;
           _CrossingsLocation[_CrossIndex] = ii;

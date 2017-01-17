@@ -1,4 +1,5 @@
 #include "drv_touch_scr.h"
+
 typedef enum _TouchScrState_t
 {
   TS_INTR_SETUP_DLY = 0, TS_WAIT_FOR_TOUCH,
@@ -30,16 +31,16 @@ static volatile Int32U Samples;
  * Description: End conversion interrupt handler
  *************************************************************************/
 void ADC_Intr_Handler (void){
-//  Int32U Data;          // Comment out!
+  Int32U Data;          // Comment out!
 //  AD0CR_bit.START = 0;  // Comment out!
-  ADC_Intr_Handler(); // USE!
+//  ADC_Intr_Handler(); // USE!
 //  Data = AD0GDR_bit.RESULT;  // Comment out!
   
-  switch(State)
-  {
+  switch(State) {
   case TS_X1_MEASURE:
-//    Y_temp += Data;     // Comment out!
-    Y_temp += ((ADDR1&0xFFFF)/0x40);    // USE!
+    Data = ADDR1_bit.RESULT;
+    Y_temp += Data;     // Comment out!
+//    Y_temp += ((ADDR1&0xFFFF)/0x40);    // USE!
     if(++Samples >= TS_SAMPLES){
       Samples = 0;
       State = TS_X2_SETUP_DLY;
@@ -50,14 +51,15 @@ void ADC_Intr_Handler (void){
       T2MR0 = TS_SETUP_DLY;     //Change timer nr.
       T2TCR = 1;                //Change timer nr.
     }
-    else{
+    else {
 //      AD0CR_bit.START = 1;      // Comment out!
       ADC_Intr_Handler();     // USE!
     }
     break;
   case TS_X2_MEASURE:
-//    Y_temp += 1023UL - Data;    // Comment out!
-    Y_temp += 1023UL - ((ADDR1&0xFFFF)/0x40);    // USE!
+    Data = ADDR1_bit.RESULT;
+    Y_temp += 1023UL - Data;    // Comment out!
+//    Y_temp += 1023UL - ((ADDR1&0xFFFF)/0x40);    // USE!
     if(++Samples >= TS_SAMPLES){
       Samples = 0;
       State = TS_Y1_SETUP_DLY;
@@ -86,8 +88,9 @@ void ADC_Intr_Handler (void){
     }
     break;
   case TS_Y1_MEASURE:
-//    X_temp += 1023UL - Data;    // Comment out!
-    X_temp += 1023UL - ((ADDR0&0xFFFF)/0x40);   // USE!
+    Data = ADDR0_bit.RESULT;
+    X_temp += 1023UL - Data;    // Comment out!
+//    X_temp += 1023UL - ((ADDR0&0xFFFF)/0x40);   // USE!
     if(++Samples >= TS_SAMPLES){
       Samples = 0;
       State = TS_Y2_SETUP_DLY;
@@ -100,15 +103,15 @@ void ADC_Intr_Handler (void){
       T2MR0 = TS_SETUP_DLY;     //Change timer nr.
       T2TCR = 1;                //Change timer nr.
     }
-    else
-    {
+    else {
 //      AD0CR_bit.START = 1;      // Comment out!
       ADC_Intr_Handler();     // USE!
     }
     break;
   case TS_Y2_MEASURE:
-//    X_temp += Data;     // Comment out!
-    X_temp += ((ADDR0&0xFFFF)/0x40);  // USE!
+    Data = ADDR0_bit.RESULT;
+    X_temp += Data;     // Comment out!
+//    X_temp += ((ADDR0&0xFFFF)/0x40);  // USE!
     if(++Samples >= TS_SAMPLES){
       State = TS_INTR_SETUP_DLY;
       // Y1 = 1, Y2 = 1;
@@ -131,7 +134,7 @@ void ADC_Intr_Handler (void){
       T2TCR = 1;                //Change timer nr.
       Touch_temp = TRUE;
     }
-    else{
+    else {
 //      AD0CR_bit.START = 1;      // Comment out!
       ADC_Intr_Handler();     // USE!
     }
@@ -152,8 +155,7 @@ void TimerIntr_Handler (void) {
   T2IR_bit.MR0INT = 1;  // clear pending interrupt //**Change timer nr.
   T2TCR_bit.CR = 1;     //Change timer nr.
   
-  switch(State)
-  {
+  switch(State) {
   case TS_X1_SETUP_DLY:
   case TS_X2_SETUP_DLY:
   case TS_Y1_SETUP_DLY:
@@ -170,11 +172,9 @@ void TimerIntr_Handler (void) {
       Touch_temp = Touch = FALSE;
       TS_X2_INTR_R |= TS_X2_MASK;
     }
-    else
-    {
+    else {
       // Update X and Y
-      if(Touch_temp)
-      {
+      if(Touch_temp) {
         X = X_temp;
         Y = Y_temp;
       }
@@ -191,12 +191,10 @@ void TimerIntr_Handler (void) {
       X_temp = Y_temp = 0;
       
       // Init setup delay
-      if(Touch)
-      {
+      if(Touch) {
         T2MR0 = TS_SETUP_DLY;   //Change timer nr.
       }
-      else
-      {
+      else {
         T2MR0 = TS_INIT_DLY;    //Change timer nr.
       }
       State = TS_X1_SETUP_DLY;
@@ -222,8 +220,7 @@ void OnTouchIntr_Handler (void) {
   TS_X2_INTR_CLR =  TS_X2_MASK;
   
   // Init ACD measure setup delay
-  if(TS_WAIT_FOR_TOUCH == State)
-  {
+  if(TS_WAIT_FOR_TOUCH == State) {
     // Y1 = 0, Y2 = 1;
     TS_Y1_FCLR = TS_Y1_MASK;
     // Disable X2 pull down
@@ -234,19 +231,16 @@ void OnTouchIntr_Handler (void) {
     X_temp = Y_temp = 0;
     
     // Init setup delay
-    if(Touch)
-    {
+    if(Touch) {
       T2MR0 = TS_SETUP_DLY;     //Change timer nr.
     }
-    else
-    {
+    else {
       T2MR0 = TS_INIT_DLY;      //Change timer nr.
     }
     State = TS_X1_SETUP_DLY;
     T2TCR = 1;                  //Change timer nr.
   }
-  else
-  {
+  else {
     assert(0);
   }
   VICADDRESS = 0;
@@ -287,12 +281,12 @@ void TouchScrInit (void){
   // Init Port interrupt
   TS_X2_INTR_R  &= ~TS_X2_MASK; // disable X2 rising edge interrupt
   TS_X2_INTR_CLR =  TS_X2_MASK;
-  EXTINT = 1UL<<3;
+  EXTINT = 1UL<<3;  // External Interrupt Flag Register.
   VIC_SetVectoredIRQ(OnTouchIntr_Handler,TS_INTR_PRIORITY,VIC_EINT3);
-//  VICINTENABLE |= 1UL << VIC_EINT3;  // Original.
-  VICINTENABLE_bit.EINT3 = 1;          // Modifired.
+//  VIC_SetVectoredIRQ(OnTouchIntr_Handler,0,VIC_EINT3);
+  VICINTENABLE |= 1UL << VIC_EINT3;       
 
-/*  
+/*ADC  
   // Init ADC
   PCONP_bit.PCAD = 1;         // Enable ADC clocks
   AD0CR_bit.PDN  = 1;         // converter is operational
@@ -300,6 +294,8 @@ void TouchScrInit (void){
   AD0CR_bit.SEL  = 1UL<<1;    // select Ch1
   AD0CR_bit.CLKDIV = SYS_GetFpclk(ADC_PCLK_OFFSET)/ 500000;
   AD0CR_bit.BURST  = 0;       // disable burst
+*/
+
   AD0CR_bit.CLKS   = 0;       // 10 bits resolution
 
   // clear all pending interrupts
@@ -307,7 +303,8 @@ void TouchScrInit (void){
   {
     volatile Int32U Dummy = AD0GDR;
   }
-
+  
+/*
   ADINTEN_bit.ADGINTEN = 1;   // Enable global interrupt
   VIC_SetVectoredIRQ(ADC_Intr_Handler,TS_INTR_PRIORITY,VIC_AD0);
 //  VICINTENABLE |= 1UL << VIC_AD0;
@@ -315,8 +312,8 @@ void TouchScrInit (void){
 */
   
   // Init delay timer
-  PCONP_bit.PCTIM2 = 1; // Enable TIM0 clocks **PCTIM0
-  T2TCR = 2;            // stop and reset timer 0 **T0TCR...T0IR
+  PCONP_bit.PCTIM2 = 1; // Enable TIM2 clocks **PCTIM0
+  T2TCR = 2;            // stop and reset timer 2 **T0TCR...T0IR
   T2CTCR_bit.CTM = 0;   // Timer Mode: every rising PCLK edge
   T2MCR_bit.MR0S = 1;   // stop timer if MR0 matches the TC
   T2MCR_bit.MR0R = 1;   // enable timer reset if MR0 matches the TC
@@ -324,9 +321,11 @@ void TouchScrInit (void){
   T2PR = (SYS_GetFpclk(TIMER2_PCLK_OFFSET)/ 1000000) - 1; // 1us resolution **TIMER0_PCLK_OFFSET
   T2MR0 = TS_SETUP_DLY;
   T2IR_bit.MR0INT = 1;  // clear pending interrupt
-  VIC_SetVectoredIRQ(TimerIntr_Handler,TS_INTR_PRIORITY,VIC_TIMER2); //**VIC_TIMER0
+  //  VIC_SetVectoredIRQ(TimerIntr_Handler,TS_INTR_PRIORITY,VIC_TIMER2); //**VIC_TIMER0
+  VIC_SetVectoredIRQ(TimerIntr_Handler,1,VIC_TIMER2); //**VIC_TIMER0
   VICINTENABLE |= 1UL << VIC_TIMER2; //**VIC_TIMER0
-  T2TCR = 1;            // start timer 0
+  T2TCR = 1;            // start timer 2  
+  
 }
 
 /*************************************************************************

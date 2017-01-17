@@ -1936,9 +1936,6 @@
   <group>
     <name>app</name>
     <file>
-      <name>$PROJ_DIR$\app\clock-arch.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\app\cursor_arrow.c</name>
     </file>
     <file>
@@ -1990,45 +1987,6 @@
       </excluded>
     </file>
   </group>
-  <group>
-    <name>uIP</name>
-    <group>
-      <name>http</name>
-      <file>
-        <name>$PROJ_DIR$\uip\httpd\http-strings.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\uip\httpd\httpd-cgi.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\uip\httpd\httpd-fs.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\uip\httpd\httpd-fsdata.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$\uip\httpd\httpd.c</name>
-      </file>
-    </group>
-    <file>
-      <name>$PROJ_DIR$\uip\psock.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\uip\timer.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\uip\uip.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\uip\uip_arp.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\uip\uiplib.c</name>
-    </file>
-  </group>
-  <file>
-    <name>$PROJ_DIR$\readme.txt</name>
-  </file>
 </project>
 
 

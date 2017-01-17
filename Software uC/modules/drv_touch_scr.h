@@ -1,19 +1,3 @@
-/*************************************************************************
- *
- *    Used with ICCARM and AARM.
- *
- *    (c) Copyright IAR Systems 2008
- *
- *    File name   : drv_touch_scr.h
- *    Description : Touch screen driver include file
- *
- *    History :
- *    1. Date        : August, 8 2008
- *       Author      : Stanimir Bonev
- *       Description : Create
- *
- *    $Revision: 28 $
- **************************************************************************/
 #include "includes.h"
 
 #ifndef __DRV_TOUCH_SCR_H

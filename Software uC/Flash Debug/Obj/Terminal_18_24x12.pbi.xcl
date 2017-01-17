@@ -1,22 +1,22 @@
-"C:\Users\OZ7TDA\Desktop\DFCR\Software uC\app\Terminal_18_24x12.c"
+"C:\Users\Vitali\Desktop\DFCR\Software uC\app\Terminal_18_24x12.c"
 -std=c99
 -ferror-limit=100
 -I
-C:\Users\OZ7TDA\Desktop\DFCR\Software uC\app
+C:\Users\Vitali\Desktop\DFCR\Software uC\app
 -I
-C:\Users\OZ7TDA\Desktop\DFCR\Software uC\board
+C:\Users\Vitali\Desktop\DFCR\Software uC\board
 -I
-C:\Users\OZ7TDA\Desktop\DFCR\Software uC\modules
+C:\Users\Vitali\Desktop\DFCR\Software uC\modules
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-C:\Users\OZ7TDA\Desktop\DFCR\Software uC\app
+C:\Users\Vitali\Desktop\DFCR\Software uC\app
 -I
-C:\Users\OZ7TDA\Desktop\DFCR\Software uC\board
+C:\Users\Vitali\Desktop\DFCR\Software uC\board
 -I
-C:\Users\OZ7TDA\Desktop\DFCR\Software uC\modules
+C:\Users\Vitali\Desktop\DFCR\Software uC\modules
 -DIAR_LPC_2478_STK=1
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff

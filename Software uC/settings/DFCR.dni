@@ -33,7 +33,7 @@ Stop=1
 Freq=10000000
 MultiCoreRunAll=1
 [DebugChecksum]
-Checksum=-1540511681
+Checksum=-1084256030
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -165,10 +165,14 @@ Fmt3={W}42:AD0CR_bit.SEL	1	0
 Fmt4={W}42:ADDR0	4	0
 Fmt5={W}42:ADDR1	4	0
 Fmt6={W}42:ADDR2	4	0
-Fmt7={W}42:FIO0DIR	1	0
-Fmt8={W}42:FIO0PIN	1	0
-Fmt9={W}42:FIO1PIN	1	0
-Fmt10={W}42:VICINTENABLE	1	0
+Fmt7={W}42:ADINTEN	1	0
+Fmt8={W}42:EXTINT	1	0
+Fmt9={W}42:FIO0DIR	1	0
+Fmt10={W}42:FIO0PIN	1	0
+Fmt11={W}42:FIO1PIN	1	0
+Fmt12={W}42:PINMODE1	1	0
+Fmt13={W}42:VICADDRESS	1	0
+Fmt14={W}42:VICINTENABLE	1	0
 [Trace1]
 Enabled=0
 ShowSource=1
