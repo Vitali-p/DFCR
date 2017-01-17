@@ -1,0 +1,25 @@
+"--endian=little" 
+
+"--cpu=ARM7TDMI-S" 
+
+"--fpu=None" 
+
+"-p" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\config\debugger\NXP\iolpc2470.ddf" 
+
+"--drv_verify_download" 
+
+"--semihosting" 
+
+"--device=LPC2478" 
+
+"--drv_communication=USB0" 
+
+"--drv_interface_speed=adaptive" 
+
+"--jlink_reset_strategy=0,9" 
+
+
+
+
