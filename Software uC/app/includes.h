@@ -10,7 +10,7 @@
 
 #ifndef __INCLUDES_H
 #define __INCLUDES_H
-
+extern double freqhistarray[10];
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>

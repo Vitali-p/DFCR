@@ -383,11 +383,11 @@ int main(void){
   __enable_interrupt();
 
   // Initialize the ethernet device driver
-//  do
-//  {
-////    GLCD_TextSetPos(0,0);
-//  }
-//  while(!tapdev_init());
+  do
+  {
+//    GLCD_TextSetPos(0,0);
+  }
+  while(!tapdev_init());
 //  GLCD_TextSetPos(0,0);
 
   // uIP web server

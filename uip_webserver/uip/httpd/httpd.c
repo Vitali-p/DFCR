@@ -207,6 +207,9 @@ PT_THREAD(send_headers(struct httpd_state *s, const char *statushdr))
     PSOCK_SEND_STR(&s->sout, http_content_type_gif);
   } else if(strncmp(http_jpg, ptr, 4) == 0) {
     PSOCK_SEND_STR(&s->sout, http_content_type_jpg);
+  } 
+  else if(strncmp(http_xml, ptr, 5) == 0) {
+    PSOCK_SEND_STR(&s->sout, http_content_type_xml);
   } else {
     PSOCK_SEND_STR(&s->sout, http_content_type_plain);
   }

@@ -50,15 +50,17 @@
 #include "httpd.h"
 #include "httpd-cgi.h"
 #include "httpd-fs.h"
-
+#include "includes.h"
 #include <stdio.h>
 #include <string.h>
+double freqhistarray[10];
 
+HTTPD_CGI_CALL(freq, "Frequency", frequencytest);
 HTTPD_CGI_CALL(file, "file-stats", file_stats);
 HTTPD_CGI_CALL(tcp, "tcp-connections", tcp_stats);
 HTTPD_CGI_CALL(net, "net-stats", net_stats);
 
-static const struct httpd_cgi_call *calls[] = { &file, &tcp, &net, NULL };
+static const struct httpd_cgi_call *calls[] = { &freq, &file, &tcp, &net, NULL };
 
 /*---------------------------------------------------------------------------*/
 static
@@ -201,3 +203,23 @@ PT_THREAD(net_stats(struct httpd_state *s, char *ptr))
 }
 /*---------------------------------------------------------------------------*/
 /** @} */
+
+
+static unsigned short
+generate_frequencytest(void *arg)
+{
+  struct httpd_state *s = (struct http_state *)arg;
+  char *f = (char *)arg;
+  return snprintf((char *)uip_appdata, UIP_APPDATA_SIZE, "%5f, /n", freqhistarray[s->count]);
+}
+/*---------------------------------------------------------------------------*/
+static
+PT_THREAD(frequencytest(struct httpd_state *s, char *ptr))
+{
+  Int8U length = 10;
+  PSOCK_BEGIN(&s->sout);
+  for ( s -> count = lenght; s->count 0; s->count --){
+  PSOCK_GENERATOR_SEND(&s->sout, generate_frequencytest, strchr(ptr, ' ') + 1);
+  }
+  PSOCK_END(&s->sout);
+}

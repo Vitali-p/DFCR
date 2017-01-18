@@ -35,7 +35,7 @@
 #include "arm_comm.h"
 #include "board.h"
 
-#include "iar_logo.h"
+//#include "iar_logo.h"
 
 #include "sys.h"
 #include "sdram_64M_32bit_drv.h"
