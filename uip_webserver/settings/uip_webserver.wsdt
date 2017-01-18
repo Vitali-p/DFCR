@@ -12,7 +12,7 @@
           
           
           
-        <Column0>177</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>215</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Debug-Log>
         
@@ -29,7 +29,7 @@
     <Windows>
       
       
-    <Wnd0>
+    <Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-6565-841</Identity>
@@ -41,20 +41,20 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd0><Wnd1><Tabs><Tab><Identity>TabID-29193-25003</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-21532-13088</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd1></Windows>
+      <SelectedTab>0</SelectedTab></Wnd2><Wnd3><Tabs><Tab><Identity>TabID-29193-25003</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-21532-13088</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd3></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>158</YPos2><SelStart2>10346</SelStart2><SelEnd2>10346</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_touch_scr.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>332</YPos2><SelStart2>10989</SelStart2><SelEnd2>10989</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\uip.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>1834</YPos2><SelStart2>58701</SelStart2><SelEnd2>58701</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\logo.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>44</YPos2><SelStart2>1556</SelStart2><SelEnd2>1556</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\modules\drv_touch_scr.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>330</YPos2><SelStart2>10989</SelStart2><SelEnd2>10989</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\uip.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>1834</YPos2><SelStart2>58701</SelStart2><SelEnd2>58701</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\logo.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-0478FCF0><key>iaridepm.enu1</key></Toolbar-0478FCF0></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>506</Bottom><Right>251</Right><x>-2</x><y>-2</y><xscreen>286</xscreen><yscreen>148</yscreen><sizeHorzCX>222050</sizeHorzCX><sizeHorzCY>204138</sizeHorzCY><sizeVertCX>196429</sizeVertCX><sizeVertCY>700690</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>174</Bottom><Right>1290</Right><x>-2</x><y>-2</y><xscreen>1292</xscreen><yscreen>176</yscreen><sizeHorzCX>1003106</sizeHorzCX><sizeHorzCY>242759</sizeHorzCY><sizeVertCX>155280</sizeVertCX><sizeVertCY>275862</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-061864B0><key>iaridepm.enu1</key></Toolbar-061864B0></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>886</Bottom><Right>289</Right><x>-2</x><y>-2</y><xscreen>426</xscreen><yscreen>230</yscreen><sizeHorzCX>221875</sizeHorzCX><sizeHorzCY>204082</sizeHorzCY><sizeVertCX>151563</sizeVertCX><sizeVertCY>787933</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>196</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>198</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>175688</sizeHorzCY><sizeVertCX>155208</sizeVertCX><sizeVertCY>275954</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

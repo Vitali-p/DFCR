@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <title>Min/Max Settings</title>
+    <script src="Chart.bundle.js"></script>
+    <script src="utils.js"></script>
+    <style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+
+    
+<!--	<p id="demo">time</p>
+	<p id="demo1">freq</p> -->
+	<div style="width:100%;">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script>
+	  
+	   var time, freq, config; 
+	   time = [];
+	   freq = [];
+	   function loadXMLDoc() {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				myFunction(this);
+			}
+		};
+		xmlhttp.open("GET", "file:\\\\C:\\Users\\Vitali\\Desktop\\DFCR Software\\Webpage new\\Frequency.xml", true);
+		xmlhttp.send();
+	}
+	function myFunction(xml) {
+		
+		var y, z, xmlDoc;
+	   <!--var time, freq; 
+	   
+		xmlDoc = xml.responseXML;
+		y = xmlDoc.getElementsByTagName('TIME');
+			for (i = 0; i < y.length; i++) { 
+				time[i] = y[i].childNodes[0].nodeValue;
+			}
+			z = xmlDoc.getElementsByTagName('FREQUENCY');
+			for (i = 0; i < z.length; i++) { 
+			freq[i] = z[i].childNodes[0].nodeValue;
+			}
+			<!--document.getElementById("demo").innerHTML = time
+ 
+			<!--document.getElementById("demo1").innerHTML = freq
+			config = {
+            type: 'line',
+            data: {
+                labels: 
+				time
+				 <!--["0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+				,
+                datasets: [{
+                    label: "Frequency",
+                    backgroundColor: window.chartColors.red,
+                    borderColor: window.chartColors.red,
+                    data: 
+					freq
+					<!--[49.921, 49.895, 49.921, 49.921, 49.921, 49.921, 49.921, 49.974,  49.921, 49.985, 49.947]
+					,
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                title:{
+                    display:true,
+                    text:'Frequency (Hz)'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 40.00,
+                            max: 60.050
+                        }
+                    }]
+                }
+            }
+        };
+			var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx, config);
+			
+	}
+         
+        window.onload = function() {
+		    
+		    loadXMLDoc();
+			
+        };
+
+    
+    </script>
+</body>
+
+</html>

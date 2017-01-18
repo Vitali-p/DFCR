@@ -1,30 +1,30 @@
-"C:\Users\Vitali\Desktop\DFCR\uip_webserver\app\main.c"
+"C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\app\main.c"
 -std=c99
 -ferror-limit=100
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\app
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\app
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\board
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\board
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\modules
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\modules
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\uip
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\uip
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\uip\httpd
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\uip\httpd
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\app
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\app
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\board
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\board
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\modules
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\modules
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\uip
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\uip
 -I
-C:\Users\Vitali\Desktop\DFCR\uip_webserver\uip\httpd
+C:\Users\Vitali\Desktop\DFCR Software\uip_webserver\uip\httpd
 -DIAR_LPC_2478_STK=1
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff

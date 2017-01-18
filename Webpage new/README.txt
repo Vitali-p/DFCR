@@ -1,0 +1,1 @@
+Change path in file: "frequency.html" at line "xmlhttp.open("GET", "file:\\\\C:\\Users\\Frequency.xml", true);" to your project file destination!

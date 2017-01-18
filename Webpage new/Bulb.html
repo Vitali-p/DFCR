@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+ <header>
+	<style>
+		h1 {
+		color:black;
+		font: 42px Century Gothic, Geneva, sans-serif;
+		}
+		
+		p { 
+		font: 15px Century Gothic, Geneva, sans-serif;
+		}
+		
+		.button {
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 22px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			-webkit-transition-duration: 0.4s; /* Safari */
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+		
+		.button {
+			background-color: white; 
+			color: black; 
+			border: 2px solid #4CAF50;
+			border-radius: 6px;
+		}
+		
+		.button:hover {
+			background-color: #4CAF50;
+			color: white;
+		}
+	</style>
+	
+	
+    <h1><img id="logoImage" src=".\\Weblogo.jpg" width="35" height="35"> DFRC System 
+	<img id="logoImage" src=".\\dtulogo.jpg" width="auto" height="auto" align="right" style="margin:0px 0px 10px 0px">
+	</h1>
+	
+  </header>
+ 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<body>
+<script type="text/javascript">
+function light(sw){
+    var pic = "";
+    if (sw == 0) {
+        pic = ".\\bulbOff.jpg";
+    } 
+	else if (sw == 1){
+        pic = ".\\bulbOn.jpg";
+    }
+	else{
+		pic = ".\\auto.jpg";
+	}
+    document.getElementById('myImage').src = pic;
+}
+
+function myFunction(sw){ 
+	if (sw == 1){
+		document.getElementById("demo").innerHTML = "Switch status: On";
+	}
+	else if (sw == 2){
+		document.getElementById("demo").innerHTML = "Switch status: Off";
+	}
+	else{
+		document.getElementById("demo").innerHTML = "Switch status: Auto";
+	}	
+}
+
+/*
+(function() {
+  var httpRequest;
+  document.getElementById("ajaxButton").onclick = function() { makeRequest('Frequency.xml'); };
+
+  function makeRequest(url) {
+light(1);
+    httpRequest = new XMLHttpRequest();
+	
+
+    if (!httpRequest) {
+      alert('Giving up :( Cannot create an XMLHTTP instance');
+      return false;
+    }
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('GET', url);
+    httpRequest.send();
+  }
+
+  function alertContents() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        alert(httpRequest.responseText);
+      } else {
+        alert('There was a problem with the request.');
+      }
+    }
+  }
+})(); 
+*/
+
+</script>
+
+<iframe height="600px" width="100%" src="frequency.html" name="iframe_a"></iframe>
+
+<p>Voltage (V):</p> 
+<p>Power (W):</p>
+<p>Current (A):</p>
+  
+<P>Lamp status:    
+	<img id="myImage" src=".\\bulbOff.jpg" width="40" height="48">
+</p>
+<p>
+	<button class="button" type="button" onclick="light(2)" id="ajaxButton">Light Auto</button>
+	<button class="button" type="button" onclick="light(1)">Light On</button>
+	<button class="button" type="button" onclick="light(0)">Light Off</button>
+</p>
+
+<p id="demo">Switch status:</p>
+<p>
+	<button class="button" type="button" onclick="myFunction(0)">Switch Auto</button>
+	<button class="button" type="button" onclick="myFunction(1)">Switch On</button>
+	<button class="button" type="button" onclick="myFunction(2)">Switch Off</button>
+</p>
+</body>
+</html>
