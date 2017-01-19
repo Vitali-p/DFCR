@@ -32,6 +32,11 @@ extern const char http_gif[5];
 extern const char http_jpg[5];
 extern const char http_text[5];
 extern const char http_txt[5];
-extern const char http_content_type_xml[30];
-extern const char xml_[5];
+extern const char http_content_type_xml[31];
+extern const char http_xml[5];
+// extern const char http_bulb_html[11];
+// extern const char http_frequency_html[16];
+// extern const char http_freq_xml[15];
+
+
 

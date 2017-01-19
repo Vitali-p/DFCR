@@ -11,6 +11,8 @@
  **
  ***************************************************************************/
 
+
+
 #ifndef __INCLUDES_H
 #define __INCLUDES_H
 #include "logo.h"
@@ -35,7 +37,6 @@
 #include "arm_comm.h"
 #include "board.h"
 
-//#include "iar_logo.h"
 
 #include "sys.h"
 #include "sdram_64M_32bit_drv.h"
@@ -50,5 +51,7 @@
 #include "uip.h"
 #include "tapdev.h"
 #include "httpd.h"
+#include "httpd-cgi.h"
 
 #endif  // __INCLUDES_H
+

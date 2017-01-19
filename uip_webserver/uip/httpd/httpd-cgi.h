@@ -47,6 +47,8 @@
  *
  */
 
+extern volatile double freqhistarray[10]; // Gloab variable.
+ 
 #ifndef __HTTPD_CGI_H__
 #define __HTTPD_CGI_H__
 

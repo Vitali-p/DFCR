@@ -53,9 +53,11 @@
 #include "includes.h"
 #include <stdio.h>
 #include <string.h>
-double freqhistarray[10];
 
-HTTPD_CGI_CALL(freq, "Frequency", frequencytest);
+Int32U _length = 10, tt = 0;
+volatile double freqhistarray[10]; // Gloab variable.
+
+HTTPD_CGI_CALL(freq, "Freq", freqcall);
 HTTPD_CGI_CALL(file, "file-stats", file_stats);
 HTTPD_CGI_CALL(tcp, "tcp-connections", tcp_stats);
 HTTPD_CGI_CALL(net, "net-stats", net_stats);
@@ -191,12 +193,10 @@ PT_THREAD(net_stats(struct httpd_state *s, char *ptr))
   PSOCK_BEGIN(&s->sout);
 
 #if UIP_STATISTICS
-
   for(s->count = 0; s->count < sizeof(uip_stat) / sizeof(uip_stats_t);
       ++s->count) {
     PSOCK_GENERATOR_SEND(&s->sout, generate_net_stats, s);
   }
-
 #endif /* UIP_STATISTICS */
 
   PSOCK_END(&s->sout);
@@ -206,20 +206,34 @@ PT_THREAD(net_stats(struct httpd_state *s, char *ptr))
 
 
 static unsigned short
-generate_frequencytest(void *arg)
+generate_freqcall(void *arg)
 {
-  struct httpd_state *s = (struct http_state *)arg;
-  char *f = (char *)arg;
-  return snprintf((char *)uip_appdata, UIP_APPDATA_SIZE, "%5f, /n", freqhistarray[s->count]);
+  struct httpd_state *s = (struct httpd_state *)arg;
+  
+  //snprintf((char *)uip_appdata, UIP_APPDATA_SIZE, "%f ", freqhistarray[s->count]);
+//  return snprintf((char *)uip_appdata, UIP_APPDATA_SIZE, "%f\r\n", freqhistarray[s->count]);
+    return snprintf((char *)uip_appdata, UIP_APPDATA_SIZE, "%f<f>\r\n", freqhistarray[tt]);
+  
 }
 /*---------------------------------------------------------------------------*/
 static
-PT_THREAD(frequencytest(struct httpd_state *s, char *ptr))
+PT_THREAD(freqcall(struct httpd_state *s, char *ptr))
 {
-  Int8U length = 10;
   PSOCK_BEGIN(&s->sout);
-  for ( s -> count = lenght; s->count 0; s->count --){
-  PSOCK_GENERATOR_SEND(&s->sout, generate_frequencytest, strchr(ptr, ' ') + 1);
+  
+
+//  for( s->count = 0; s->count <_length; s->count++){
+//    PSOCK_GENERATOR_SEND(&s->sout, generate_freqcall, s);
+//  }
+  
+  PSOCK_GENERATOR_SEND(&s->sout, generate_freqcall, s);
+  
+  tt++;
+  if(tt == 11){
+    tt = 0;
   }
+
+  
+  
   PSOCK_END(&s->sout);
 }

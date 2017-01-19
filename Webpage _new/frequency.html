@@ -33,7 +33,7 @@
 				myFunction(this);
 			}
 		};
-		xmlhttp.open("GET", "file:\\\\C:\\Users\\Vitali\\Desktop\\DFCR Software\\Webpage new\\Frequency.xml", true);
+		xmlhttp.open("GET", "file:\\\\http://192.168.0.100\\frequency.xml", true);
 		xmlhttp.send();
 	}
 	function myFunction(xml) {
@@ -42,11 +42,11 @@
 	   <!--var time, freq; 
 	   
 		xmlDoc = xml.responseXML;
-		y = xmlDoc.getElementsByTagName('TIME');
+		y = xmlDoc.getElementsByTagName('t');
 			for (i = 0; i < y.length; i++) { 
 				time[i] = y[i].childNodes[0].nodeValue;
 			}
-			z = xmlDoc.getElementsByTagName('FREQUENCY');
+			z = xmlDoc.getElementsByTagName('f');
 			for (i = 0; i < z.length; i++) { 
 			freq[i] = z[i].childNodes[0].nodeValue;
 			}

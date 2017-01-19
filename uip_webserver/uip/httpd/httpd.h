@@ -51,6 +51,7 @@ struct httpd_state {
   int scriptlen;
 
   unsigned short count;
+
 };
 
 void httpd_init(void);

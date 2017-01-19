@@ -41,20 +41,30 @@ Boolean flip = true;
 
 ////////////////////////////////
 double _freq;
+double _freqAvg;
+double _freqMeas[10];
+Int32U _freqIndex = 0;
 Int32U _CrossingsLocation[29];
 Int32U _CrossIndex;
 Int32U ff = 0;
-char _str7[7];
+char _freqString[7];
 
 /////// Current  /////////////////
 Int32U _CurrentWave[LenCircReg];
 double _CurrnetCorrectionFactor;
 double _RMSCurrent;
+char _currentString[7];
 /////// Power  /////////////////
 double _RMSVoltage;
 double _Power;
+char _voltageString[7];
+char _powerString[7];
+double _VPP;
+float _LPFWave[LenCircReg];
 
 //****************General_Global_Functions*************************************
+
+
 //____________Convert_Reading_to_3-digit_numbers______________
 void getString(double freq){
   //Aquire 100s
@@ -64,35 +74,130 @@ void getString(double freq){
   char tenths = (char)((freq - (double)hundreds*100 - (double)tens*10 - (double)ones*1) / 0.1);
   char hundreths = (char)((freq - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1) / 0.01);
   char thous = (char)((freq - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1 - (double)hundreths*0.01) / 0.001);
-  _str7[0] = hundreds + 0x30;
-  _str7[1] =tens + 0x30;
-  _str7[2] =ones + 0x30;
-  _str7[3] =0x2E; // Decimal marker
-  _str7[4] =tenths + 0x30;
-  _str7[5] =hundreths + 0x30;
-  _str7[6] =thous + 0x30;
+  _freqString[0] = hundreds + 0x30;
+  _freqString[1] =tens + 0x30;
+  _freqString[2] =ones + 0x30;
+  _freqString[3] =0x2E; // Decimal marker
+  _freqString[4] =tenths + 0x30;
+  _freqString[5] =hundreths + 0x30;
+  _freqString[6] =thous + 0x30;
 }
-double getRMS(Int32U Vector[], Int32U length){
-  //  Int32U length = sizeof(Vector);
-  double result = 0;
-  double sum = 0;
-  //  Int32U dd[] = Vector;
-  //  Int32U length = sizeof(*Vector);
-  for(Int32U ii = 0; ii< length; ii++){ //Sum up the array
-    sum += Vector[ii]*Vector[ii];
-  }
-  result = sqrt(sum/(double)length);  // must include math.h
-  return result;
+
+void getStringCurrent(double current){
+  //Aquire 100s
+  char hundreds = (char)(current / 100);
+  char tens = (char)((current - (double)hundreds*100) / 10);
+  char ones = (char)((current - (double)hundreds*100 - (double)tens*10) / 1);
+  char tenths = (char)((current - (double)hundreds*100 - (double)tens*10 - (double)ones*1) / 0.1);
+  char hundreths = (char)((current - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1) / 0.01);
+  char thous = (char)((current - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1 - (double)hundreths*0.01) / 0.001);
+  _currentString[0] = hundreds + 0x30;
+  _currentString[1] =tens + 0x30;
+  _currentString[2] =ones + 0x30;
+  _currentString[3] =0x2E; // Decimal marker
+  _currentString[4] =tenths + 0x30;
+  _currentString[5] =hundreths + 0x30;
+  _currentString[6] =thous + 0x30;
 }
-double getAverage(Int32U Vector[]){
-  Int32U length = sizeof(Vector);
-  double result = 0;
-  double sum = 0;
-  for(Int32U ii = 0; ii< length; ii++){ //Sum up the array
-    sum += Vector[ii]*Vector[ii];
+
+void getStringVoltage(double voltage){
+  //Aquire 100s
+  char hundreds = (char)(voltage / 100);
+  char tens = (char)((voltage - (double)hundreds*100) / 10);
+  char ones = (char)((voltage - (double)hundreds*100 - (double)tens*10) / 1);
+  char tenths = (char)((voltage - (double)hundreds*100 - (double)tens*10 - (double)ones*1) / 0.1);
+  char hundreths = (char)((voltage - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1) / 0.01);
+  char thous = (char)((voltage - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1 - (double)hundreths*0.01) / 0.001);
+  _voltageString[0] = hundreds + 0x30;
+  _voltageString[1] =tens + 0x30;
+  _voltageString[2] =ones + 0x30;
+  _voltageString[3] =0x2E; // Decimal marker
+  _voltageString[4] =tenths + 0x30;
+  _voltageString[5] =hundreths + 0x30;
+  _voltageString[6] =thous + 0x30;
+}
+
+void getStringPower(double power){
+  //Aquire 100s
+  char hundreds = (char)(power / 100);
+  char tens = (char)((power - (double)hundreds*100) / 10);
+  char ones = (char)((power - (double)hundreds*100 - (double)tens*10) / 1);
+  char tenths = (char)((power - (double)hundreds*100 - (double)tens*10 - (double)ones*1) / 0.1);
+  char hundreths = (char)((power - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1) / 0.01);
+  char thous = (char)((power - (double)hundreds*100 - (double)tens*10 - (double)ones*1 - (double)tenths*0.1 - (double)hundreths*0.01) / 0.001);
+  _powerString[0] = hundreds + 0x30;
+  _powerString[1] =tens + 0x30;
+  _powerString[2] =ones + 0x30;
+  _powerString[3] =0x2E; // Decimal marker
+  _powerString[4] =tenths + 0x30;
+  _powerString[5] =hundreths + 0x30;
+  _powerString[6] =thous + 0x30;
+}
+
+
+double sumArray(double Vector[], Int32U length){
+double sum = 0;
+  for(Int32U ii = 0; ii< length; ii++){
+    sum += Vector[ii];
   }
-  result = sum/(double)length;
-  return result;
+  return sum;
+}
+
+
+Int32U findMin(Int32U Vector[], Int32U length){
+  Int32U result = Vector[0]; 
+  for (Int32U ii = 0; ii<length;ii++){
+    if(Vector[ii]<result){
+      result = Vector[ii];
+    }
+  }
+return result;
+}
+Int32U findMax(Int32U Vector[], Int32U length){
+  Int32U result = Vector[0]; 
+  for (Int32U ii = 0; ii<length;ii++){
+    if(Vector[ii]>result){
+      result = Vector[ii];
+    }
+  }
+return result;
+}
+
+
+double getGridVoltage(Int32U Vector[], Int32U length){
+//  Int32U max = findMax( Vector,  length);
+//  Int32U min = findMin( Vector,  length);
+  float fc = _freq; //frequency
+  float dt = 0.0001; //delta t maybe "1/sample rate"
+  float RC = 1/(2*3.14159265359*fc);
+  float alpha = dt/(RC+dt); //alpha
+  _LPFWave[0] = 0;
+  for(Int32U ii = 1; ii <= LenCircReg-1; ii++){
+    _LPFWave[ii] = (alpha*(double)Vector[ii]) + (1-alpha)*_LPFWave[ii-1];
+  }  
+
+  
+  double max = _LPFWave[1000];
+    for (Int32U ii = 1000; ii<length;ii++){
+    if(_LPFWave[ii]>max){
+      max = (double)_LPFWave[ii];
+    }
+  }
+  
+  double min = _LPFWave[1000];
+    for (Int32U ii = 1000; ii<length;ii++){
+    if(_LPFWave[ii]<min){
+      min = (double)_LPFWave[ii];
+    }
+  }
+  _VPP = (double)(max - min)/(double)1023*3.3;
+  return (_VPP-0.0144)/0.0095; //Constants are found by mapping out the system
+}
+
+//Neeed to find constants
+double getGridCurrent(Int32U Vector[], Int32U length){
+  double VPP = (double)(findMax( Vector,  length) - findMin( Vector,  length))/(double)1023*3.3;
+  return (VPP)/3.3;
 }
 
 /*************************************************************************
@@ -118,22 +223,29 @@ void textToScreen(double Reading){
   //Power
   GLCD_SetWindow(17,67,99,86);  // Set draw window XY coordinate in pixels. (X_Left, Y_Up, X_Right, Y_Down)  
   GLCD_TextSetPos(0,0);         // Set text X,Y coordinate in characters.
-  GLCD_print(_str7);            // Print formated string on the LCD.
+  getStringPower(_Power);
+  GLCD_print(_powerString);            // Print formated string on the LCD.
   
-  // Current
+  
+   // Voltage
   GLCD_SetWindow(17,107,99,126);
   GLCD_TextSetPos(0,0);
-  GLCD_print(_str7); 
+  getStringVoltage(_RMSVoltage);
+  GLCD_print(_voltageString); 
   
-  // Voltage
+  // Current
   GLCD_SetWindow(17,147,99,166);
   GLCD_TextSetPos(0,0);
-  GLCD_print(_str7); 
+  getStringCurrent(_RMSCurrent);
+  GLCD_print(_currentString); 
+  
+ 
   
   // Frequency
   GLCD_SetWindow(17,186,99,205);
   GLCD_TextSetPos(0,0);      
-  GLCD_print(_str7); 
+  getStringVoltage(_freqAvg);
+  GLCD_print(_freqString); 
 }
 /*************************************************************************
  * Function Name: updateLCDgraphics
@@ -343,12 +455,12 @@ void Timer1IntrHandler(void){
  * Return: none
  * Description: Events logging
  *************************************************************************/
-void uip_log (char *m)
-{ }
+void uip_log (char *m){ 
+  
+}
 
 
 int main(void){
-  
   unsigned int i;
   uip_ipaddr_t ipaddr;
   struct timer periodic_timer, arp_timer;
@@ -592,9 +704,6 @@ int main(void){
       Touch = FALSE;
     }
     
-    //    RelayControl(47);  // TEST frequency (remove).
-    //    textToScreen(50.1234);
-    
 //_____Calculation_of_readings_session___________________________________________        
     if(_CountFlag == true){
       _NumberOfCrossings = 0;
@@ -611,14 +720,26 @@ int main(void){
       }
       
       _freq = 10/((double)(_CrossingsLocation[25] - _CrossingsLocation[5])*(double)(1/(double)fs));
-      textToScreen(_freq);
-      RelayControl(_freq);
+      _freqMeas[_freqIndex] = _freq;
       
-      _RMSCurrent = getRMS(_CurrentWave,sizeof(_CurrentWave)/sizeof(Int32U) );
-      _RMSVoltage = getRMS(_waveForm, sizeof(_waveForm)/sizeof(Int32U));
+      freqhistarray[_freqIndex] = _freqAvg;
+      _freqIndex++;
+      if(_freqIndex ==10){
+      _freqIndex = 0;
+      }
+      
+      _freqAvg = (sumArray(_freqMeas, sizeof(_freqMeas)/sizeof(_freqMeas[0]))/(sizeof(_freqMeas)/sizeof(_freqMeas[0]))-0.027);
+      textToScreen(_freqAvg);
+      RelayControl(_freq);
+//      _RMSVoltage = getGridVoltage(LOWfilterWave, sizeof(LOWfilterWave)/sizeof(Int32U));
+      _RMSVoltage = getGridVoltage(_waveForm, sizeof(_waveForm)/sizeof(Int32U));
+      
+      _RMSCurrent = getGridCurrent(_CurrentWave, sizeof(_CurrentWave)/sizeof(Int32U));
+      
       _Power = _RMSCurrent * _RMSVoltage;
+     
+      
       _CountFlag = false;
     }
   }
-  
 }

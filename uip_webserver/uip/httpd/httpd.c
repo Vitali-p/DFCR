@@ -207,8 +207,7 @@ PT_THREAD(send_headers(struct httpd_state *s, const char *statushdr))
     PSOCK_SEND_STR(&s->sout, http_content_type_gif);
   } else if(strncmp(http_jpg, ptr, 4) == 0) {
     PSOCK_SEND_STR(&s->sout, http_content_type_jpg);
-  } 
-  else if(strncmp(http_xml, ptr, 5) == 0) {
+  } else if(strncmp(http_xml, ptr, 4) == 0) {   //USed to xml
     PSOCK_SEND_STR(&s->sout, http_content_type_xml);
   } else {
     PSOCK_SEND_STR(&s->sout, http_content_type_plain);
@@ -236,7 +235,7 @@ PT_THREAD(handle_output(struct httpd_state *s))
 		   send_headers(s,
 		   http_header_200));
     ptr = strchr(s->filename, ISO_period);
-    if(ptr != NULL && strncmp(ptr, http_shtml, 6) == 0) {
+    if((ptr != NULL && strncmp(ptr, http_shtml, 6) == 0) || (ptr != NULL && strncmp(ptr, http_xml, 5) == 0)){
       PT_INIT(&s->scriptpt);
       PT_WAIT_THREAD(&s->outputpt, handle_script(s));
     } else {

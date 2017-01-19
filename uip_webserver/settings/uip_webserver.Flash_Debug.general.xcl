@@ -2,13 +2,13 @@
 
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\bin\armjlink2.dll" 
 
-"C:\Users\Rebecca\Desktop\Project\uip_webserver\Flash Debug\Exe\uip_demo.out" 
+"C:\Users\OZ7TDA\Desktop\DFCR\uip_webserver\Flash Debug\Exe\uip_demo.out" 
 
 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\bin\armbat.dll" 
 
 --device_macro "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\config\debugger\NXP\LPC24xx.dmac" 
 
---macro "C:\Users\Rebecca\Desktop\Project\uip_webserver\config\lpc2478.mac" 
+--macro "C:\Users\OZ7TDA\Desktop\DFCR\uip_webserver\config\lpc2478.mac" 
 
 --flash_loader "C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\config\flashloader\NXP\FlashNXPLPC512K2.board" 
 
