@@ -16,8 +16,8 @@
 <body>
 
     
-<!--	<p id="demo">time</p>
-	<p id="demo1">freq</p> -->
+	<p id="demo">time</p>
+	<p id="demo1">freq</p> 
 	<div style="width:100%;">
         <canvas id="canvas"></canvas>
     </div>
@@ -33,13 +33,13 @@
 				myFunction(this);
 			}
 		};
-		xmlhttp.open("GET", "file:\\\\http://192.168.0.100\\frequency.xml", true);
+		xmlhttp.open("GET", "file:\\\\C:\\Users\\OZ7TDA\\Desktop\\DFCR\\Webpage _new\\frequency.xml", true);
 		xmlhttp.send();
 	}
 	function myFunction(xml) {
 		
 		var y, z, xmlDoc;
-	   <!--var time, freq; 
+	    var time, freq; 
 	   
 		xmlDoc = xml.responseXML;
 		y = xmlDoc.getElementsByTagName('t');
@@ -50,15 +50,15 @@
 			for (i = 0; i < z.length; i++) { 
 			freq[i] = z[i].childNodes[0].nodeValue;
 			}
-			<!--document.getElementById("demo").innerHTML = time
- 
-			<!--document.getElementById("demo1").innerHTML = freq
+			   document.getElementById("demo").innerHTML = time
+			   document.getElementById("demo1").innerHTML = freq
+			   
 			config = {
             type: 'line',
             data: {
                 labels: 
 				time
-				 <!--["0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+				    ["0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 				,
                 datasets: [{
                     label: "Frequency",
@@ -66,7 +66,7 @@
                     borderColor: window.chartColors.red,
                     data: 
 					freq
-					<!--[49.921, 49.895, 49.921, 49.921, 49.921, 49.921, 49.921, 49.974,  49.921, 49.985, 49.947]
+					  [49.921, 49.895, 49.921, 49.921, 49.921, 49.921, 49.921, 49.974,  49.921, 49.985, 49.947]
 					,
                     fill: false,
                 }]

@@ -12,7 +12,7 @@
           
           
           
-        <Column0>218</Column0><Column1>17</Column1><Column2>27</Column2><Column3>0</Column3></ColumnWidths>
+        <Column0>139</Column0><Column1>17</Column1><Column2>27</Column2><Column3>0</Column3></ColumnWidths>
       </Workspace>
       <Debug-Log>
         
@@ -29,7 +29,7 @@
     <Windows>
       
       
-    <Wnd0>
+    <Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-6565-841</Identity>
@@ -37,24 +37,24 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>uip_webserver</ExpandedNode><ExpandedNode>uip_webserver/uIP</ExpandedNode><ExpandedNode>uip_webserver/uIP/http</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>uip_webserver</ExpandedNode><ExpandedNode>uip_webserver/app</ExpandedNode><ExpandedNode>uip_webserver/uIP</ExpandedNode><ExpandedNode>uip_webserver/uIP/http</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd0><Wnd2><Tabs><Tab><Identity>TabID-29193-25003</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-21532-13088</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-27080-28848</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-31416-6829</Identity><TabName>References</TabName><Factory>Find-All-References</Factory><Session/></Tab><Tab><Identity>TabID-26608-18177</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd2></Windows>
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd3><Tabs><Tab><Identity>TabID-29193-25003</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-21532-13088</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-27080-28848</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-31416-6829</Identity><TabName>References</TabName><Factory>Find-All-References</Factory><Session/></Tab><Tab><Identity>TabID-26608-18177</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab></Tabs><SelectedTab>3</SelectedTab></Wnd3></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>449</YPos2><SelStart2>15785</SelStart2><SelEnd2>15785</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>1982</SelStart2><SelEnd2>1982</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>172</YPos2><SelStart2>7063</SelStart2><SelEnd2>7063</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\psock.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>203</YPos2><SelStart2>6737</SelStart2><SelEnd2>6737</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd-cgi.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>55</YPos2><SelStart2>1869</SelStart2><SelEnd2>1869</SelEnd2></Tab><ActiveTab>4</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd-cgi.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>1798</SelStart2><SelEnd2>1798</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd-cgi.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>123</YPos2><SelStart2>6575</SelStart2><SelEnd2>6575</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd-cgi.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>1798</SelStart2><SelEnd2>1798</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd-fs.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>15</YPos2><SelStart2>2658</SelStart2><SelEnd2>2658</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\httpd.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>135</YPos2><SelStart2>7619</SelStart2><SelEnd2>7619</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\httpd\http-strings.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>96</YPos2><SelStart2>5785</SelStart2><SelEnd2>5793</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\psock.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>95</YPos2><SelStart2>8803</SelStart2><SelEnd2>8803</SelEnd2></Tab><ActiveTab>5</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\uip\uip.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>1793</YPos2><SelStart2>57741</SelStart2><SelEnd2>57741</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\app\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>451</YPos2><SelStart2>15789</SelStart2><SelEnd2>15789</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-0298B6D8><key>iaridepm.enu1</key></Toolbar-0298B6D8></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>515</Bottom><Right>282</Right><x>-2</x><y>-2</y><xscreen>87</xscreen><yscreen>133</yscreen><sizeHorzCX>63690</sizeHorzCX><sizeHorzCY>193878</sizeHorzCY><sizeVertCX>207906</sizeVertCX><sizeVertCY>753644</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>126</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>128</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>186589</sizeHorzCY><sizeVertCX>43924</sizeVertCX><sizeVertCY>265306</sizeVertCY></Rect></Wnd2></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-02916030><key>iaridepm.enu1</key></Toolbar-02916030></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>470</Bottom><Right>220</Right><x>-2</x><y>-2</y><xscreen>144</xscreen><yscreen>136</yscreen><sizeHorzCX>105417</sizeHorzCX><sizeHorzCY>198251</sizeHorzCY><sizeVertCX>162518</sizeVertCX><sizeVertCY>688047</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>171</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>173</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>252187</sizeHorzCY><sizeVertCX>73939</sizeVertCX><sizeVertCY>271137</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

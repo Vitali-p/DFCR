@@ -83,6 +83,8 @@ void getString(double freq){
   _freqString[6] =thous + 0x30;
 }
 
+
+
 void getStringCurrent(double current){
   //Aquire 100s
   char hundreds = (char)(current / 100);

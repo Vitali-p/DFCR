@@ -40,8 +40,8 @@
 	</style>
 	
 	
-    <h1><img id="logoImage" src=".\\Weblogo.jpg" width="35" height="35"> DFRC System 
-	<img id="logoImage" src=".\\dtulogo.jpg" width="auto" height="auto" align="right" style="margin:0px 0px 10px 0px">
+    <h1><img id="logoImage" > DFRC System 
+	<img id="logoImage" >
 	</h1>
 	
   </header>
@@ -51,17 +51,20 @@
 <body>
 <script type="text/javascript">
 function light(sw){
-    var pic = "";
+    //var pic = "";
     if (sw == 0) {
-        pic = ".\\bulbOff.jpg";
+        //pic = ".\\bulbOff.jpg";
+		document.getElementById("lamp").innerHTML = "Lamp status: Auto";
     } 
 	else if (sw == 1){
-        pic = ".\\bulbOn.jpg";
+        //pic = ".\\bulbOn.jpg";
+		document.getElementById("lamp").innerHTML = "Lamp status: On";
     }
 	else{
-		pic = ".\\auto.png";
+		//pic = ".\\auto.png";
+		document.getElementById("lamp").innerHTML = "Lamp status: Off";
 	}
-    document.getElementById('myImage').src = pic;
+    //document.getElementById('myImage').src = pic;
 }
 
 function myFunction(sw){ 
@@ -75,53 +78,19 @@ function myFunction(sw){
 		document.getElementById("demo").innerHTML = "Switch status: Auto";
 	}	
 }
-
-/*
-(function() {
-  var httpRequest;
-  document.getElementById("ajaxButton").onclick = function() { makeRequest('Frequency.xml'); };
-
-  function makeRequest(url) {
-light(1);
-    httpRequest = new XMLHttpRequest();
-	
-
-    if (!httpRequest) {
-      alert('Giving up :( Cannot create an XMLHTTP instance');
-      return false;
-    }
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', url);
-    httpRequest.send();
-  }
-
-  function alertContents() {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
-      } else {
-        alert('There was a problem with the request.');
-      }
-    }
-  }
-})(); 
-*/
-
 </script>
-
-<iframe height="600px" width="100%" src="frequency.html" name="iframe_a"></iframe>
+<!-- <iframe height="600px" width="100%" src="frequency.html" name="iframe_a"></iframe> -->
 
 <p>Voltage (V):</p> 
 <p>Power (W):</p>
 <p>Current (A):</p>
   
-<P>Lamp status:    
-	<img id="myImage" src=".\\bulbOff.jpg" width="40" height="48">
-</p>
+<P id="lamp">Lamp status:</p>    
+	<!-- <img id="myImage" src=".\\bulbOff.jpg" width="40" height="48">  </p>  <p>  -->
 <p>
-	<button class="button" type="button" onclick="light(2)" id="ajaxButton">Light Auto</button>
+	<button class="button" type="button" onclick="light(0)">Light Auto</button>
 	<button class="button" type="button" onclick="light(1)">Light On</button>
-	<button class="button" type="button" onclick="light(0)">Light Off</button>
+	<button class="button" type="button" onclick="light(2)">Light Off</button>
 </p>
 
 <p id="demo">Switch status:</p>

@@ -206,8 +206,7 @@ PT_THREAD(net_stats(struct httpd_state *s, char *ptr))
 
 
 static unsigned short
-generate_freqcall(void *arg)
-{
+generate_freqcall(void *arg) {
   struct httpd_state *s = (struct httpd_state *)arg;
   
   //snprintf((char *)uip_appdata, UIP_APPDATA_SIZE, "%f ", freqhistarray[s->count]);
@@ -217,11 +216,9 @@ generate_freqcall(void *arg)
 }
 /*---------------------------------------------------------------------------*/
 static
-PT_THREAD(freqcall(struct httpd_state *s, char *ptr))
-{
+PT_THREAD(freqcall(struct httpd_state *s, char *ptr)) {
   PSOCK_BEGIN(&s->sout);
   
-
 //  for( s->count = 0; s->count <_length; s->count++){
 //    PSOCK_GENERATOR_SEND(&s->sout, generate_freqcall, s);
 //  }
@@ -233,7 +230,5 @@ PT_THREAD(freqcall(struct httpd_state *s, char *ptr))
     tt = 0;
   }
 
-  
-  
   PSOCK_END(&s->sout);
 }
